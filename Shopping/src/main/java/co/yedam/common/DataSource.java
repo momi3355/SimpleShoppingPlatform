@@ -7,7 +7,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class DataSorce {
+public class DataSource {
 	// SqlSessionFactory 생성.
 	public static SqlSessionFactory getInstance() {
 		String resource = "config/mybatis-config.xml";
