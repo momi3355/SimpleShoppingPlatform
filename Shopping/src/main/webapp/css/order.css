@@ -1,0 +1,54 @@
+.order-container {
+  margin: 0 auto;
+  margin-top: 150px;
+  margin-bottom: 300px;
+}
+
+.step-container {
+  height: 35px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.step-container .step-box {
+  display: inline-block;
+  text-align: center;
+  height: 35px;
+  width: 25%;
+  border: 1px solid black;
+}
+
+.step-box > span {
+  vertical-align: middle;
+}
+
+.paymet-title {
+  font-size: 1em;
+  color: rgb(84, 85, 88);
+}
+
+.paymet-title > span {
+  font-weight: bold;
+  color: rgb(26, 27, 31);
+}
+
+.paymet-container {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.detail-container {
+  margin: 0 10px;
+  float: left;
+  width: 65%;
+  height: 100px;
+  border: 2px solid rgb(158, 160, 167);
+}
+
+.info-container {
+  margin: 0 10px;
+  float: right;
+  width: 25%;
+  height: 100px;
+  border: 2px solid rgb(158, 160, 167);
+}

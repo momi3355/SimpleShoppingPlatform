@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.control.MainControl;
+import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.form.CartFromControl;
+import co.yedam.control.form.OrderFromControl;
 
 public class FrontController extends HttpServlet {
 
@@ -23,6 +26,11 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
+		
+		/* [결제] */
+		map.put("/cartFrom.do", new CartFromControl());
+		map.put("/cartJson.do", new CartJsonControl());
+		map.put("/orderFrom.do", new OrderFromControl());
 	}
 
 	@Override
