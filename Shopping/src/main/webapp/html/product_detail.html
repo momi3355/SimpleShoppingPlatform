@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>product_details</title>
+  <link rel="stylesheet" href="../css/project.css">
+  <link rel="stylesheet" href="../css/product_details.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <div id="container">
+    <nav id="nav-container">
+      <div class="nav-inner">
+        <div class="gnb">
+          <a href="#">WAEANHSA</a>
+        </div>
+        <div class="gnb-2">
+          <button type="button" class="click-button">검색</button>
+          <a href="#">마이</a>
+          <a href="#">장바구니</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div id="all">
+        <div id="left">
+          <div class="product-gallery">
+            <div class="gallery-thumbnails">
+              <img
+                src="https://image.msscdn.net/thumbnails/images/goods_img/20250122/4735553/4735553_17398622545129_500.png"
+                alt="썸네일1" data-index="0" class="active">
+              <img
+                src="https://image.msscdn.net/thumbnails/images/prd_img/20250122/4735553/detail_4735553_17425332657504_500.png"
+                alt="썸네일2" data-index="1">
+              <img
+                src="https://image.msscdn.net/thumbnails/images/prd_img/20250122/4735553/detail_4735553_17425332677178_500.png?"
+                alt="썸네일3" data-index="2">
+            </div>
+            <div class="gallery-main">
+              <!-- 왼쪽 화살표 -->
+              <div class="arrow left mainthumbnail-arrow-left" aria-label="이전 이미지 보기">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="19.5" fill="white" stroke="#E0E0E0"></circle>
+                  <path d="M22.5 27L15.7121 20.2119C15.595 20.0948 15.595 19.9048 15.7121 19.7877L22.5 13"
+                    stroke="black" stroke-width="1.5"></path>
+                </svg>
+              </div>
+              <div class="gallery-image-container">
+                <img
+                  src="https://image.msscdn.net/thumbnails/images/goods_img/20250122/4735553/4735553_17398622545129_big.png?"
+                  alt="대표 이미지" class="active">
+                <img
+                  src="https://image.msscdn.net/thumbnails/images/prd_img/20250122/4735553/detail_4735553_17425332657504_big.png?"
+                  alt="대표 이미지2">
+                <img
+                  src="https://image.msscdn.net/thumbnails/images/prd_img/20250122/4735553/detail_4735553_17425332677178_big.png?"
+                  alt="대표 이미지3">
+              </div>
+              <div class="arrow right mainthumbnail-arrow-right" aria-label="다음 이미지 보기">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="19.5" fill="white" stroke="#E0E0E0"></circle>
+                  <path d="M17.5 13L24.2879 19.7881C24.405 19.9052 24.405 20.0952 24.2879 20.2123L17.5 27"
+                    stroke="black" stroke-width="1.5"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="product-tabs">
+            <div class="tab-buttons">
+              <button class="tab-btn active" data-tab="info">정보</button>
+              <button class="tab-btn" data-tab="size">사이즈</button>
+              <button class="tab-btn" data-tab="review">후기<span class="count"></span></button>
+              <button class="tab-btn" data-tab="inquiry">문의<span class="count"></span></button>
+            </div>
+            <div class="tab-content active" id="info">
+              <div class="product-info-section">  
+                <div class="product-info-images collapsed" id="productInfoImages">
+                  <img src="https://contents.k-village.co.kr/PUBL_con/etc/NO_intro.jpg" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_01.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_02.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_03.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_04.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_05.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_06.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_07.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_08.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_09.JPG/k2dims/optimize" alt="">
+                  <img src="https://contents.k-village.co.kr/Prod/2025/O/OWP25107E2/OWP25107E2_DF_10.JPG/k2dims/optimize" alt="">
+                </div>
+                <button id="toggleInfoBtn" class="toggle-info-btn">
+                  <span>상품 정보 더보기</span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 8L10 14L16 8" stroke="black" />
+                  </svg>
+                </button>  
+              </div>
+            </div>
+            <div class="tab-content" id="size">
+              <div class="size-info">
+                <h2 class="title">사이즈 정보</h2>
+
+                <div class="body-input">
+                  <div class="input-group">
+                    <input type="text" placeholder="키" class="input"><span class="unit">cm</span>
+                  </div>
+                  <div class="input-group">
+                    <input type="text" placeholder="몸무게" class="input"><span class="unit">kg</span>
+                  </div>
+                </div>
+
+                <div class="recommend">
+                  <p class="recommend-title">사이즈 추천</p>
+                  <div class="recommend-result">Free - 100% (1명 구매)</div>
+                  <p class="recommend-desc">입력한 정보를 바탕으로 추천 사이즈를 알려드립니다.</p>
+                </div>
+
+                <div class="size-table-wrapper">
+                  <table class="size-table">
+                    <thead>
+                      <tr>
+                        <th>한국</th>
+                        <th>미국</th>
+                        <th>일본</th>
+                        <th>영국</th>
+                        <th>프랑스</th>
+                        <th>이탈리아</th>
+                        <th>유럽</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>44(85)</td>
+                        <td>2</td>
+                        <td>44</td>
+                        <td>4-6</td>
+                        <td>34</td>
+                        <td>80</td>
+                        <td>34</td>
+                      </tr>
+                      <tr>
+                        <td>55(90)</td>
+                        <td>4</td>
+                        <td>55</td>
+                        <td>8-10</td>
+                        <td>36, 44</td>
+                        <td>90</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>66(95)</td>
+                        <td>6</td>
+                        <td>66</td>
+                        <td>10-12</td>
+                        <td>38, 48</td>
+                        <td>95</td>
+                        <td>38</td>
+                      </tr>
+                      <tr>
+                        <td>77(100)</td>
+                        <td>8</td>
+                        <td>77</td>
+                        <td>16-18</td>
+                        <td>40, 42</td>
+                        <td>100</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>88(105)</td>
+                        <td>10</td>
+                        <td>88L</td>
+                        <td>20-22</td>
+                        <td>44, 46, 48</td>
+                        <td>105</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>110</td>
+                        <td>12</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>50, 52, 54</td>
+                        <td>110</td>
+                        <td>44</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <ul class="note">
+                  <li>인터내셔널 사이즈 표입니다. 참고하시기 바랍니다.</li>
+                  <li>브랜드별로 표기 방식이 다를 수 있습니다.</li>
+                  <li>유아, 아동, GS 등 연령대별 구분이 있을 수 있습니다.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tab-content" id="review">
+              <p>후기 내용이 들어갑니다.</p>
+            </div>
+            <div class="tab-content" id="inquiry">
+              <p>문의 내용이 들어갑니다.</p>
+            </div>
+          </div>
+        </div>
+        <div id="right">
+          <div class="product-info-right">
+            <!-- 브랜드 로고 & 이름 -->
+            <div class="brand-info">
+              <img src="//image.musinsa.com/mfile_s01/_brand/free_medium/nordisk.png" alt="노르디스크 로고">
+              <span class="brand-name">노르디스크</span>
+            </div>
+
+            <!-- 카테고리 네비게이션 -->
+            <div class="category-nav">
+              <a href="#">아우터</a>
+              <span>›</span>
+              <a href="#">기타 점퍼/재킷</a>
+            </div>
+
+            <!-- 상품명 -->
+            <h1 class="product-title">사파리 자켓 - W_Beige</h1>
+
+            <!-- 후기 -->
+            <div class="review-box">
+              <span class="rating">★ 5</span>
+              <span class="review-count">후기 2개</span>
+            </div>
+
+            <!-- 가격 -->
+            <div class="price">239,000원</div>
+
+            <!-- 사이즈 옵션 -->
+            <div class="option-box">
+              <label for="size-select">사이즈 선택</label>
+              <select id="size-select">
+                <option disabled selected>사이즈 선택</option>
+                <option>90</option>
+                <option>95</option>
+                <option>100</option>
+              </select>
+            </div>
+
+            <!-- 버튼 -->
+            <div class="action-buttons">
+              <button class="btn-cart">장바구니</button>
+              <button class="btn-buy">구매하기</button>
+            </div>
+            <!-- 카드 혜택 -->
+            <div class="payment-benefits">
+              <div class="benefits-header">
+                <span class="title">결제혜택</span>
+              </div>
+              <ul class="benefits-list">
+                <li>
+                  <img src="https://image.msscdn.net/musinsaUI/store/order/finance/28x28/logo-finance-hyundai.png"
+                    alt="현대카드">
+                  <p><strong>왜안사페이 × 무신사현대카드</strong> 1만 1천원 이상 결제 시 1만원 할인 <span class="tag">첫구매전용</span></p>
+                </li>
+                <li>
+                  <img src="https://image.msscdn.net/musinsaUI/store/order/finance/28x28/logo-finance-kakaopay.png"
+                    alt="카카오페이">
+                  <p><strong>카카오페이 × 페이머니</strong> 8만원 이상 결제 시 1만원 할인</p>
+                </li>
+                <li>
+                  <img src="https://image.msscdn.net/musinsaUI/store/order/finance/28x28/logo-finance-toss.png"
+                    alt="토스페이">
+                  <p><strong>토스페이 × 계좌</strong> 10만원 이상 결제 시 1만원 할인</p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 배송 정보 -->
+            <div class="delivery-info">
+              <div class="info">
+                <p>왜안사 회원은 전 품목 무료배송</p>
+                <p>(일부 상품 및 도서 산간 지역 제외)</p>
+              </div>
+              <div class="info">
+                <p>04.19 (토) 도착 예정 · 도착 확률 99%</p>
+                <p>결제 3일 이내 출고 · CJ대한통운</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+    <footer>
+      <div class="footer-copyright">
+        <p>© WAEANHSA ALL RIGHTS RESERVED</p>
+        <div class="copyright-link">
+          <a href="#" class="gtm-click-button">개인정보처리방침</a><span>·</span>
+          <a href="#" class="gtm-click-button">이용약관</a><span>·</span>
+          <a href="#" class="gtm-click-button">결제대행 위탁사</a><span>·</span>
+          <p class="notice">
+            일부 상품의 경우 주식회사 무신사는 통신판매의 당사자가 아닌 통신판매중개자로서 상품, 상품정보, 거래에 대한 책임이
+            제한될 수 있으므로, 각 상품 페이지에서 구체적인 내용을 확인하시기 바랍니다.
+          </p>
+        </div>
+      </div>
+      <div class="sns">
+        <a href="#" class="gtm-click-button" target="_blank" title="새 창" rel="noreferrer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path
+              d="M9.23725 2.58043C8.01363 2.63816 7.17804 2.83343 6.44755 3.12048C5.69153 3.41511 5.05074 3.81049 4.41318 4.45036C3.77561 5.09022 3.383 5.73147 3.09043 6.48864C2.8073 7.22074 2.61548 8.05704 2.56143 9.28134C2.50738 10.5057 2.49542 10.8992 2.5014 14.0222C2.50738 17.1452 2.52118 17.5366 2.58052 18.7635C2.63894 19.9868 2.83352 20.8222 3.12056 21.5529C3.41566 22.309 3.81057 22.9495 4.45067 23.5873C5.09076 24.2251 5.73155 24.6168 6.49056 24.9098C7.22197 25.1925 8.05849 25.3853 9.28256 25.4388C10.5066 25.4924 10.9006 25.5049 14.0227 25.4989C17.1447 25.4929 17.5378 25.4791 18.7644 25.4209C19.991 25.3627 20.822 25.1667 21.5529 24.8811C22.309 24.5853 22.95 24.1911 23.5873 23.5507C24.2247 22.9104 24.617 22.2687 24.9094 21.5111C25.1927 20.7797 25.3852 19.9431 25.4384 18.72C25.492 17.4925 25.5046 17.1005 25.4986 13.978C25.4927 10.8555 25.4786 10.464 25.4204 9.23764C25.3622 8.01127 25.1674 7.17842 24.8806 6.44724C24.5851 5.69122 24.1906 5.05112 23.5507 4.41287C22.9109 3.77461 22.2687 3.38245 21.5113 3.09081C20.7795 2.80767 19.9434 2.6147 18.7193 2.5618C17.4952 2.5089 17.1013 2.49533 13.9781 2.50131C10.8549 2.50729 10.4638 2.52063 9.23725 2.58043ZM9.37157 23.37C8.25031 23.3212 7.64149 23.1349 7.23577 22.979C6.69848 22.772 6.31576 22.5217 5.91141 22.1213C5.50707 21.7208 5.25867 21.3367 5.0489 20.8006C4.89135 20.3949 4.7016 19.7867 4.64916 18.6655C4.59212 17.4536 4.58016 17.0897 4.57349 14.0194C4.56682 10.9491 4.57855 10.5857 4.63168 9.37335C4.67952 8.253 4.86697 7.64349 5.02268 7.238C5.22969 6.70002 5.47901 6.31798 5.88036 5.91387C6.28172 5.50975 6.66467 5.26089 7.20127 5.05112C7.60653 4.89288 8.21466 4.70474 9.33546 4.65138C10.5483 4.59388 10.9117 4.58238 13.9815 4.57571C17.0513 4.56904 17.4157 4.58054 18.6289 4.6339C19.7493 4.68266 20.359 4.86827 20.764 5.0249C21.3016 5.23191 21.6841 5.48054 22.0882 5.88259C22.4923 6.28463 22.7414 6.66621 22.9511 7.20395C23.1096 7.60807 23.2977 8.21597 23.3506 9.33746C23.4084 10.5503 23.4215 10.9139 23.427 13.9835C23.4325 17.0532 23.4217 17.4177 23.3686 18.6296C23.3196 19.7509 23.1338 20.3599 22.9776 20.7661C22.7706 21.3032 22.521 21.6861 22.1194 22.09C21.7179 22.4939 21.3354 22.7427 20.7985 22.9525C20.3937 23.1105 19.7849 23.2991 18.665 23.3525C17.4522 23.4095 17.0888 23.4215 14.0178 23.4282C10.9469 23.4348 10.5844 23.4224 9.37157 23.37ZM18.7467 7.85371C18.7471 8.12668 18.8285 8.39337 18.9806 8.62007C19.1326 8.84677 19.3485 9.02329 19.6008 9.12731C19.8532 9.23132 20.1307 9.25816 20.3984 9.20443C20.666 9.1507 20.9116 9.01881 21.1043 8.82544C21.297 8.63207 21.428 8.38592 21.4807 8.1181C21.5335 7.85029 21.5056 7.57284 21.4007 7.32086C21.2957 7.06888 21.1184 6.85367 20.8911 6.70247C20.6639 6.55126 20.3969 6.47085 20.1239 6.47139C19.758 6.47213 19.4074 6.61816 19.1491 6.87738C18.8908 7.1366 18.7461 7.48779 18.7467 7.85371ZM8.09528 14.0116C8.10172 17.273 10.7504 19.9109 14.0112 19.9047C17.2719 19.8985 19.9117 17.25 19.9054 13.9886C19.8992 10.7271 17.2498 8.08855 13.9886 8.09499C10.7274 8.10143 8.08907 10.7506 8.09528 14.0116ZM10.1667 14.0075C10.1652 13.2493 10.3885 12.5077 10.8085 11.8764C11.2285 11.2452 11.8262 10.7527 12.5261 10.4611C13.226 10.1696 13.9966 10.0921 14.7406 10.2386C15.4845 10.385 16.1682 10.7488 16.7054 11.2838C17.2426 11.8189 17.609 12.5012 17.7584 13.2446C17.9078 13.9879 17.8334 14.7588 17.5447 15.4599C17.2559 16.1609 16.7658 16.7606 16.1362 17.1831C15.5066 17.6055 14.7659 17.8318 14.0077 17.8333C13.5043 17.8344 13.0056 17.7363 12.5401 17.5445C12.0746 17.3528 11.6514 17.0713 11.2947 16.716C10.938 16.3608 10.6548 15.9387 10.4613 15.4739C10.2677 15.0092 10.1676 14.5109 10.1667 14.0075Z"
+              fill="#666666">
+            </path>
+          </svg>
+        </a>
+        <a href="#" class="gtm-click-button" target="_blank" title="새 창" rel="noreferrer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path
+              d="M26.4566 7.70094C26.1582 6.57526 25.2763 5.6889 24.158 5.38753C22.1312 4.84094 14.0002 4.84094 14.0002 4.84094C14.0002 4.84094 5.86934 4.84094 3.84252 5.38753C2.72422 5.6889 1.84229 6.57526 1.54388 7.70094C1.00024 9.74253 1.00024 14 1.00024 14C1.00024 14 1.00024 18.2575 1.54388 20.2991C1.84229 21.4248 2.72422 22.3112 3.84252 22.6125C5.87081 23.1591 14.0002 23.1591 14.0002 23.1591C14.0002 23.1591 22.1312 23.1591 24.158 22.6125C25.2763 22.3112 26.1582 21.4248 26.4566 20.2991C27.0002 18.259 27.0002 14 27.0002 14C27.0002 14 27.0002 9.74253 26.4566 7.70094ZM11.3412 17.8661V10.134L18.1366 14L11.3412 17.8661Z"
+              fill="#666666">
+            </path>
+          </svg>
+        </a>
+        <a href="#" class="gtm-click-button" target="_blank" title="새 창" rel="noreferrer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path
+              d="M15.8076 12.4395L22.8808 4.21747H21.2046L15.063 11.3565L10.1577 4.21747H4.5L11.9178 15.013L4.5 23.635H6.17621L12.6619 16.0959L17.8423 23.635H23.5L15.8076 12.4395ZM6.78017 5.4793H9.35474L21.2054 22.4306H18.6309L6.78017 5.4793Z"
+              fill="#666666">
+            </path>
+          </svg>
+        </a>
+        <a href="#" class="gtm-click-button" target="_blank" title="새 창" rel="noreferrer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path
+              d="M20.4024 6.48365C19.5371 5.49675 19.0613 4.22786 19.0613 2.91669H15.1524V18.6032C15.089 20.3673 13.6421 21.7649 11.8762 21.7649C10.0804 21.7649 8.5877 20.2968 8.5877 18.4764C8.5877 16.2999 10.6884 14.6679 12.8508 15.3394V11.3424C8.48725 10.7608 4.6665 14.1498 4.6665 18.4764C4.6665 22.8029 8.15769 25.6861 11.8639 25.6861C15.8362 25.6861 19.0613 22.461 19.0613 18.4764V10.5194C20.6456 11.6579 22.5489 12.2676 24.4998 12.2659V8.35702C24.4998 8.35702 22.1224 8.47157 20.4006 6.48542L20.4024 6.48365Z"
+              fill="#666666">
+            </path>
+          </svg>
+        </a>
+        <a href="#" class="gtm-click-button" data-index="(not set)" target="_blank" title="새 창" rel="noreferrer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M14 26.5C20.9036 26.5 26.5 20.9036 26.5 14C26.5 7.09644 20.9036 1.5 14 1.5C7.09644 1.5 1.5 7.09644 1.5 14C1.5 20.9036 7.09644 26.5 14 26.5ZM14.9874 19.2083V13.0691C14.9874 12.2557 15.2018 11.7913 15.5128 11.4808C15.8434 11.1517 16.2908 10.9779 16.797 10.9779C17.3032 10.9779 17.7501 11.1517 18.0817 11.4808C18.3922 11.7913 18.587 12.2752 18.587 13.0691V19.2083H20.4162V12.5467C20.4162 10.5712 18.9377 9.3125 17.1664 9.3125C16.019 9.3125 15.0845 9.68064 14.3065 10.4745C13.7032 9.73874 12.7697 9.3125 11.7381 9.3125C10.1816 9.3125 9.59836 9.97066 9.32562 10.2802L8.95575 9.52538H7.74952V19.2083H9.57873V13.0691C9.57873 12.2557 9.77299 11.7913 10.0845 11.4808C10.4156 11.1517 10.8625 10.9779 11.3682 10.9779C11.8745 10.9779 12.3218 11.1517 12.6524 11.4808C12.9639 11.7913 13.1587 12.2752 13.1587 13.0691V19.2083H14.9874Z"
+              fill="#666666"></path>
+          </svg>
+        </a>
+      </div>
+    </footer>
+  </div>
+</body>
+<script src="../css/product_details.js"></script>
+
+</html>
