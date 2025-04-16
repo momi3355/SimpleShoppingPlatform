@@ -14,8 +14,6 @@ import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
-import co.yedam.control.signUpControl;
-import co.yedam.control.signUpFormControl;
 
 public class FrontController extends HttpServlet {
 
