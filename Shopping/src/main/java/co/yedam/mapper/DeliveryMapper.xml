@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.mapper.DeliveryMapper">  <!-- 인터페이스 이름과 동일하게 -->
+
+    <!-- 배송 정보 추가 -->
+    <insert id="insertDelivery" parameterType="co.yedam.vo.DeliveryVO">
+        INSERT INTO delivery (delivery_code, user_code, post, address, request)
+        VALUES (
+            #{deliveryCode},
+            #{userCode},
+            #{post},
+            #{address},
+            #{request}
+        )
+    </insert>
+
+    <!-- 배송 정보 수정 -->
+    <update id="updateDelivery" parameterType="co.yedam.vo.DeliveryVO">
+        UPDATE delivery
+        SET
+            user_code = #{userCode},
+            post = #{post},
+            address = #{address},
+            request = #{request}
+        WHERE delivery_code = #{deliveryCode}
+    </update>
+
+    <!-- 배송 정보 삭제 -->
+    <delete id="deleteDelivery" parameterType="int">
+        DELETE FROM delivery
+        WHERE delivery_code = #{deliveryCode}
+    </delete>
+
+	<!-- 사용자 코드로 배송 정보 검색 -->
+    <select id="selectDeliveriesByUserCode" parameterType="int" resultType="co.yedam.vo.DeliveryVO">
+        SELECT *
+        FROM delivery
+        WHERE user_code = #{userCode}
+    </select>
+
+    <!-- 배송 코드(PK)로 배송 정보 검색 -->
+    <select id="selectDeliveryByDeliveryCode" parameterType="int" resultType="co.yedam.vo.DeliveryVO">
+        SELECT *
+        FROM delivery
+        WHERE delivery_code = #{deliveryCode}
+    </select>
+
+        <!-- 사용자 코드로 배송 정보 검색 (users 테이블 JOIN) -->
+    <select id="selectDeliveriesByUserCodeWithUsers" parameterType="int" resultType="map">
+        SELECT
+            d.delivery_code,
+            d.user_code,
+            u.user_name,
+            u.phone,
+            d.post,
+            d.address,
+            d.request
+        FROM
+            delivery d
+        JOIN
+            users u ON d.user_code = u.user_code
+        WHERE
+            d.user_code = #{userCode}
+    </select>
+
+    <!-- 배송 코드(PK)로 배송 정보 검색 (users 테이블 JOIN) -->
+    <select id="selectDeliveryByDeliveryCodeWithUsers" parameterType="int" resultType="map">
+        SELECT
+            d.delivery_code,
+            d.user_code,
+            u.user_name,
+            u.phone,
+            d.post,
+            d.address,
+            d.request
+        FROM
+            delivery d
+        JOIN
+            users u ON d.user_code = u.user_code
+        WHERE
+            d.delivery_code = #{deliveryCode}
+    </select>
+
+    <!-- 전체 배송 정보 검색 (필요에 따라 추가) -->
+    <select id="selectAllDeliveries" resultType="co.yedam.vo.DeliveryVO">
+        SELECT *
+        FROM delivery
+    </select>
+</mapper>

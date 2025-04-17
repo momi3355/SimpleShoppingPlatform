@@ -6,7 +6,7 @@ pageEncoding="UTF-8"%>
 </script>
 <script src="js/cart.js"></script>
 <div class="cart-container">
-  <h2>ORDER / PAYMET</h2>
+  <h2>ORDER / PAYMENT</h2>
   <hr>
   <div class="step-container">
     <div class="step-box" style="background: rgb(26, 27, 31); color: #fff"><span>장바구니</span></div>

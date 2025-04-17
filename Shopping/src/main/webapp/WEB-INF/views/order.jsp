@@ -4,9 +4,8 @@ pageEncoding="UTF-8"%>
 <script>
   let json = JSON.parse(`${datas}`);
 </script>
-<script src="js/order.js"></script>
 <div class="order-container">
-  <h2>ORDER / PAYMET</h2>
+  <h2>ORDER / PAYMENT</h2>
   <hr>
   <div class="step-container">
     <div class="step-box"><span>장바구니</span></div>
@@ -16,7 +15,7 @@ pageEncoding="UTF-8"%>
     <div class="step-box"><span>주문완료</span></div>
   </div>
   <hr>
-  <p class="paymet-title"><span>Paymet</span> 주문서작성</p>
+  <p class="paymet-title"><span>Payment</span> 주문서작성</p>
   <div class="paymet-container">
     <div class="order-form">
       <!-- 배송지 정보 -->
@@ -25,28 +24,21 @@ pageEncoding="UTF-8"%>
         <label>
           배송지 선택
           <select name="saved-addresses">
-            <option>기본 배송지</option>
-            <option>회사</option>
-            <option>새로운 배송지</option>
+
           </select>
         </label>
 
         <label>받는 사람 <input type="text" name="receiver-name" required /></label>
         <label>연락처 <input type="tel" name="receiver-phone" required /></label>
-        <label>주소 <input type="text" name="address" placeholder="도로명 주소" required /></label>
         <label>우편번호 <input type="text" name="zipcode" /></label>
+        <label>주소 <input type="text" name="address" placeholder="도로명 주소" required /></label>
         <label>배송 메시지 <input type="text" name="message" placeholder="문 앞에 놓아주세요 등" /></label>
         <button type="button" class="add-address-btn">배송지 추가하기</button>
       </section>
 
       <!-- 주문 상품 -->
       <section class="order">
-        <h2>주문 상품 </h2>
-        <div class="summary">
-          <p>상품명: 무신사 스탠다드 반팔티</p>
-          <p>수량: 2</p>
-          <p>가격: 39,800원</p>
-        </div>
+
       </section>
     </div>
 
@@ -63,3 +55,4 @@ pageEncoding="UTF-8"%>
     </div>
   </div>
 </div>
+<script src="js/order.js"></script>
