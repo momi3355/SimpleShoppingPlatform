@@ -494,3 +494,75 @@
   color: #999;
   font-weight: 400;
 }
+
+/* review */
+.review {
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  width: 500px;
+  margin: 20px auto;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+}
+
+.info {
+  font-size: 14px;
+}
+
+.nickname {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.date {
+  color: #888;
+  font-size: 12px;
+}
+
+.rating {
+  font-size: 14px;
+  color: #ffa500;
+  margin: 8px 0;
+}
+
+.score {
+  color: #000;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.meta {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.actions {
+  font-size: 13px;
+  color: #555;
+  display: flex;
+  gap: 16px;
+}
+
+

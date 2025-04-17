@@ -2,7 +2,7 @@ package co.yedam.service;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.yedam.common.DataSource;
+import co.yedam.common.DataSource;
 
 import co.yedam.mapper.ReviewMapper;
 import co.yedam.vo.ReviewVO;
