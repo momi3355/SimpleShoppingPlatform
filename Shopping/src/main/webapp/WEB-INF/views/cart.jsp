@@ -18,31 +18,32 @@ pageEncoding="UTF-8"%>
   <hr>
   <div class="table-container">
     <p class="cart-title"><span>My cart</span> 장바구니</p>
-    <form action="#" method="post">
-        <table class="cart-table">
-          <thead>
-            <tr>
-              <th class="cart-code">번호</th>
-              <th class="cart-name">상품명</th>
-              <th class="cart-option">옵션</th>
-              <th class="cart-price">판매가</th>
-              <th class="cart-quantity">수량</th>
-              <th class="cart-total-price">주문금액</th>
-              <th class="cart-btn">주문관리</th>
-            </tr>
-          </thead>
-          <tbody class="cart-target">
-            
-          </tbody>
-          <tfoot>
-            
-          </tfoot>
-        </table>
-        <div class="btn-container">
-          <input type="button" class="btn-remove" value="전체 삭제하기">
-          <input type="submit" class="btn-submit" value="결제하기">
-        </div>
-      </form>
-    </div>
+    <form action="orderFrom.do" method="post">
+      <input type="hidden" id="user_code" name="user_code"  value="${ucode}">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th class="cart-code">번호</th>
+            <th class="cart-name">상품명</th>
+            <th class="cart-option">옵션</th>
+            <th class="cart-price">판매가</th>
+            <th class="cart-quantity">수량</th>
+            <th class="cart-total-price">주문금액</th>
+            <th class="cart-btn">주문관리</th>
+          </tr>
+        </thead>
+        <tbody class="cart-target">
+          
+        </tbody>
+        <tfoot>
+          
+        </tfoot>
+      </table>
+      <div class="btn-container">
+        <input type="button" class="btn-remove" value="전체 삭제하기">
+        <input type="submit" class="btn-submit" value="결제하기">
+      </div>
+    </form>
   </div>
+</div>
   

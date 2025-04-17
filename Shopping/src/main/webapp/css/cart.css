@@ -1,7 +1,9 @@
 .cart-container {
-  margin: 0 auto;
-  margin-top: 150px;
-  margin-bottom: 300px;
+  margin: 0;
+  /* margin-top: 150px;
+  margin-bottom: 300px; */
+  padding: 30px;
+  background-color: #f9f9f9;
 }
 
 .step-container {
