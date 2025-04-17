@@ -497,27 +497,17 @@
 
 /* review */
 .review {
-  font-family: 'Arial', sans-serif;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 16px;
-  width: 500px;
-  margin: 20px auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: rgba(250, 250, 250, 0.8);
+  padding: 16px 0;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .review-header {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-}
-
-.avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: #ccc;
-  margin-right: 10px;
 }
 
 .info {
@@ -529,7 +519,7 @@
   margin-bottom: 2px;
 }
 
-.date {
+.writedate {
   color: #888;
   font-size: 12px;
 }
@@ -546,7 +536,7 @@
   font-weight: bold;
 }
 
-.meta {
+.userinfo {
   font-size: 13px;
   color: #666;
   margin-bottom: 10px;
@@ -558,11 +548,10 @@
   margin-bottom: 12px;
 }
 
-.actions {
-  font-size: 13px;
-  color: #555;
-  display: flex;
-  gap: 16px;
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px auto;
+  width: 900px;
 }
-
 

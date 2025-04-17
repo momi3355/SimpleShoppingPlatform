@@ -4,12 +4,55 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "co.yedam.mapper.ReviewMapper">
 
-  <select id = "selectReviewList" parameterType = "map" resultType = "co.yedam.vo.ReviewVO">
-    SELECT *
+  <!-- 전체 리뷰 리스트 조회 -->
+  <select id="selectReviewList" resultType="co.yedam.vo.ReviewVO">
+    SELECT 
+      review_code, 
+      user_code, 
+      rating, 
+      product_code, 
+      content
     FROM reviews
-    ORDER BY write_date DESC
-    LIMIT #{start}, #{size}
+    ORDER BY review_code DESC
   </select>
 
+  <!-- 특정 상품의 리뷰 리스트 조회 -->
+  <select id="selectReviewsByProduct" resultType="co.yedam.vo.ReviewVO" parameterType="int">
+    SELECT 
+      review_code, 
+      user_code, 
+      rating, 
+      product_code, 
+      content
+    FROM reviews
+    WHERE product_code = #{product_code}
+    ORDER BY write_date DESC
+  </select>
+
+  <!-- 리뷰 등록 -->
+  <insert id="insertReview" parameterType="co.yedam.vo.ReviewVO">
+    INSERT INTO reviews (
+      review_code,
+      user_code,
+      product_code,
+      rating,
+      content,
+      write_date
+    ) VALUES (
+      #{reviewCode},
+      #{userCode},
+      #{productCode},
+      #{rating},
+      #{content},
+      SYSDATE
+    )
+  </insert>
+
+  <!-- 리뷰 삭제 -->
+  <delete id="removeReview" parameterType="map">
+  DELETE FROM reviews
+  WHERE review_code = #{reviewCode}
+    AND user_code = #{userCode}
+  </delete>
 
 </mapper>

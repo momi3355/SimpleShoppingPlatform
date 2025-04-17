@@ -200,8 +200,22 @@
               </div>
             </div>
             <div class="tab-content" id="review">
-              <p>후기 내용이 들어갑니다.</p>
-            </div>
+              <div class="review">
+                <div class="review-header">
+                  <div class="info">
+                    <div class="nickname">리뷰어</div>
+                      <div class="writedate">2025-04-14</div>
+                  </div>
+                </div>
+              <div class="rating">
+              <span class="stars">★★★★★</span>
+              <span class="score">5</span>
+              </div>
+              <div class="userinfo">남성 · 172cm · 62kg · M 구매</div>
+              <div class="content">리뷰 본문의 내용이 표시되는 공간</div>
+             </div>
+                <hr>
+          </div>
             <div class="tab-content" id="inquiry">
               <p>문의 내용이 들어갑니다.</p>
             </div>
