@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
         return mapper.getPopularProducts();
     }
     @Override
-    public ProductDTO getByCode(int code) {
+    public ProductDTO getDetailByCode(int code) {
       ProductDTO product = mapper.getProductByCode(code);
       List<String> images = mapper.getProductImages(code);
       product.setInfoImageUrls(images);

@@ -11,5 +11,5 @@ public interface ProductService {
     ProductDTO getByCode(int code); //코드로 상품 조회
 	List<ProductDTO> getAllProducts();
 	List<ProductDTO> getPopularProducts(); // 판매량으로 정렬조회
-	ProductDTO getByCode(int code); // 코드로조회
+	ProductDTO getDetailByCode(int code); // 코드로조회
 }

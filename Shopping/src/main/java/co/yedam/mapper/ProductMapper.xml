@@ -21,8 +21,8 @@
   		ORDER BY sales_count DESC
 	</select>
 	
-	<!-- 코드로 조회 -->
-	<select id="getProductByCode" resultType="ProductDTO" parameterType="int">
+	<!-- 코드로 이미지 조회 -->
+	<select id="getProductDetailByCode" resultType="ProductDTO" parameterType="int">
 		SELECT *
 		FROM   products
 		WHERE  product_code = #{productCode}
