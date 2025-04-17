@@ -164,9 +164,22 @@
 			</section>
 		</div>
 		<div class="tab-panel" id="tab-outerwear">
+			<div class="outer-filter-wrap">
+	            <label for="outer-filter" class="filter-label"></label>
+	            <select id="outer-gender-filter" class="outer-filter">
+				  <option value="all">성별</option>
+				  <option value="male">남성</option>
+				  <option value="female">여성</option>
+				</select>
+				<select id="outer-price-filter" class="outer-filter">
+				  <option value="allprice">가격</option>
+				  <option value="cheap">낮은 가격순</option>
+				  <option value="expensive">높은 가격순</option>
+				</select>
+          	</div>
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${outerList}">
-					<div class="product-card">
+					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
 						<a href="/product/detail?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
@@ -182,20 +195,89 @@
 			</div>
 		</div>
 		<div class="tab-panel" id="tab-top">
-			<!-- 상의상품 컨텐츠 -->
-			<p>상의 영역입니다.</p>
+			<div class="outer-filter-wrap">
+	            <label for="outer-filter" class="filter-label"></label>
+	            <select id="outer-gender-filter" class="outer-filter">
+				  <option value="all">성별</option>
+				  <option value="male">남성</option>
+				  <option value="female">여성</option>
+				</select>
+				<select id="outer-price-filter" class="outer-filter">
+				  <option value="allprice">가격</option>
+				  <option value="cheap">낮은 가격순</option>
+				  <option value="expensive">높은 가격순</option>
+				</select>
+          	</div>
+			<div class="product-list-grid">
+				<c:forEach var="product" items="${topList}">
+					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
+						<a href="/product/detail?product_code=${product.productCode}">
+							<div class="product-image">
+								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
+							</div>
+							<div class="product-info">
+								<p class="brand">${product.productCategory}</p>
+								<p class="name">${product.productName}</p>
+								<p class="price">${product.price}원</p>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		<div class="tab-panel" id="tab-bottom">
-			<!-- 하의상품 컨텐츠 -->
-			<p>하의 영역입니다.</p>
+			<div class="product-list-grid">
+				<c:forEach var="product" items="${bottomList}">
+					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
+						<a href="/product/detail?product_code=${product.productCode}">
+							<div class="product-image">
+								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
+							</div>
+							<div class="product-info">
+								<p class="brand">${product.productCategory}</p>
+								<p class="name">${product.productName}</p>
+								<p class="price">${product.price}원</p>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		<div class="tab-panel" id="tab-shoes">
-			<!-- 하의상품 컨텐츠 -->
-			<p>신발 영역입니다.</p>
+			<div class="product-list-grid">
+				<c:forEach var="product" items="${shoesList}">
+					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
+						<a href="/product/detail?product_code=${product.productCode}">
+							<div class="product-image">
+								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
+							</div>
+							<div class="product-info">
+								<p class="brand">${product.productCategory}</p>
+								<p class="name">${product.productName}</p>
+								<p class="price">${product.price}원</p>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		<div class="tab-panel" id="tab-accessories">
-			<!-- 패션소품 컨텐츠 -->
-			<p>패션소품 영역입니다.</p>
+			<div class="product-list-grid">
+				<c:forEach var="product" items="${accessoriesList}">
+					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
+						<a href="/product/detail?product_code=${product.productCode}">
+							<div class="product-image">
+								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
+							</div>
+							<div class="product-info">
+								<p class="brand">${product.productCategory}</p>
+								<p class="name">${product.productName}</p>
+								<p class="price">${product.price}원</p>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 	</section>
 </main>

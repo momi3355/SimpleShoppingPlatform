@@ -20,6 +20,5 @@ pageEncoding="UTF-8"%>
 			<tiles:insertAttribute name="footer"/>
 		</div>
     </body>
-    <script src="js/project.js"></script>
     <script src="js/main.js"></script>
 </html>
