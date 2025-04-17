@@ -14,7 +14,7 @@ import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
-
+import co.yedam.control.ProductDetailControl;
 import co.yedam.control.ajax.CartJsonControl;
 import co.yedam.control.form.CartFromControl;
 import co.yedam.control.form.OrderFromControl;
@@ -32,6 +32,9 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
+		
+		// 상품 상세페이지
+		map.put("/productdetail.do", new ProductDetailControl());
 		
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
