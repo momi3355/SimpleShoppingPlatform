@@ -39,6 +39,11 @@ public class ProductServiceImpl implements ProductService {
       return product;
     }
     @Override
+    public ProductDTO getByCode(int code) {
+    	return mapper.getProductByCode(code);
+    }
+    
+    @Override
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> list = mapper.getAllProducts();
 

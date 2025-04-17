@@ -82,6 +82,13 @@ input, select {
   border-radius: 6px;
 }
 
+.summary .pro-image {
+  float: left;
+  height: 110px;
+  width: 110px;
+  margin: 10px;
+}
+
 .add-address-btn {
   margin-top: 10px;
   background-color: #666;
