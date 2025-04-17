@@ -24,7 +24,7 @@ public class LoginControl implements Control {
         LoginVO vo = mapper.loginCheck(id);
  
         if (vo != null && vo.getPassword().equals(pw)) {
-            req.getSession().setAttribute("loginUser", vo);
+        	req.getSession().setAttribute("loginVO", vo);
             resp.sendRedirect("main.do");
         } else {
             req.getSession().setAttribute("loginError", "아이디 또는 비밀번호를 확인하세요.");

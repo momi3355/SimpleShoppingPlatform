@@ -5,59 +5,63 @@
 
 <div class="signup-title">회원가입</div>
 <div class="signup-container">
-    <form action="signUp.do" method="post" id="signupForm">
+  <form action="signUp.do" method="post" id="signupForm">
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="userId">아이디</label>
-                <div id="idMessage" class="message"></div>
-            </div>
-            <input type="text" name="userId" id="userId" required placeholder="영문, 숫자 5-12자">
-        </div>
+    <!-- 아이디 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="userId">아이디</label>
+        <div id="idMessage" class="message"></div>
+      </div>
+      <input type="text" name="userId" id="userId" placeholder="영문, 숫자 5-12자">
+    </div>
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="password">비밀번호</label>
-                <div id="passwordMessage" class="message"></div>
-            </div>
-            <input type="password" name="password" id="password" required placeholder="영문, 숫자 조합 최소 8자">
-        </div>
+    <!-- 비밀번호 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="password">비밀번호</label>
+        <div id="passwordMessage" class="message"></div>
+      </div>
+      <input type="password" name="password" id="password" placeholder="영문, 숫자 조합 최소 8자">
+    </div>
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="passwordCheck">비밀번호 확인</label>
-                <div id="pwMessage" class="message"></div>
-            </div>
-            <input type="password" id="passwordCheck" required>
-        </div>
+    <!-- 비밀번호 확인 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="passwordCheck">비밀번호 확인</label>
+        <div id="pwMessage" class="message"></div>
+      </div>
+      <input type="password" id="passwordCheck">
+    </div>
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="userName">이름</label>
-            </div>
-            <input type="text" name="userName" id="userName" required>
-        </div>
+    <!-- 이름 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="userName">이름</label>
+        <div id="nameMessage" class="message"></div>
+      </div>
+      <input type="text" name="userName" id="userName">
+    </div>
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="phone">휴대폰 번호</label>
-            </div>
-            <input type="text" name="phone" id="phone" required maxlength="11">
-        </div>
+    <!-- 전화번호 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="phone">휴대폰 번호</label>
+        <div id="phoneMessage" class="message"></div>
+      </div>
+      <input type="text" name="phone" id="phone" maxlength="11">
+    </div>
 
-        <div class="form-group">
-            <div class="label-row">
-                <label for="email">이메일</label>
-                <div id="emailMessage" class="message"></div>
-            </div>
-            <input type="text" name="email" id="email" required placeholder="이메일을 입력해주세요">
-        </div>
+    <!-- 이메일 -->
+    <div class="form-group">
+      <div class="label-row">
+        <label for="email">이메일</label>
+        <div id="emailMessage" class="message"></div>
+      </div>
+      <input type="text" name="email" id="email" placeholder="이메일을 입력해주세요">
+    </div>
 
-        <div class="sub-text">아이디 또는 비밀번호 분실 시 본인 확인용으로 사용됩니다.</div>
-
-        <div style="margin-top: auto;">
-            <button type="submit" class="signup-btn">회원가입</button>
-        </div>
-
-    </form>
+    <div class="sub-text">아이디 또는 비밀번호 분실 시 본인 확인용으로 사용됩니다.</div>
+    <button type="submit" class="signup-btn">회원가입</button>
+  </form>
 </div>

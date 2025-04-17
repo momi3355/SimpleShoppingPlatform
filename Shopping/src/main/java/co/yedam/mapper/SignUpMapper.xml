@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.yedam.mapper.SignUpMapper">
+
+    <!-- 회원가입 INSERT -->
+    <insert id="insertUser" parameterType="co.yedam.vo.LoginVO">
+        INSERT INTO users (
+            user_code, user_id, user_name, password, email, phone
+        ) VALUES (
+            user_code_seq.NEXTVAL,
+            #{userId},
+            #{userName},
+            #{password},
+            #{email},
+            #{phone}
+        )
+    </insert>
+
+    <!-- 아이디 중복 체크 -->
+    <select id="selectByUserId" parameterType="String" resultType="co.yedam.vo.LoginVO">
+        SELECT * FROM users WHERE user_id = #{userId}
+    </select>
+
+    <!-- 이메일 중복 체크 -->
+    <select id="selectByEmail" parameterType="String" resultType="co.yedam.vo.LoginVO">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
+
+</mapper>
