@@ -1,6 +1,7 @@
-package co.yedam.common;
+ package co.yedam.common;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class ProductDTO {
 	private String productOption;
 	private Timestamp productDate;
 	private int salesCount; //판매량
+	private List<String> infoImageUrls; //이미지
 	// 할인율 
 	private int discountRate;
 

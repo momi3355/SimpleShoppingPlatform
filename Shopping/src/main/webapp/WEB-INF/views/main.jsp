@@ -112,7 +112,7 @@
 				<div class="product-list-grid">
 					<c:forEach var="product" items="${productList}">
 						<div class="product-card">
-							<a href="/product/detail?product_code=${product.productCode}">
+							<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 								<div class="product-image">
 									<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 								</div>
@@ -140,7 +140,7 @@
 					<c:forEach var="product" items="${popularList}" varStatus="status">
 						<div class="product-card">
 							<span class="ranking-badge">${status.index + 1}</span>
-							<a href="/product/detail?product_code=${product.productCode}">
+							<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 								<div class="product-image">
 									<img src="${product.imageUrlFir}" alt="${product.imageDescription}">
 								</div>
@@ -180,7 +180,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${outerList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
@@ -216,7 +216,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${topList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
@@ -252,7 +252,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${bottomList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
@@ -288,7 +288,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${shoesList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">ㄴ
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
@@ -325,7 +325,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${accessoriesList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>

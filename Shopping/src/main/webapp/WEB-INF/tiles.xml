@@ -11,6 +11,11 @@
     <put-attribute name="footer" value="/WEB-INF/common/footer.jsp" />
   </definition>
   
+  <!-- 상품상세 -->
+  <definition name="productDetail" extends="myapp.homepage">
+    <put-attribute name="body" value="/WEB-INF/product/productDetail.jsp" />
+  </definition>
+  
   <definition name="WILDCARD:common/*" extends="myapp.homepage">
     <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
   </definition>

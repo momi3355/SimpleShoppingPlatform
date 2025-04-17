@@ -7,6 +7,13 @@
 		FROM products
 		ORDER BY product_date DESC
 	</select>
+	<!-- 코드로 조회 -->
+    <select id="getProductByCode" resultType="ProductDTO" parameterType="int">
+        SELECT *
+        FROM   products
+        WHERE  product_code = #{productCode}
+        ORDER BY product_code DESC
+    </select>
 	<!-- 판매량 상품 조회 -->
 	<select id="getPopularProducts" resultType="ProductDTO">
   		SELECT *
@@ -28,5 +35,13 @@
  		FROM   products
 		WHERE  product_name LIKE '%' || #{product_name} || '%'
 		ORDER BY product_date DESC
+	</select>
+	
+	<!-- 상품이미지 -->
+	<select id="getProductImages" resultType="string" parameterType="int">
+	  SELECT image_url
+	    FROM product_images
+	   WHERE product_code = #{productCode}
+	   ORDER BY sort_order
 	</select>
 </mapper>
