@@ -4,15 +4,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
-@Getter
-@Setter
 
+
+@Data
 public class ReviewVO {
-	private int reviewid; // 리뷰번호
-	private String userid; // 작성자 ID
-	private String productid; // 물품명
-	private String content; // 리뷰 본문
-	private int rating; // 별점 (1~5)
-	private String replyDate; // 댓글작성일자
+    private int reviewCode;     // 리뷰번호
+    private int userCode;       // 작성자 (숫자형)
+    private int productCode;    // 상품 (숫자형)
+    private String content;     // 리뷰 본문
+    private int rating;         // 별점 (1~5)
+    private String writeDate;   // 작성일자
 }

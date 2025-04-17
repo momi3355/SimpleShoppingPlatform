@@ -21,16 +21,14 @@ public class AddReviewControl implements Control{
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		// TODO Auto-generated method stub
-		
 		String rno = req.getParameter("rno");
 		String reviewer = req.getParameter("reviewer");
 		String review = req.getParameter("review");
 		
 		ReviewVO rvo = new ReviewVO();
-		rvo.setReviewid(Integer.parseInt(rno));
+		rvo.setReviewCode(Integer.parseInt(rno));
 		rvo.setContent(review);
-		rvo.setUserid(reviewer);
+		rvo.setUserCode(Integer.parseInt(reviewer));
 		System.out.println(rvo);
 		
 		Gson gson = new GsonBuilder().create();

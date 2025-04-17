@@ -19,6 +19,7 @@ import co.yedam.control.ajax.CartJsonControl;
 import co.yedam.control.form.CartFromControl;
 import co.yedam.control.form.OrderFromControl;
 
+import co.yedam.control.RemoveReviewControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
 import co.yedam.control.AddReviewControl;
@@ -56,6 +57,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/addReview.do", new AddReviewControl());
 		map.put("/reviewlist.do", new ReviewListControl());
+		map.put("/removereview.do", new RemoveReviewControl());
 	}
 
 	@Override

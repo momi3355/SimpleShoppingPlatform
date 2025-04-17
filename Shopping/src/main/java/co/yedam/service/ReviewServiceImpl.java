@@ -1,5 +1,7 @@
 package co.yedam.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSource;
@@ -18,13 +20,20 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public boolean removeReview(int reviewNo) {
-		return mapper.removeReview(reviewNo) == 1;
+	public boolean removeReview(int reviewNo, int userCode) {
+	    return mapper.removeReview(reviewNo, userCode) == 1;
 	}
+
 
 
 	@Override
 	public ReviewVO getReview(int reviewNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ReviewVO> reviewList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
