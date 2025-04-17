@@ -30,5 +30,5 @@ public class LoginControl implements Control {
             req.getSession().setAttribute("loginError", "아이디 또는 비밀번호를 확인하세요.");
             resp.sendRedirect("loginForm.do");
         }
-    }//
+    }
 }
