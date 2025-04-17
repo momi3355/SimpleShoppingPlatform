@@ -22,7 +22,7 @@ public class LoginControl implements Control {
         String pw = req.getParameter("pw");
 
         LoginVO vo = mapper.loginCheck(id);
-
+ 
         if (vo != null && vo.getPassword().equals(pw)) {
             req.getSession().setAttribute("loginUser", vo);
             resp.sendRedirect("main.do");
