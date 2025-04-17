@@ -11,4 +11,5 @@ public interface ReviewMapper {
 	ReviewVO selectReview(int reviewid); // 리뷰 보기
 	
 	List<Map<String, Object>> selectListForDT(int i);
+	List<ReviewVO> selectReviewList(Map<String, Object> param);
 }

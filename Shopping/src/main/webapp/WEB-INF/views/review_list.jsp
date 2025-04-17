@@ -9,7 +9,7 @@
   <title>리뷰 리스트</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       background-color: #fafafa;
       margin: 20px;
     }
