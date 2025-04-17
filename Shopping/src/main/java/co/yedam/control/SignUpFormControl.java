@@ -12,8 +12,7 @@ public class SignUpFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		 req.getRequestDispatcher("common/signUp.tiles").forward(req, resp);
 	}
 
 }
