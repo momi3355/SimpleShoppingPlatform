@@ -20,13 +20,24 @@ public class SignUpControl implements Control {
 		String checkType = req.getParameter("checkType");
 		SignUpService service = new SignUpServiceImpl();
 		
+		//id 중복체크
 		if("id".equals(checkType)) {
 			String userId = req.getParameter("userId");
-		//	boolean isDuplicated = service.isUserIdDuplicated(userId);
+			//boolean isDuplicated = service.isUserIdDuplicated(userId);
 			
-			
-			
+			//resp.getWriter().print(isDuplicated ? "duplicate" : "available");
+			return;
 		}
+		//email 중복체크
+		if ("email".equals(checkType)) {
+			String email = req.getParameter("email");
+			//boolean isDuplicated = service.idEmailDuplicated(email);
+			
+			//resp.getWriter().print(isDuplicated ? "duplicate" : "available");
+			return;
+		}
+		
+		
 	}
 
 }
