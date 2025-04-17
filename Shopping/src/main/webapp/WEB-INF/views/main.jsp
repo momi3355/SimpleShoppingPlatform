@@ -112,7 +112,7 @@
 				<div class="product-list-grid">
 					<c:forEach var="product" items="${productList}">
 						<div class="product-card">
-							<a href="/product/detail?product_code=${product.productCode}">
+							<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 								<div class="product-image">
 									<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 								</div>
@@ -140,7 +140,7 @@
 					<c:forEach var="product" items="${popularList}" varStatus="status">
 						<div class="product-card">
 							<span class="ranking-badge">${status.index + 1}</span>
-							<a href="/product/detail?product_code=${product.productCode}">
+							<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 								<div class="product-image">
 									<img src="${product.imageUrlFir}" alt="${product.imageDescription}">
 								</div>
@@ -164,30 +164,35 @@
 			</section>
 		</div>
 		<div class="tab-panel" id="tab-outerwear">
-			<div class="outer-filter-wrap">
-	            <label for="outer-filter" class="filter-label"></label>
-	            <select id="outer-gender-filter" class="outer-filter">
-				  <option value="all">성별</option>
-				  <option value="male">남성</option>
-				  <option value="female">여성</option>
+			<div class="filter-wrap">
+				<label for="outerwear-filter" class="filter-label"></label>
+				<select id="outerwear-gender-filter" class="outer-filter">
+					<option value="all">성별</option>
+					<option value="male">남성</option>
+					<option value="female">여성</option>
 				</select>
-				<select id="outer-price-filter" class="outer-filter">
-				  <option value="allprice">가격</option>
-				  <option value="cheap">낮은 가격순</option>
-				  <option value="expensive">높은 가격순</option>
+				<select id="outerwear-price-filter" class="outer-filter">
+					<option value="allprice">가격</option>
+					<option value="cheap">낮은 가격순</option>
+					<option value="expensive">높은 가격순</option>
 				</select>
-          	</div>
+			</div>
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${outerList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
 							<div class="product-info">
 								<p class="brand">${product.productCategory}</p>
 								<p class="name">${product.productName}</p>
-								<p class="price">${product.price}원</p>
+								<p class="price">
+									<c:if test="${product.originalPrice > product.price}">
+										<span class="discount">${product.discountRate}%</span>
+									</c:if>
+									${product.price}원
+								</p>
 							</div>
 						</a>
 					</div>
@@ -195,30 +200,35 @@
 			</div>
 		</div>
 		<div class="tab-panel" id="tab-top">
-			<div class="outer-filter-wrap">
-	            <label for="outer-filter" class="filter-label"></label>
-	            <select id="outer-gender-filter" class="outer-filter">
-				  <option value="all">성별</option>
-				  <option value="male">남성</option>
-				  <option value="female">여성</option>
+			<div class="filter-wrap">
+				<label for="top-filter" class="filter-label"></label>
+				<select id="top-gender-filter" class="outer-filter">
+					<option value="all">성별</option>
+					<option value="male">남성</option>
+					<option value="female">여성</option>
 				</select>
-				<select id="outer-price-filter" class="outer-filter">
-				  <option value="allprice">가격</option>
-				  <option value="cheap">낮은 가격순</option>
-				  <option value="expensive">높은 가격순</option>
+				<select id="top-price-filter" class="outer-filter">
+					<option value="allprice">가격</option>
+					<option value="cheap">낮은 가격순</option>
+					<option value="expensive">높은 가격순</option>
 				</select>
-          	</div>
+			</div>
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${topList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
 							<div class="product-info">
 								<p class="brand">${product.productCategory}</p>
 								<p class="name">${product.productName}</p>
-								<p class="price">${product.price}원</p>
+								<p class="price">
+									<c:if test="${product.originalPrice > product.price}">
+										<span class="discount">${product.discountRate}%</span>
+									</c:if>
+									${product.price}원
+								</p>
 							</div>
 						</a>
 					</div>
@@ -226,17 +236,35 @@
 			</div>
 		</div>
 		<div class="tab-panel" id="tab-bottom">
+			<div class="filter-wrap">
+				<label for="bottom-filter" class="filter-label"></label>
+				<select id="bottom-gender-filter" class="outer-filter">
+					<option value="all">성별</option>
+					<option value="male">남성</option>
+					<option value="female">여성</option>
+				</select>
+				<select id="bottom-price-filter" class="outer-filter">
+					<option value="allprice">가격</option>
+					<option value="cheap">낮은 가격순</option>
+					<option value="expensive">높은 가격순</option>
+				</select>
+			</div>
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${bottomList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
 							<div class="product-info">
 								<p class="brand">${product.productCategory}</p>
 								<p class="name">${product.productName}</p>
-								<p class="price">${product.price}원</p>
+								<p class="price">
+									<c:if test="${product.originalPrice > product.price}">
+										<span class="discount">${product.discountRate}%</span>
+									</c:if>
+									${product.price}원
+								</p>
 							</div>
 						</a>
 					</div>
@@ -244,17 +272,35 @@
 			</div>
 		</div>
 		<div class="tab-panel" id="tab-shoes">
+			<div class="filter-wrap">
+				<label for="shoes-filter" class="filter-label"></label>
+				<select id="shoes-gender-filter" class="outer-filter">
+					<option value="all">성별</option>
+					<option value="male">남성</option>
+					<option value="female">여성</option>
+				</select>
+				<select id="shoes-price-filter" class="outer-filter">
+					<option value="allprice">가격</option>
+					<option value="cheap">낮은 가격순</option>
+					<option value="expensive">높은 가격순</option>
+				</select>
+			</div>
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${shoesList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">ㄴ
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
 							<div class="product-info">
 								<p class="brand">${product.productCategory}</p>
 								<p class="name">${product.productName}</p>
-								<p class="price">${product.price}원</p>
+								<p class="price">
+									<c:if test="${product.originalPrice > product.price}">
+										<span class="discount">${product.discountRate}%</span>
+									</c:if>
+									${product.price}원
+								</p>
 							</div>
 						</a>
 					</div>
@@ -262,17 +308,36 @@
 			</div>
 		</div>
 		<div class="tab-panel" id="tab-accessories">
+			<div class="filter-wrap">
+				<label for="accessories-filter" class="filter-label"></label>
+				<select id="accessories-gender-filter" class="outer-filter">
+					<option value="all">성별</option>
+					<option value="male">남성</option>
+					<option value="female">여성</option>
+				</select>
+				<select id="accessories-price-filter" class="outer-filter">
+					<option value="allprice">가격</option>
+					<option value="cheap">낮은 가격순</option>
+					<option value="expensive">높은 가격순</option>
+				</select>
+			</div>
+
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${accessoriesList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="/product/detail?product_code=${product.productCode}">
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
 							<div class="product-info">
 								<p class="brand">${product.productCategory}</p>
 								<p class="name">${product.productName}</p>
-								<p class="price">${product.price}원</p>
+								<p class="price">
+									<c:if test="${product.originalPrice > product.price}">
+										<span class="discount">${product.discountRate}%</span>
+									</c:if>
+									${product.price}원
+								</p>
 							</div>
 						</a>
 					</div>

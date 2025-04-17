@@ -10,13 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.control.ajax.CartJsonControl;
-import co.yedam.control.form.CartFromControl;
-import co.yedam.control.form.OrderFromControl;
 import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
+import co.yedam.control.ProductDetailControl;
+import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.form.CartFromControl;
+import co.yedam.control.form.OrderFromControl;
+
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
 import co.yedam.control.AddReviewControl;
@@ -35,6 +37,10 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
 		
+		// 상품 상세페이지
+		map.put("/productdetail.do", new ProductDetailControl());
+		
+		// 로그인 페이지
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/myPage.do", new MypageControl());

@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ✅ Swiper 초기화 (중복 선언 방지 위해 let으로 선언)
-  let mainSwiper;
+  // ✅ Swiper 초기화 (중복 선언 방지)
   const swiperContainer = document.querySelector(".mySwiper");
   if (swiperContainer) {
-    mainSwiper = new Swiper(".mySwiper", {
+    new Swiper(".mySwiper", {
       slidesPerView: 3,
       slidesPerGroup: 3,
       spaceBetween: 0,
@@ -34,46 +33,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ✅ 아우터 필터 적용
-  const genderFilter = document.getElementById("outer-gender-filter");
-  const priceFilter = document.getElementById("outer-price-filter");
-  const cardsWrap = document.querySelector("#tab-outerwear .product-list-grid");
-  const cards = cardsWrap ? Array.from(cardsWrap.querySelectorAll(".product-card")) : [];
+  // ✅ 필터 로직: 각 탭마다 동작하도록
+  const tabNames = ["outerwear", "top", "bottom", "shoes", "accessories"];
 
-  function applyFilter() {
-    if (!cardsWrap) return;
+  tabNames.forEach(tab => {
+    const genderFilter = document.getElementById(`${tab}-gender-filter`);
+    const priceFilter = document.getElementById(`${tab}-price-filter`);
+    const cardsWrap = document.querySelector(`#tab-${tab} .product-list-grid`);
+    const cards = cardsWrap ? Array.from(cardsWrap.querySelectorAll(".product-card")) : [];
 
-    const gender = genderFilter ? genderFilter.value : "all";
-    const priceSort = priceFilter ? priceFilter.value : "allprice";
+    if (!genderFilter || !priceFilter || !cardsWrap) return;
 
-    let filtered = [...cards];
+    function applyFilter() {
+      const gender = genderFilter.value;
+      const priceSort = priceFilter.value;
 
-    // 성별 필터
-    if (gender !== "all") {
-      const korToEng = {
-        '남성': 'male',
-        '여성': 'female'
-      };
-      filtered = filtered.filter(card => {
-        const genderData = korToEng[card.dataset.gender];
-        return genderData === gender;
+      let filtered = [...cards];
+
+      // 성별 필터
+      if (gender !== "all") {
+        const korToEng = {
+          '남성': 'male',
+          '여성': 'female'
+        };
+        filtered = filtered.filter(card => {
+          const genderData = korToEng[card.dataset.gender];
+          return genderData === gender;
+        });
+      }
+
+      // 가격 정렬
+      filtered.sort((a, b) => {
+        const priceA = parseInt(a.dataset.price);
+        const priceB = parseInt(b.dataset.price);
+        if (priceSort === "cheap") return priceA - priceB;
+        if (priceSort === "expensive") return priceB - priceA;
+        return 0;
       });
+
+      // 카드 다시 출력
+      cardsWrap.innerHTML = "";
+      filtered.forEach(card => cardsWrap.appendChild(card));
     }
 
-    // 가격 정렬
-    filtered.sort((a, b) => {
-      const priceA = parseInt(a.dataset.price);
-      const priceB = parseInt(b.dataset.price);
-      if (priceSort === "cheap") return priceA - priceB;
-      if (priceSort === "expensive") return priceB - priceA;
-      return 0;
-    });
-
-    // 카드 다시 append
-    cardsWrap.innerHTML = "";
-    filtered.forEach(card => cardsWrap.appendChild(card));
-  }
-
-  if (genderFilter) genderFilter.addEventListener("change", applyFilter);
-  if (priceFilter) priceFilter.addEventListener("change", applyFilter);
+    genderFilter.addEventListener("change", applyFilter);
+    priceFilter.addEventListener("change", applyFilter);
+  });
 });

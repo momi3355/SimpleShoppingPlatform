@@ -285,7 +285,7 @@ main {
   font-family: 'Noto Sans KR', sans-serif;
 }
 /* 아우터영역 필터 */
-.outer-filter-wrap {
+.filter-wrap {
   display: flex;
   align-items: center;
   justify-content: flex-end; /* 오른쪽 정렬 */
