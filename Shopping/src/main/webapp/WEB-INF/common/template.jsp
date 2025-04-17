@@ -9,8 +9,9 @@ pageEncoding="UTF-8"%>
     	<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>왜않사</title>
-		<link rel="stylesheet" href="css/project.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/project.css">
    	</head>
    	 <body>
   		<div id="container">
@@ -19,4 +20,6 @@ pageEncoding="UTF-8"%>
 			<tiles:insertAttribute name="footer"/>
 		</div>
     </body>
+    <script src="js/project.js"></script>
+    <script src="js/main.js"></script>
 </html>
