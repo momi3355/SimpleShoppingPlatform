@@ -4,6 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "co.yedam.mapper.ReviewMapper">
 
+  <select id = "selectReviewList" parameterType = "map" resultType = "co.yedam.vo.ReviewVO">
+    SELECT *
+    FROM reviews
+    ORDER BY write_date DESC
+    LIMIT #{start}, #{size}
+  </select>
 
 
 </mapper>
