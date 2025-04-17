@@ -1,6 +1,7 @@
 package co.yedam.control;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,16 @@ public class MainControl implements Control {
 		// 서비스 호출
 		ProductService service = new ProductServiceImpl();
 		List<ProductDTO> allProducts = service.getAllProducts();
+		
+		 // 최신순 정렬 (신상품)
+        List<ProductDTO> newList = allProducts.stream()
+             .sorted(Comparator.comparing(ProductDTO::getProductDate).reversed())
+             .collect(Collectors.toList());
+        
+        // 판매량 순 정렬 (인기상품)
+        List<ProductDTO> popularList = allProducts.stream()
+                .sorted(Comparator.comparingInt(ProductDTO::getSalesCount).reversed())
+                .collect(Collectors.toList());
 
 		// 카테고리별 필터링
 		List<ProductDTO> outerList = allProducts.stream()
@@ -42,7 +53,8 @@ public class MainControl implements Control {
 		    .collect(Collectors.toList());
 
 		// JSP로 전달
-		req.setAttribute("productList", allProducts);
+		req.setAttribute("productList", newList);           // 신상품
+	    req.setAttribute("popularList", popularList);       // 인기상품
 		req.setAttribute("outerList", outerList);
 		req.setAttribute("topList", topList);
 		req.setAttribute("bottomList", bottomList);

@@ -106,7 +106,7 @@
 			</div>
 			<!-- 오늘의 타임세일 섹션 (PC 전용) -->
 			<section class="timesale-section">
-				<header class="timesale-header">
+				<header class="section-header">
 					<h3>오늘의 신상품!</h3>
 				</header>
 				<div class="product-list-grid">
@@ -121,7 +121,7 @@
 									<p class="name">${product.productName}</p>
 									<p class="price">
 										<c:if test="${product.originalPrice > product.price}">
-  											<span class="discount">${product.discountRate}%</span>
+											<span class="discount">${product.discountRate}%</span>
 										</c:if>
 										${product.price}원
 									</p>
@@ -134,32 +134,32 @@
 			<!-- 인기상품! -->
 			<section class="popular-section">
 				<header class="section-header">
-					<h3>인기 상품</h3>
+					<h3>인기상품</h3>
 				</header>
-				<div class="product-grid">
-					<!-- 인기상품1 -->
-					<div class="product-card">
-						<span class="ranking-badge">1</span>
-						<!-- 랭킹 숫자 -->
-						<a href="https://www.musinsa.com/products/4627224" target="_blank">
-							<div class="product-image">
-								<img
-									src="https://image.msscdn.net/thumbnails/images/goods_img/20241120/4627224/4627224_17325841574068_500.jpg"
-									alt="나이키 줌 보메로 5 W">
+				<div class="product-list-grid">
+					<c:forEach var="product" items="${popularList}" varStatus="status">
+						<div class="product-card">
+							<span class="ranking-badge">${status.index + 1}</span>
+							<a href="/product/detail?product_code=${product.productCode}">
+								<div class="product-image">
+									<img src="${product.imageUrlFir}" alt="${product.imageDescription}">
+								</div>
+								<div class="product-info">
+									<p class="brand">${product.productCategory}</p>
+									<p class="name">${product.productName}</p>
+									<p class="price">
+										<c:if test="${product.originalPrice > product.price}">
+											<span class="discount">${product.discountRate}%</span>
+										</c:if>
+										${product.price}원
+									</p>
+								</div>
+							</a>
+							<div class="live-info">
+								<span>${product.salesCount}명이 구매</span>
 							</div>
-							<div class="product-info">
-								<p class="brand">나이키</p>
-								<p class="name">줌 보메로 5 W - 포톤 더스트:그리드아이언</p>
-								<p class="price">
-									<span class="discount">5%</span> 179,550원
-								</p>
-							</div>
-						</a>
-
-						<div class="live-info">
-							<span>733명이 구매 중</span>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</section>
 		</div>

@@ -19,6 +19,7 @@ public class ProductDTO {
 	private String productCategory;
 	private String productOption;
 	private Timestamp productDate;
+	private int salesCount; //판매량
 	// 할인율 
 	private int discountRate;
 

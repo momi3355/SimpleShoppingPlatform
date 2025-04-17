@@ -7,6 +7,13 @@
 		FROM products
 		ORDER BY product_date DESC
 	</select>
+	<!-- 판매량 상품 조회 -->
+	<select id="getPopularProducts" resultType="ProductDTO">
+  		SELECT *
+  		FROM   products
+  		ORDER BY sales_count DESC
+	</select>
+	
 	<!-- 카테고리로 조회 -->
 	<select id="getProductsByCategory" resultType="ProductDTO" parameterType="String">
 		SELECT *

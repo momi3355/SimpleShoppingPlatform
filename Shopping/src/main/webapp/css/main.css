@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#container {
+  width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+ul {
+  text-decoration: none;
+}
+
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* 탭 부분 */
+/* 탭 내비게이션 (PC 전용) */
+.tab-nav {
+  display: none;
+  background: #1a1b1f;
+  padding: 16px 0;
+}
+
+@media (min-width: 768px) {
+  .tab-nav {
+    display: block;
+  }
+}
+
+.tab-list {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tab-item {
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 6px 8px;
+  transition: color 0.2s ease;
+}
+
+.tab-item.active {
+  color: white;
+  font-weight: 600;
+  border-bottom: 2px solid white;
+}
+
+/* 탭 컨텐츠 */
+.tab-content {
+  max-width: 1440px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* main  */
+main {
+  width: 100%;
+}
+
+#main-container {
+  background-color: #f9f9f9;
+}
+
+.main-banner {
+  width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  /* padding 제거! */
+}
+
+/* Swiper 기본 슬라이드 크기 강제 고정 */
+.swiper-slide {
+  width: 480px;
+  flex-shrink: 0;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.swiper-button-custom {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 0 10px;
+  pointer-events: none; /* 클릭 방지 */
+}
+/* 마우스가 메인배너 영역 위에 올라왔을 때만 보여줌 */
+.main-banner:hover .swiper-button-custom {
+  opacity: 1;
+  pointer-events: auto; /* 클릭 가능하게 */
+}
+
+
+.swiper-button-custom button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: all;
+  /* 버튼은 클릭 가능해야 함 */
+}
+
+/* 상품화면 */
+/* 타임세일 섹션 스타일 (PC 전용) */
+.product-list-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5열 고정 */
+  grid-auto-rows: auto;
+  gap: 0; /* 이미지 사이 간격 없음 */
+  width: 100%;
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #eee; /* 필요 시 제거 가능 */
+  box-sizing: border-box;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 8px 0;
+  text-align: left;
+}
+
+.product-info .brand {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-info .name {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.product-info .price {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.brand {
+  font-size: 12px;
+  color: #444;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 14px;
+  color: #222;
+  margin: 4px 0;
+}
+
+.price {
+  font-size: 14px;
+  color: #111;
+  font-weight: bold;
+}
+
+.discount {
+  color: #d32f2f;
+  margin-right: 6px;
+  font-weight: bold;
+}
+/* 인기상품 부분 */
+.popular-section {
+  padding: 0;
+}
+
+.section-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.popular-section .product-list-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5열 고정 */
+  grid-auto-rows: auto;
+  gap: 0; /* 이미지 사이 간격 없음 */
+  width: 100%;
+}
+
+.product-card {
+  position: relative;
+  background-color: #fff;
+}
+
+.product-image {
+  aspect-ratio: 5/6;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.product-info .brand {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #000;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.product-info .name {
+  font-size: 13px;
+  color: #000;
+  margin-bottom: 4px;
+  line-height: 1.4;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.product-info .price {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.product-info .price .discount {
+  color: red;
+  margin-right: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.ranking-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: white;
+  color: black;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 10;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.live-info {
+  padding: 6px 10px 10px;
+  font-size: 11px;
+  color: #666;
+  display: flex;
+  gap: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+/* 아우터영역 필터 */
+.outer-filter-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  gap: 10px;
+  margin: 10px;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.outer-filter {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  font-family: 'Pretendard', sans-serif;
+}

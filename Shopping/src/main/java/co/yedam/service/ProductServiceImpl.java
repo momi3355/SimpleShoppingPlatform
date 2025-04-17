@@ -28,6 +28,11 @@ public class ProductServiceImpl implements ProductService {
     }
     
     @Override
+    public List<ProductDTO> getPopularProducts() {
+        return mapper.getPopularProducts();
+    }
+    
+    @Override
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> list = mapper.getAllProducts();
 
@@ -42,8 +47,6 @@ public class ProductServiceImpl implements ProductService {
                 dto.setDiscountRate(0);
             }
 
-            // 확인 로그
-            System.out.println("[" + dto.getProductName() + "] 할인율: " + dto.getDiscountRate() + "%");
         }
 
         return list;

@@ -9,4 +9,5 @@ public interface ProductService {
     List<ProductDTO> getByCategory(String category); // 카테고리 조회
     List<ProductDTO> getByName(String name); // 상품명 조회
 	List<ProductDTO> getAllProducts();
+	List<ProductDTO> getPopularProducts(); // 판매량으로 정렬조회
 }
