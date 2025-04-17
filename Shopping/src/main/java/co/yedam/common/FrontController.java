@@ -10,16 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.form.CartFromControl;
+import co.yedam.control.form.OrderFromControl;
 import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
-
-import co.yedam.control.ajax.CartJsonControl;
-import co.yedam.control.form.CartFromControl;
-import co.yedam.control.form.OrderFromControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
+import co.yedam.control.AddReviewControl;
+import co.yedam.control.ReviewFormControl;
+import co.yedam.control.ReviewListControl;
 
 public class FrontController extends HttpServlet {
 
@@ -44,6 +46,10 @@ public class FrontController extends HttpServlet {
 		map.put("/signUp.do", new SignUpControl());
 		map.put("/signUpForm.do", new SignUpFormControl());
 		map.put("/mypage.do", new MypageControl());
+		
+		map.put("/reviewForm.do", new ReviewFormControl());
+		map.put("/addReview.do", new AddReviewControl());
+		map.put("/reviewlist.do", new ReviewListControl());
 	}
 
 	@Override
