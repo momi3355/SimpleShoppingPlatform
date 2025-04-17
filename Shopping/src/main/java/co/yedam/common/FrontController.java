@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.control.AddReviewControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.ReviewFormControl;
+import co.yedam.control.ReviewListControl;
 
 public class FrontController extends HttpServlet {
 
@@ -27,6 +28,7 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/reviewForm.do", new ReviewFormControl());
 		map.put("/addReview.do", new AddReviewControl());
+		map.put("/reviewlist.do", new ReviewListControl());
 	}
 
 	@Override

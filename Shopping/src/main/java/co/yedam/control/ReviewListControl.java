@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
 
-public class ReviewFormControl implements Control{
+public class ReviewListControl implements Control {
+
+	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("common/review_add.tiles").forward(req, resp);
-		req.getRequestDispatcher("common/review_list.tiles").forward(req, resp);
+		// TODO Auto-generated method stub
+
 	}
+
 }
