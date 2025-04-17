@@ -1,4 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <!-- mypage.jsp -->
-<a href="loginform.do">로그인으로 이동</a>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/mypage.css">
+
+<div class="mypage-container">
+
+	<!-- 헤더 영역 -->
+	<div class="mypage-header">
+		<div class="header-top">
+			<h2>마이</h2>
+			<a href="main.do" class="home-btn" title="홈으로"> <img
+				src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=000000"
+				alt="홈" class="home-icon">
+			</a>
+		</div>
+		<div class="user-info">
+			어서오세요, <strong>${sessionScope.loginVO.userName}</strong>님
+		</div>
+	</div>
+
+	<!-- 메뉴 영역 -->
+	<ul class="mypage-menu">
+		<li><a href="orderList.do">주문 내역 <span class="arrow">›</span></a></li>
+		<li><a href="cart.do">장바구니 <span class="arrow">›</span></a></li>
+		<li><a href="profile.do">내정보변경 <span class="arrow">›</span></a></li>
+		<li><a href="address.do">배송지 관리 <span class="arrow">›</span></a></li>
+		<li><a href="withdraw.do">회원탈퇴 <span class="arrow">›</span></a></li>
+		<li><a href="support.do">고객센터 <span class="arrow">›</span></a></li>
+		<li><a href="notice.do">공지사항 <span class="arrow">›</span></a></li>
+	</ul>
+
+
+</div>

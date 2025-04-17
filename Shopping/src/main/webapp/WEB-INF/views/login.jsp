@@ -8,7 +8,11 @@
 
 <div class="login-container">
 	<form action="login.do" method="post">
-
+		<c:if test="${not empty message}">
+  		  <div style="color: green; font-size: 14px; margin-bottom: 10px;">
+     		   ${message}
+   		 </div>
+		</c:if>
 		<!-- 아이디 입력 창 위에 에러 메시지 표시 -->
 		<c:if test="${message eq '아이디 또는 비밀번호를 확인하세요.'}">
 			<p style="color: red; font-size: 13px; margin: 0 0 5px 0;">
@@ -34,7 +38,7 @@
 
 	<div class="login-links">
 		<a href="/find-id">아이디 찾기</a> | <a href="/find-password">비밀번호 찾기</a> |
-		<a href="/signup">회원가입</a>
+		<a href="signUpForm.do">회원가입</a>
 	</div>
 
 	<div class="social-login">

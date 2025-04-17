@@ -1,0 +1,72 @@
+.mypage-container {
+  max-width: 700px;
+  margin: 60px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mypage-header {
+  background-color: #fafafa;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mypage-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.home-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+}
+
+.home-btn:hover .home-icon {
+  transform: scale(1.15);
+}
+
+.user-info {
+  font-size: 16px;
+}
+
+.user-info strong {
+  font-weight: bold;
+}
+
+.mypage-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mypage-menu li {
+  border-bottom: 1px solid #eee;
+}
+
+.mypage-menu a:hover {
+  background-color: #f9f9f9;
+}
+.mypage-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+}
+
+.arrow {
+  font-size: 16px;
+  color: #ccc;
+}

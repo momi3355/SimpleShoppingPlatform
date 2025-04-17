@@ -9,6 +9,6 @@ public class LoginVO {
 	private String userName;
 	private String password;
 	private String email;
-	private int phone;
+	private String phone;
 	private String userDate;
 }
