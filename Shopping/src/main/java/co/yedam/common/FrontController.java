@@ -14,6 +14,10 @@ import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
+
+import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.form.CartFromControl;
+import co.yedam.control.form.OrderFromControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
 
@@ -28,8 +32,15 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
+		
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
+		map.put("/mypage.do", new MypageControl());
+		
+		/* [결제] */
+		map.put("/cartFrom.do", new CartFromControl());
+		map.put("/cartJson.do", new CartJsonControl());
+		map.put("/orderFrom.do", new OrderFromControl());
 		map.put("/signUp.do", new SignUpControl());
 		map.put("/signUpForm.do", new SignUpFormControl());
 		map.put("/mypage.do", new MypageControl());
