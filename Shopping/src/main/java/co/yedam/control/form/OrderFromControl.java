@@ -14,6 +14,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.yedam.common.Control;
+import co.yedam.common.ProductDTO;
+import co.yedam.service.ProductService;
+import co.yedam.service.ProductServiceImpl;
 
 public class OrderFromControl implements Control {
 	@Override
@@ -26,17 +29,22 @@ public class OrderFromControl implements Control {
 			
 			map.put("user_code", Integer.parseInt(userCode));
 			
-			List<Map<String, Integer>> list = new ArrayList<Map<String,Integer>>();
+			List<Map<String, String>> list = new ArrayList<Map<String,String>>();
 			for (int i = 0; i < Integer.parseInt(count); i++) {
-				Map<String, Integer> productMap = new HashMap<String, Integer>();
-				Integer proCode = Integer.parseInt(req.getParameter("pro_code_"+i));
-				
-				//product_mapper.
-				
+				Map<String, String> productMap = new HashMap<String, String>();
+				String proCode = req.getParameter("pro_code_"+i);
 				String quantity = req.getParameter("quantity_"+i);
 				
+				//product_mapper.
+				ProductService psv = new ProductServiceImpl();
+				ProductDTO pro = psv.getByCode(Integer.parseInt(proCode));
+				
+				
 				productMap.put("pro_code", proCode);
-				productMap.put("quantity", Integer.parseInt(quantity));
+				productMap.put("pro_name", pro.getProductName());
+				productMap.put("price", pro.getPrice()+"");
+				productMap.put("option", pro.getProductOption());
+				productMap.put("quantity", quantity);
 				
 				list.add(productMap);
 			}

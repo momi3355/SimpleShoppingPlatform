@@ -9,8 +9,10 @@ orderItem.innerHTML = /* html */
 json.datas.forEach((item, idx) => {
   let html = /* html */
   `<div class="summary">
-    <p>상품명: </p>
-    <p>수량: 2</p>
-    <p>가격: 39,800원</p>
+    <p><b>${item.pro_name}</b></p>
+    <p>${item.option} / ${item.quantity}</p>
+    <p>${item.price.toLocaleString('ko-KR')}원</p>
   </div>`
+
+  orderItem.innerHTML += html;
 });

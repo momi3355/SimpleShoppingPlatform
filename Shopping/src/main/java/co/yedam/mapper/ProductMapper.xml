@@ -14,6 +14,14 @@
   		ORDER BY sales_count DESC
 	</select>
 	
+	<!-- 코드로 조회 -->
+	<select id="getProductByCode" resultType="ProductDTO" parameterType="int">
+		SELECT *
+		FROM   products
+		WHERE  product_code = #{productCode}
+		ORDER BY product_code DESC
+	</select>
+	
 	<!-- 카테고리로 조회 -->
 	<select id="getProductsByCategory" resultType="ProductDTO" parameterType="String">
 		SELECT *
