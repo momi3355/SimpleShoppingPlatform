@@ -1,6 +1,7 @@
 package co.yedam.control;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ public class ProductDetailControl implements Control {
             int productCode = Integer.parseInt(code);
 
             ProductService service = new ProductServiceImpl();
-            ProductDTO product = service.getByCode(productCode);
+            ProductDTO product = service.getDetailByCode(productCode);
 
             req.setAttribute("product", product);
 

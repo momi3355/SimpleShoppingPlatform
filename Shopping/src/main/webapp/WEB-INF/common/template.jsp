@@ -11,14 +11,19 @@ pageEncoding="UTF-8"%>
 		<title>왜않사</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/project.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/project.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/searchbar.css" />
    	</head>
    	 <body>
   		<div id="container">
 			<tiles:insertAttribute name="menu"/>
+			<tiles:insertAttribute name="header"/>
+			<tiles:insertAttribute name="searchOverlay"/>
     		<tiles:insertAttribute name="body"/>
 			<tiles:insertAttribute name="footer"/>
 		</div>
     </body>
     <script src="js/main.js"></script>
+    <script src="js/searchbar.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/searchOverlay.js" defer></script>
 </html>

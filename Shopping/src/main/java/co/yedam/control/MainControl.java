@@ -61,6 +61,6 @@ public class MainControl implements Control {
 		req.setAttribute("shoesList", shoesList);
 		req.setAttribute("accessoriesList", accessoriesList);
 
-		req.getRequestDispatcher("common/main.tiles").forward(req, resp);
+		req.getRequestDispatcher("/myapp.homepage.tiles").forward(req, resp);
 	}
 }

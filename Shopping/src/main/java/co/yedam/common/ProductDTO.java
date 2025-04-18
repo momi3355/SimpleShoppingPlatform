@@ -23,13 +23,11 @@ public class ProductDTO {
 	private int salesCount; //판매량
 	private List<String> infoImageUrls; //이미지
 	// 할인율 
-	private int discountRate;
-
 	public int getDiscountRate() {
-	    return discountRate;
-	}
-
-	public void setDiscountRate(int discountRate) {
-	    this.discountRate = discountRate;
+	    if (originalPrice > 0 && originalPrice > price) {
+	        return (int) Math.round((originalPrice - price) * 100.0 / originalPrice);
+	    } else {
+	        return 0;
+	    }
 	}
 }

@@ -1,20 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<header class="header">
-	<div class="header-inner">
-		<!-- 검색창 -->
-		<div class="search-box">
-			<input type="text" placeholder="검색어를 입력하세요" id="searchInput" class="search-input" />
-			<button class="search-button" aria-label="검색버튼">
-				<svg width="20" height="20" fill="none" stroke="#ccc" stroke-width="1.5" viewBox="0 0 24 24">
-					<path d="M21 21l-4.35-4.35M16 10.5A5.5 5.5 0 1 1 10.5 5a5.5 5.5 0 0 1 5.5 5.5z" />
-				</svg>
-			</button>
+<main id="main-container">
+	<!--  검색창  -->
+	<div id="container">
+		<div id="searchOverlay" class="search-overlay">
+			<div class="overlay-background"></div>
+			<div class="overlay-content">
+				<header class="search-header">
+					<div class="search-input-box">
+						<input type="text" id="searchKeyword" placeholder="검색어를 입력하세요" />
+						<button id="confirmSearchBtn" class="search-button" aria-label="검색">
+							<svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12 12L16.5 16.5M13.5 8.5C13.5 11.2614 11.2614 13.5 8.5 13.5C5.73858 13.5 3.5 11.2614 3.5 8.5C3.5 5.73858 5.73858 3.5 8.5 3.5C11.2614 3.5 13.5 5.73858 13.5 8.5Z"
+									stroke="gray" stroke-width="1.4" />
+							</svg>
+						</button>
+						<button id="closeButton" class="close-button" aria-label="닫기">
+							<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 20 20" fill="none">
+								<path d="M5 5L15 15M5 15L15 5" stroke-width="1.4" stroke="gray" stroke-miterlimit="10" />
+							</svg>
+						</button>
+					</div>
+				</header>
+
+				<div class="search-content">
+					<!-- 🔍 최근 검색어 -->
+					<section class="recent-searches">
+						<header class="header">
+							<span class="title">최근 검색어</span>
+							<button class="clear-all" id="deleteAllRecent">모두삭제</button>
+						</header>
+						<ul id="recentList"></ul>
+					</section>
+
+					<!-- 🔥 인기 검색어 -->
+					<article class="popular-keywords">
+						<header class="popular-header">
+							<span class="title">인기 검색어</span>
+							<div class="meta-info">
+								<svg class="icon-refresh" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M11.5 2L14.2879 4.78787C14.405 4.90503 14.405 5.09497 14.2879 5.21213L11.5 8M14.002 5H10C6.688 5 4 7.688 4 11C4 14.312 6.688 17 10 17C13.312 17 16 14.312 16 11V9.5"
+										stroke="black" stroke-width="1.4" />
+								</svg>
+							</div>
+						</header>
+						<ol class="keyword-list">
+							<li>
+								<button>
+									<span class="rank-number">1</span>
+									<span class="keyword">아우터</span>
+									<span class="rank-icon up"></span>
+								</button>
+							</li>
+						</ol>
+					</article>
+				</div>
+			</div>
 		</div>
 	</div>
-</header>
-<main id="main-container">
 	<!-- 탭 메뉴 (PC 전용) -->
 	<nav class="tab-nav">
 		<ul class="tab-list">

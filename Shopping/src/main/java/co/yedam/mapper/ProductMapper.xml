@@ -7,49 +7,49 @@
 		FROM products
 		ORDER BY product_date DESC
 	</select>
-	<!-- 코드로 조회 -->
-    <select id="getProductByCode" resultType="ProductDTO" parameterType="int">
-        SELECT *
-        FROM   products
-        WHERE  product_code = #{productCode}
-        ORDER BY product_code DESC
-    </select>
-	<!-- 판매량 상품 조회 -->
-	<select id="getPopularProducts" resultType="ProductDTO">
-  		SELECT *
-  		FROM   products
-  		ORDER BY sales_count DESC
-	</select>
-	
-	<!-- 코드로 이미지 조회 -->
-	<select id="getProductDetailByCode" resultType="ProductDTO" parameterType="int">
+	<!-- 코드로 상품만 조회 -->
+	<select id="getProductByCode" resultType="ProductDTO"
+		parameterType="int">
 		SELECT *
-		FROM   products
-		WHERE  product_code = #{productCode}
+		FROM products
+		WHERE product_code = #{productCode}
 		ORDER BY product_code DESC
 	</select>
-	
-	<!-- 카테고리로 조회 -->
-	<select id="getProductsByCategory" resultType="ProductDTO" parameterType="String">
+	<!-- 판매량순으로 상품 조회 -->
+	<select id="getPopularProducts" resultType="ProductDTO">
 		SELECT *
-		FROM   products
-		WHERE  product_category = #{productCategory}
+		FROM products
+		ORDER BY sales_count DESC
+	</select>
+
+	<!-- 코드로 이미지 조회 -->
+	<select id="getProductDetailByCode" resultType="ProductDTO"
+		parameterType="int">
+		SELECT *
+		FROM products
+		WHERE product_code = #{productCode}
 		ORDER BY product_code DESC
 	</select>
 
-	<!-- 상품명 검색 (LIKE 검색) -->
-	<select id="searchProductsByName" resultType="ProductDTO" parameterType="String">
- 		SELECT * 
- 		FROM   products
-		WHERE  product_name LIKE '%' || #{product_name} || '%'
+	<!-- 카테고리, 이름검색 -->
+	<select id="getProducts" resultType="ProductDTO" parameterType="map">
+		SELECT *
+		FROM products
+		<where>
+			<if test="productName != null and productName != ''">
+				(product_name LIKE '%' || #{productName} || '%'
+				OR product_category LIKE '%' || #{productName} || '%')
+			</if>
+		</where>
 		ORDER BY product_date DESC
 	</select>
-	
 	<!-- 상품이미지 -->
-	<select id="getProductImages" resultType="string" parameterType="int">
-	  SELECT image_url
-	    FROM product_images
-	   WHERE product_code = #{productCode}
-	   ORDER BY sort_order
+	<select id="getProductImages" resultType="string"
+		parameterType="int">
+		SELECT image_url
+		FROM product_images
+		WHERE product_code =
+		#{productCode}
+		ORDER BY sort_order
 	</select>
 </mapper>

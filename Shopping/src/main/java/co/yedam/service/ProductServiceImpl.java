@@ -1,6 +1,8 @@
 package co.yedam.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -16,21 +18,12 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> productList() {
         return getAllProducts(); // 할인율 포함된 리스트 반환
     }
-
-    @Override
-    public List<ProductDTO> getByCategory(String category) {
-        return mapper.getProductsByCategory(category);
-    }
-
-    @Override
-    public List<ProductDTO> getByName(String name) {
-        return mapper.searchProductsByName(name);
-    }
     
     @Override
     public List<ProductDTO> getPopularProducts() {
         return mapper.getPopularProducts();
     }
+    // 상품코드로 상세이미지 조회
     @Override
     public ProductDTO getDetailByCode(int code) {
       ProductDTO product = mapper.getProductByCode(code);
@@ -38,28 +31,21 @@ public class ProductServiceImpl implements ProductService {
       product.setInfoImageUrls(images);
       return product;
     }
+    // 상품코드로 상품 조회
     @Override
     public ProductDTO getByCode(int code) {
     	return mapper.getProductByCode(code);
     }
     
+    // 할인율 계산된것
     @Override
     public List<ProductDTO> getAllProducts() {
-        List<ProductDTO> list = mapper.getAllProducts();
-
-        for (ProductDTO dto : list) {
-            int original = dto.getOriginalPrice();
-            int sale = dto.getPrice();
-
-            if (original > sale) {
-                int rate = (original - sale) * 100 / original;
-                dto.setDiscountRate(rate);
-            } else {
-                dto.setDiscountRate(0);
-            }
-
-        }
-
-        return list;
+        return mapper.getAllProducts(); // ✅ 이렇게 수정!
     }
+    // 상품 카테고리, 이름 검색
+	@Override
+	public List<ProductDTO> getProducts(Map<String, Object> params) {
+		// TODO Auto-generated method stub
+		return mapper.getProducts(params);
+	}
 }

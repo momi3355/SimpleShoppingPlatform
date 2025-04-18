@@ -26,6 +26,7 @@ import co.yedam.control.SignUpFormControl;
 import co.yedam.control.AddReviewControl;
 import co.yedam.control.ReviewFormControl;
 import co.yedam.control.ReviewListControl;
+import co.yedam.control.SearchResultControl;
 
 public class FrontController extends HttpServlet {
 
@@ -41,6 +42,8 @@ public class FrontController extends HttpServlet {
 		
 		// 상품 상세페이지
 		map.put("/productdetail.do", new ProductDetailControl());
+		// 상품 검색
+		map.put("/searchResult.do", new SearchResultControl());
 		
 		// 로그인 페이지
 		map.put("/login.do", new LoginControl());
