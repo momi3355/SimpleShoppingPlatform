@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.control.ajax.AddressJsonControl;
 import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.ajax.ConfigReaderControl;
 import co.yedam.control.form.CartFromControl;
 import co.yedam.control.form.OrderFromControl;
 import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
+import co.yedam.control.PaymentSuccessControl;
 import co.yedam.control.ProductDetailControl;
 
 import co.yedam.control.RemoveReviewControl;
@@ -39,6 +41,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainControl());
+		map.put("/configReader.do", new ConfigReaderControl());
 		
 		// 상품 상세페이지
 		map.put("/productdetail.do", new ProductDetailControl());
@@ -54,6 +57,7 @@ public class FrontController extends HttpServlet {
 		map.put("/cartFrom.do", new CartFromControl());
 		map.put("/cartJson.do", new CartJsonControl());
 		map.put("/orderFrom.do", new OrderFromControl());
+		map.put("/paymentSuccess.do", new PaymentSuccessControl());
 		
 		map.put("/addressJson.do", new AddressJsonControl());
 		

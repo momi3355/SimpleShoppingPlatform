@@ -2,7 +2,7 @@
 pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/cart.css">
 <script>
-  let userCode = `${ucode}`;
+  let userCode = `${user_code}`;
 </script>
 <script src="js/cart.js"></script>
 <div class="cart-container">
@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
   <div class="table-container">
     <p class="cart-title"><span>My cart</span> 장바구니</p>
     <form action="orderFrom.do" method="post">
-      <input type="hidden" id="user_code" name="user_code"  value="${ucode}">
+      <input type="hidden" id="user_code" name="user_code"  value="${user_code}">
       <table class="cart-table">
         <thead>
           <tr>

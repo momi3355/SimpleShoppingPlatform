@@ -17,4 +17,48 @@
                     ON c.product_code = p.product_code
      WHERE c.user_code = #{userCode}
   </select>
+  <delete id="deleteCart" parameterType="int">
+    DELETE FROM cart
+     WHERE #{userCode}
+  </delete>
+  
+  <insert id="insertOrder" parameterType="co.yedam.vo.OrdersVO">
+    <selectKey keyProperty="orderCode" resultType="int" order="BEFORE">
+      SELECT order_code_seq.nextval
+        FROM DUAL
+    </selectKey>
+    INSERT INTO orders (order_code,
+                        user_code,
+                        user_name,
+                        phone,
+                        address)
+    VALUES (#{orderCode},
+            #{userCode},
+            #{userName},
+            #{phone},
+            #{address})
+  </insert>
+  <insert id="insertOrderItem" parameterType="co.yedam.vo.OrderItemVO">
+    INSERT INTO order_items (order_item_code,
+                            order_code,
+                            product_code,
+                            quantity,
+                            price)
+    VALUES (order_item_code_seq.nextval,
+            #{orderCode},
+            #{productCode},
+            #{quantity},
+            #{price})
+  </insert>
+  
+  <select id="selectOrder" parameterType="int" resultType="map">
+    SELECT order_code,
+           user_code,
+           user_name,
+           phone,
+           address,
+           order_date
+      FROM orders
+     WHERE order_code = #{orderCode}
+  </select>
 </mapper>
