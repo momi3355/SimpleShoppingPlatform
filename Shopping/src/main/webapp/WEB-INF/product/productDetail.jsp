@@ -74,103 +74,146 @@
               </div>
             </div>
             <div class="tab-content" id="size">
-              <div class="size-info">
-                <h2 class="title">사이즈 정보</h2>
-
-                <div class="body-input">
-                  <div class="input-group">
-                    <input type="text" placeholder="키" class="input"><span class="unit">cm</span>
+              <c:choose>
+                <c:when test="${not empty product and product.productCategory eq '신발'}">
+                  <div class="shoe-size-info">
+                    <h2 class="size-title">신발 사이즈 정보</h2>
+                    <table class="shoe-size-table">
+                      <thead>
+                        <tr>
+                          <th>한국(mm)</th>
+                          <th>일본(cm)</th>
+                          <th>미국(남)</th>
+                          <th>미국(여)</th>
+                          <th>영국</th>
+                          <th>유럽</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>220</td><td>22.0</td><td>4</td><td>5</td><td>3</td><td>35</td>
+                        </tr>
+                        <tr><td>225</td><td>22.5</td><td>4.5</td><td>5.5</td><td>3.5</td><td>35.5</td></tr>
+                        <tr><td>230</td><td>23.0</td><td>5</td><td>6</td><td>4</td><td>36</td></tr>
+                        <tr><td>235</td><td>23.5</td><td>5.5</td><td>6.5</td><td>4.5</td><td>36.5</td></tr>
+                        <tr><td>240</td><td>24.0</td><td>6</td><td>7</td><td>5</td><td>37</td></tr>
+                        <tr><td>245</td><td>24.5</td><td>6.5</td><td>7.5</td><td>5.5</td><td>38</td></tr>
+                        <tr><td>250</td><td>25.0</td><td>7</td><td>8</td><td>6</td><td>39</td></tr>
+                        <tr><td>255</td><td>25.5</td><td>7.5</td><td>8.5</td><td>6.5</td><td>40</td></tr>
+                        <tr><td>260</td><td>26.0</td><td>8</td><td>9</td><td>7</td><td>41</td></tr>
+                        <tr><td>265</td><td>26.5</td><td>8.5</td><td>9.5</td><td>7.5</td><td>42</td></tr>
+                        <tr><td>270</td><td>27.0</td><td>9</td><td>10</td><td>8</td><td>43</td></tr>
+                      </tbody>
+                    </table>
+                    <ul class="size-note">
+                      <li>브랜드마다 사이즈 기준이 조금씩 다를 수 있습니다.</li>
+                      <li>사이즈 선택 시 참고용으로만 사용하세요.</li>
+                    </ul>
                   </div>
-                  <div class="input-group">
-                    <input type="text" placeholder="몸무게" class="input"><span class="unit">kg</span>
+                </c:when>
+                <c:otherwise>
+                  <div class="size-info">
+                    <h2 class="title">사이즈 정보</h2>
+
+                    <div class="body-input">
+                      <div class="input-group">
+                        <input type="text" name="height" placeholder="키" class="input">
+                        <span class="unit">cm</span>
+                      </div>
+                      <div class="input-group">
+                        <input type="text" name="weight" placeholder="몸무게" class="input">
+                        <span class="unit">kg</span>
+                      </div>
+                    </div>
+
+                    <div class="recommend">
+                      <p class="recommend-title">사이즈 추천</p>
+                      <div class="recommend-result">Free - 100% (1명 구매)</div>
+                      <p class="recommend-desc">입력한 정보를 바탕으로 추천 사이즈를 알려드립니다.</p>
+                    </div>
+
+                    <div class="size-table-wrapper">
+                      <table class="size-table">
+                        <thead>
+                          <tr>
+                            <th>한국</th>
+                            <th>미국</th>
+                            <th>일본</th>
+                            <th>영국</th>
+                            <th>프랑스</th>
+                            <th>이탈리아</th>
+                            <th>유럽</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>44(85)</td>
+                            <td>2</td>
+                            <td>44</td>
+                            <td>4-6</td>
+                            <td>34</td>
+                            <td>80</td>
+                            <td>34</td>
+                          </tr>
+                          <tr>
+                            <td>55(90)</td>
+                            <td>4</td>
+                            <td>55</td>
+                            <td>8-10</td>
+                            <td>36, 44</td>
+                            <td>90</td>
+                            <td>36</td>
+                          </tr>
+                          <tr>
+                            <td>66(95)</td>
+                            <td>6</td>
+                            <td>66</td>
+                            <td>10-12</td>
+                            <td>38, 48</td>
+                            <td>95</td>
+                            <td>38</td>
+                          </tr>
+                          <tr>
+                            <td>77(100)</td>
+                            <td>8</td>
+                            <td>77</td>
+                            <td>16-18</td>
+                            <td>40, 42</td>
+                            <td>100</td>
+                            <td>40</td>
+                          </tr>
+                          <tr>
+                            <td>88(105)</td>
+                            <td>10</td>
+                            <td>88L</td>
+                            <td>20-22</td>
+                            <td>44, 46, 48</td>
+                            <td>105</td>
+                            <td>42</td>
+                          </tr>
+                          <tr>
+                            <td>110</td>
+                            <td>12</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>50, 52, 54</td>
+                            <td>110</td>
+                            <td>44</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <ul class="note">
+                      <li>인터내셔널 사이즈 표입니다. 참고하시기 바랍니다.</li>
+                      <li>브랜드별로 표기 방식이 다를 수 있습니다.</li>
+                      <li>유아, 아동, GS 등 연령대별 구분이 있을 수 있습니다.</li>
+                    </ul>
                   </div>
-                </div>
-
-                <div class="recommend">
-                  <p class="recommend-title">사이즈 추천</p>
-                  <div class="recommend-result">Free - 100% (1명 구매)</div>
-                  <p class="recommend-desc">입력한 정보를 바탕으로 추천 사이즈를 알려드립니다.</p>
-                </div>
-
-                <div class="size-table-wrapper">
-                  <table class="size-table">
-                    <thead>
-                      <tr>
-                        <th>한국</th>
-                        <th>미국</th>
-                        <th>일본</th>
-                        <th>영국</th>
-                        <th>프랑스</th>
-                        <th>이탈리아</th>
-                        <th>유럽</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>44(85)</td>
-                        <td>2</td>
-                        <td>44</td>
-                        <td>4-6</td>
-                        <td>34</td>
-                        <td>80</td>
-                        <td>34</td>
-                      </tr>
-                      <tr>
-                        <td>55(90)</td>
-                        <td>4</td>
-                        <td>55</td>
-                        <td>8-10</td>
-                        <td>36, 44</td>
-                        <td>90</td>
-                        <td>36</td>
-                      </tr>
-                      <tr>
-                        <td>66(95)</td>
-                        <td>6</td>
-                        <td>66</td>
-                        <td>10-12</td>
-                        <td>38, 48</td>
-                        <td>95</td>
-                        <td>38</td>
-                      </tr>
-                      <tr>
-                        <td>77(100)</td>
-                        <td>8</td>
-                        <td>77</td>
-                        <td>16-18</td>
-                        <td>40, 42</td>
-                        <td>100</td>
-                        <td>40</td>
-                      </tr>
-                      <tr>
-                        <td>88(105)</td>
-                        <td>10</td>
-                        <td>88L</td>
-                        <td>20-22</td>
-                        <td>44, 46, 48</td>
-                        <td>105</td>
-                        <td>42</td>
-                      </tr>
-                      <tr>
-                        <td>110</td>
-                        <td>12</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>50, 52, 54</td>
-                        <td>110</td>
-                        <td>44</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <ul class="note">
-                  <li>인터내셔널 사이즈 표입니다. 참고하시기 바랍니다.</li>
-                  <li>브랜드별로 표기 방식이 다를 수 있습니다.</li>
-                  <li>유아, 아동, GS 등 연령대별 구분이 있을 수 있습니다.</li>
-                </ul>
-              </div>
+                </c:otherwise>
+              </c:choose>
             </div>
+
             <div class="tab-content" id="review">
               <p>후기 내용이 들어갑니다.</p>
             </div>

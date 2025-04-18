@@ -57,12 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("toggleInfoBtn");
   const productInfo = document.getElementById("productInfoImages");
 
-  toggleBtn.addEventListener("click", () => {
-    productInfo.classList.toggle("collapsed");
-    toggleBtn.querySelector("span").textContent = productInfo.classList.contains("collapsed") 
-      ? "상품 정보 더보기" 
-      : "상품 정보 접기";
-  });
+  if (toggleBtn && productInfo) {
+    toggleBtn.addEventListener("click", () => {
+      productInfo.classList.toggle("collapsed");
+      toggleBtn.querySelector("span").textContent = productInfo.classList.contains("collapsed") 
+        ? "상품 정보 더보기" 
+        : "상품 정보 접기";
+    });
+  }
 });
 // 사이즈 탭기능
 document.addEventListener("DOMContentLoaded", () => {
