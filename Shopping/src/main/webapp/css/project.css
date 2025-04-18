@@ -76,14 +76,25 @@ a {
   color: #555;
   opacity: 0.8;
 }
+.nav-search-button {
+  padding: 8px 12px;
+  background-color: rgb(26, 27, 31);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 
 /* header */
 .header {
   background-color: rgb(26, 27, 31);
   color: white;
-  padding: 12px 0; /* 좌우 패딩 제거 */
+  padding: 0; /* 좌우 패딩 제거 */
   display: none;
-  margin-top: 50px;
+  margin-top: 72px;
 }
 
 @media (min-width: 768px) {
@@ -132,10 +143,6 @@ a {
   text-overflow: ellipsis;
 }
 
-.search-bar-button:hover {
-  border-color: #888;
-  background-color: #f9f9f9;
-}
 
 /* footer */
 footer {

@@ -6,7 +6,6 @@
     <header class="search-header">
       <div class="search-input-box">
         <input type="text" id="searchKeyword" placeholder="검색어를 입력하세요" />
-        
         <button id="confirmSearchBtn" class="search-button" aria-label="검색">
           <svg width="100%" height="100%" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path

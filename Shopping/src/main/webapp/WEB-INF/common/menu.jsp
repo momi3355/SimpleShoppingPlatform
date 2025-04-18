@@ -6,7 +6,7 @@
       <a href="main.do">WAEANHSA</a>
     </div>
     <div class="gnb-2">
-      <button type="button" class="click-button">검색</button>
+      <button type="button" class="open-search-overlay nav-search-button">검색</button>
       <a href="myPage.do">마이</a>
       <a href="#">장바구니</a>
     </div>
