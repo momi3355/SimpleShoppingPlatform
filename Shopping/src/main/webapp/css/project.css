@@ -94,7 +94,7 @@ a {
   color: white;
   padding: 0; /* 좌우 패딩 제거 */
   display: none;
-  margin-top: 72px;
+  margin-top: 52px;
 }
 
 @media (min-width: 768px) {
@@ -107,7 +107,7 @@ a {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center; /* ✅ 가운데 정렬 */
