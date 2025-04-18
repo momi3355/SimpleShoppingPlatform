@@ -1,34 +1,36 @@
 package co.yedam.control;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.Control;
 import co.yedam.common.DataSource;
 import co.yedam.mapper.LoginMapper;
-import co.yedam.vo.LoginVO;
+import co.yedam.service.LoginService;
+import co.yedam.service.LoginServiceImpl;
 
 public class LoginControl implements Control {
 
     @Override
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SqlSession sqlSession = DataSource.getInstance().openSession();
-        LoginMapper mapper = sqlSession.getMapper(LoginMapper.class);
 
         String id = req.getParameter("id");
         String pw = req.getParameter("pw");
 
-        LoginVO vo = mapper.loginCheck(id);
+        LoginService service = new LoginServiceImpl();
+        int userCode = service.login(id,pw);
  
-        if (vo != null && vo.getPassword().equals(pw)) {
-        	req.getSession().setAttribute("loginVO", vo);
-            resp.sendRedirect("main.do");
+        if (userCode != 0) {
+        	req.getSession().setAttribute("userCode", userCode);
+        	resp.sendRedirect("main.do");
         } else {
-            req.getSession().setAttribute("loginError", "아이디 또는 비밀번호를 확인하세요.");
-            resp.sendRedirect("loginForm.do");
+        	req.getSession().setAttribute("loginError", "아이디 또는 비밀번호를 확인해주세요.");
+        	resp.sendRedirect("loginForm.do");
         }
     }
 }

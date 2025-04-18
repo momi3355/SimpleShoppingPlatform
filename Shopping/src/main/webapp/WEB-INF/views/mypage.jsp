@@ -14,7 +14,7 @@
 			</a>
 		</div>
 		<div class="user-info">
-			어서오세요, <strong>${sessionScope.loginVO.userName}</strong>님
+			어서오세요, <strong>${userName}</strong>님
 		</div>
 	</div>
 
@@ -22,12 +22,12 @@
 	<ul class="mypage-menu">
 		<li><a href="orderList.do">주문 내역 <span class="arrow">›</span></a></li>
 		<li><a href="cart.do">장바구니 <span class="arrow">›</span></a></li>
-		<li><a href="profile.do">내정보변경 <span class="arrow">›</span></a></li>
+		<li><a href="profile.do">내정보 변경 <span class="arrow">›</span></a></li>
+		<li><a href="passwordForm.do">비밀번호 변경 <span class="arrow">›</span></a></li>
 		<li><a href="address.do">배송지 관리 <span class="arrow">›</span></a></li>
-		<li><a href="withdraw.do">회원탈퇴 <span class="arrow">›</span></a></li>
+		<li><a href="withdraw.do">회원 탈퇴 <span class="arrow">›</span></a></li>
 		<li><a href="support.do">고객센터 <span class="arrow">›</span></a></li>
 		<li><a href="notice.do">공지사항 <span class="arrow">›</span></a></li>
 	</ul>
-
-
 </div>
+<div class="logout"><a href="logout.do">로그아웃</a></div>
