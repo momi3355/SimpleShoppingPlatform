@@ -1,0 +1,55 @@
+.pwchange-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.pwchange-container h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.pwchange-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.pwchange-container input[type="password"]:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.pwchange-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pwchange-container button:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.message {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
