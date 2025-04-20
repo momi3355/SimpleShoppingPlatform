@@ -10,28 +10,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.control.ajax.AddressJsonControl;
-import co.yedam.control.ajax.CartJsonControl;
-import co.yedam.control.ajax.ConfigReaderControl;
-import co.yedam.control.form.CartFromControl;
-import co.yedam.control.form.OrderFromControl;
+import co.yedam.control.AddReviewControl;
+import co.yedam.control.ChangePwControl;
+import co.yedam.control.CheckPwControl;
+import co.yedam.control.FindIdControl;
+import co.yedam.control.FindPwControl;
+import co.yedam.control.KakaoLoginControl;
 import co.yedam.control.LoginControl;
 import co.yedam.control.LoginFormControl;
 import co.yedam.control.LogoutControl;
 import co.yedam.control.MainControl;
 import co.yedam.control.MypageControl;
+import co.yedam.control.PasswordFormControl;
 import co.yedam.control.PaymentSuccessControl;
 import co.yedam.control.ProductDetailControl;
-
 import co.yedam.control.RemoveReviewControl;
-import co.yedam.control.SignUpControl;
-import co.yedam.control.SignUpFormControl;
-import co.yedam.control.AddReviewControl;
-import co.yedam.control.FindIdControl;
-import co.yedam.control.FindPwControl;
+import co.yedam.control.ResetPasswordControl;
 import co.yedam.control.ReviewFormControl;
 import co.yedam.control.ReviewListControl;
 import co.yedam.control.SearchResultControl;
+import co.yedam.control.SignUpControl;
+import co.yedam.control.SignUpFormControl;
+import co.yedam.control.ajax.AddressJsonControl;
+import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.ajax.ConfigReaderControl;
+import co.yedam.control.form.CartFromControl;
+import co.yedam.control.form.OrderFromControl;
 
 public class FrontController extends HttpServlet {
 
@@ -58,9 +62,12 @@ public class FrontController extends HttpServlet {
 		map.put("/findId.do", new FindIdControl());
 		map.put("/findPw.do", new FindPwControl());
 		map.put("/myPage.do", new MypageControl());
-//		map.put("/passwordForm.do", new PasswordFormControl());
-//		map.put("/checkPw.do", new CheckPwControl());
-//		map.put("/changePw.do", new ChangePwControl());
+		map.put("/passwordForm.do", new PasswordFormControl());
+		map.put("/checkPw.do", new CheckPwControl());
+		map.put("/changePw.do", new ChangePwControl());
+		map.put("/resetPassword.do", new ResetPasswordControl());
+		map.put("/kakaoLogin.do", new KakaoLoginControl());
+		
 		
 		map.put("/signUp.do", new SignUpControl());
 		map.put("/signUpForm.do", new SignUpFormControl());
@@ -86,9 +93,12 @@ public class FrontController extends HttpServlet {
 		String uri = req.getRequestURI();
 		String context = req.getContextPath();
 		String path = uri.substring(context.length());
+	    System.out.println("요청된 경로 path: " + path); //에러 확인용 추후 삭제
 
 		Control sub = map.get(path);
 		sub.exec(req, resp);
 
 	}
+	
+	
 }

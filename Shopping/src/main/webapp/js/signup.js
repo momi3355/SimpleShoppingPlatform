@@ -68,8 +68,8 @@ $(function () {
     }
   });
 
-  // 비밀번호 확인
-  $('#passwordCheck').on('input', function () {
+  // 비밀번호 확인 검사
+  $('#confirmPassword').on('input', function () {
     const pw = $('#password').val();
     const pwCheck = $(this).val();
     if (pw !== pwCheck) {
@@ -78,6 +78,7 @@ $(function () {
       $('#pwMessage').text('비밀번호가 일치합니다.').addClass('success').removeClass('error');
     }
   });
+
 
   // 이름/전화번호 실시간 제거 및 숫자 제한
   $('#userName').on('input', () => clear('nameMessage'));
@@ -90,7 +91,7 @@ $(function () {
   $('#signupForm').on('submit', function (e) {
     let valid = true;
     const pw = $('#password').val();
-    const pwCheck = $('#passwordCheck').val();
+    const pwCheck = $('#confirmPassword').val();
     const name = $('#userName').val();
     const phone = $('#phone').val();
     const pwValid = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/.test(pw);
@@ -123,3 +124,18 @@ $(function () {
     if (!valid) e.preventDefault();
   });
 });
+function togglePassword(inputId, icon) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fi-rr-eye");
+    icon.classList.add("fi-rr-eye-crossed");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fi-rr-eye-crossed");
+    icon.classList.add("fi-rr-eye");
+  }
+}
+

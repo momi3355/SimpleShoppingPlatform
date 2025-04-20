@@ -6,26 +6,89 @@
 <mapper namespace="co.yedam.mapper.LoginMapper">
 	<select id="loginCheck" parameterType="String"
 		resultType="co.yedam.vo.LoginVO">
-		SELECT *
+		SELECT user_code,
+		user_id,
+		user_name,
+		password,
+		email,
+		phone,
+		user_date
 		FROM users
-		WHERE user_id = #{id}
+		WHERE user_id = #{userId}
 	</select>
 	<select id="selectByCode" parameterType="int"
 		resultType="co.yedam.vo.LoginVO">
-		SELECT * 
-		FROM users 
+		SELECT user_code,
+		user_id,
+		user_name,
+		password,
+		email,
+		phone,
+		user_date
+		FROM users
 		WHERE user_code = #{userCode}
 	</select>
 	<select id="findId" resultType="co.yedam.vo.LoginVO">
 		SELECT user_id
-		FROM   users
-		WHERE  user_name = #{userName}
-	  	  AND  phone = #{phone}
-	  	  AND  email = #{email}
+		FROM users
+		WHERE
+		user_name = #{userName}
+		AND phone = #{phone}
+		AND email = #{email}
 	</select>
-	<update id="updatePassword" parameterType="int">
+	<select id="findPw" parameterType="co.yedam.vo.LoginVO"
+		resultType="co.yedam.vo.LoginVO">
+		SELECT user_code,
+		user_id,
+		user_name,
+		password,
+		email,
+		phone,
+		user_date
+		FROM users
+		WHERE user_id = #{userId}
+		AND user_name =
+		#{userName}
+		AND phone = #{phone}
+		AND email = #{email}
+	</select>
+
+	<update id="resetPassword" parameterType="map">
 		UPDATE users
-   		SET    password = #{newPassword}
-   		WHERE  user_code = #{userCode}
+		SET
+		password = #{newPassword}
+		WHERE user_code = #{userCode}
 	</update>
+
+	<!-- 카카오 회원 조회 -->
+	<select id="selectByKakaoId" resultType="co.yedam.vo.LoginVO">
+		SELECT user_code,
+		user_id, user_name, password, email, phone, user_date
+		FROM users
+		WHERE
+		kakao_id = #{kakaoId}
+	</select>
+
+	<!-- 카카오 회원 등록 -->
+	<insert id="insertKakaoUser" parameterType="co.yedam.vo.LoginVO">
+		INSERT INTO users (
+		user_code,
+		user_id,             <!-- 이메일 대신 kakaoId 사용 -->
+		user_name,
+		password,
+		email,
+		kakao_id
+		) VALUES (
+		user_code_seq.NEXTVAL,
+		#{kakaoId},          <!-- ✅ user_id = kakaoId 로 대체 -->
+		#{userName},
+		'kakao',
+		#{email},
+		#{kakaoId}
+		)
+
+	</insert>
+
+
+
 </mapper>

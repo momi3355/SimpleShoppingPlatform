@@ -6,5 +6,11 @@ public interface LoginService {
 	int login(String id, String pw);
 	LoginVO getUserInfo(int userCode);
 	LoginVO findId(String userName, String phone, String email);
-	boolean changePassword(int userCode, String newpassword);
+	LoginVO findPw(LoginVO vo); 
+	int resetPassword(int userCode, String newPassword);
+	
+	LoginVO getUserByKakaoId(String kakaoId); 
+	void newKakaoUser(LoginVO vo);           
+
+
 }

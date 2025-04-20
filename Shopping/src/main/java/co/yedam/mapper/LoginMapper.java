@@ -10,6 +10,12 @@ public interface LoginMapper {
 	LoginVO findId(@Param("userName") String userName, 
 				   @Param("phone") String phone, 
 				   @Param("email") String email);
-	int updatePassword(@Param("userCode") int userCode, @Param("newPassword") String newPassword);
+	int updatePassword(@Param("userId") String userId, 
+            		   @Param("newPassword") String newPassword);
+	LoginVO findPw(LoginVO vo);
+	int resetPassword(@Param("userCode") int userCode, @Param("newPassword") String newPassword);
+	
+	LoginVO selectByKakaoId(String kakaoId);
+	void insertKakaoUser(LoginVO vo);
 	
 }

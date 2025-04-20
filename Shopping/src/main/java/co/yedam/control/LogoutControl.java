@@ -17,7 +17,7 @@ public class LogoutControl implements Control {
 		if (session != null) {
 			session.invalidate();
 		}
-	resp.sendRedirect("loginForm.do");
+		  req.getRequestDispatcher("/common/logout.tiles").forward(req, resp);
 	}
 
 }

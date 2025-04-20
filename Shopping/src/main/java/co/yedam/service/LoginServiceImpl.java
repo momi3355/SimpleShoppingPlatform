@@ -30,8 +30,25 @@ public class LoginServiceImpl implements LoginService {
         return loginmapper.findId(userName, phone, email);
     }
 
+    @Override
+    public LoginVO findPw(LoginVO vo) {
+        return loginmapper.findPw(vo);
+    }
+
+    @Override
+    public int resetPassword(int userCode, String newPassword) {
+        return loginmapper.resetPassword(userCode, newPassword);
+    }
+
 	@Override
-	public boolean changePassword(int userCode, String newpassword) {
-		return loginmapper.updatePassword(userCode, newpassword) == 1;
+	public LoginVO getUserByKakaoId(String kakaoId) {
+		return loginmapper.selectByKakaoId(kakaoId);
 	}
+
+	@Override
+	public void newKakaoUser(LoginVO vo) {
+		loginmapper.insertKakaoUser(vo);
+	}
+
+
 }

@@ -1,87 +1,73 @@
-/**
- * changePw.js
- */
-document.addEventListener("DOMContentLoaded", function () {
-  const checkBtn = document.getElementById("checkBtn");
-  const completeBtn = document.getElementById("completeBtn");
+$(function () {
+  // 비밀번호 조건 검증 + 버튼 활성화
+  $('#newPw, #confirmPw').on('input', function () {
+    const newPw = $('#newPw').val();
+    const confirmPw = $('#confirmPw').val();
+    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
 
-  const currentPwInput = document.getElementById("currentPassword");
-  const newPwInput = document.getElementById("newPassword");
-  const confirmPwInput = document.getElementById("confirmPassword");
-
-  const checkMessage = document.getElementById("checkMessage");
-  const matchMessage = document.getElementById("matchMessage");
-
-  //현재 비밀번호 확인
-  checkBtn.addEventListener("click", function () {
-    const currentPw = currentPwInput.value.trim();
-    if (!currentPw) {
-      checkMessage.textContent = "비밀번호를 입력해주세요.";
-      return;
-    }
-
-    fetch("checkPw.do", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: "password=" + encodeURIComponent(currentPw)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          document.getElementById("pw-check").style.display = "none";
-          document.getElementById("pw-reset").style.display = "block";
-        } else {
-          checkMessage.textContent = "비밀번호가 일치하지 않습니다.";
-        }
-      })
-      .catch(() => {
-        checkMessage.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
-      });
-  });
-
-  //새 비밀번호 확인
-  confirmPwInput.addEventListener("input", checkPwMatch);
-  newPwInput.addEventListener("input", checkPwMatch);
-
-  function checkPwMatch() {
-    const pw = newPwInput.value.trim();
-    const confirmPw = confirmPwInput.value.trim();
-
-    if (!pw || !confirmPw) {
-      matchMessage.textContent = "";
-      completeBtn.disabled = true;
-      return;
-    }
-
-    if (pw !== confirmPw) {
-      matchMessage.textContent = "비밀번호가 일치하지 않습니다.";
-      completeBtn.disabled = true;
+    if (!regex.test(newPw)) {
+      $('#pwMessage').text('비밀번호는 영문 + 숫자 조합 8자 이상이어야 합니다.');
+      $('#changePwBtn').prop('disabled', true);
+    } else if (newPw !== confirmPw) {
+      $('#pwMessage').text('비밀번호가 일치하지 않습니다.');
+      $('#changePwBtn').prop('disabled', true);
     } else {
-      matchMessage.textContent = "";
-      completeBtn.disabled = false;
+      $('#pwMessage').text('');
+      $('#changePwBtn').prop('disabled', false);
     }
-  }
-
-  // 완료 버튼 클릭 → 비밀번호 변경 요청
-  completeBtn.addEventListener("click", function () {
-    const newPw = newPwInput.value.trim();
-
-    fetch("changePw.do", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: "newPassword=" + encodeURIComponent(newPw)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          alert("비밀번호 변경이 완료되었습니다. 다시 로그인해주세요.");
-          location.href = "logout.do";
-        } else {
-          alert("비밀번호 변경에 실패했습니다.");
-        }
-      })
-      .catch(() => {
-        alert("오류가 발생했습니다.");
-      });
   });
 });
+
+// 현재 비밀번호 확인 → pw-reset 영역 표시
+function checkCurrentPw() {
+  const pw = $('#currentPw').val().trim();
+
+  if (!pw) {
+    $('#checkPwError').text('비밀번호를 입력해주세요.');
+    return;
+  }
+
+  $.post('checkPw.do', { password: pw }, function (result) {
+    if (result.success) {
+      $('#pw-check').hide();
+      $('#pw-reset').show();
+    } else {
+      $('#checkPwError').text('현재 비밀번호가 일치하지 않습니다.');
+    }
+  });
+}
+
+// 비밀번호 변경 처리
+function submitNewPassword() {
+  const newPw = $('#newPw').val().trim();
+
+  if (!newPw) {
+    $('#pwMessage').text('새 비밀번호를 입력해주세요.');
+    return;
+  }
+
+  $.post('changePw.do', { newPw: newPw }, function (result) {
+    if (result.success) {
+      alert('비밀번호 변경이 완료되었습니다. 로그인 후 이용해주세요.');
+      location.href = 'logout.do';
+    } else {
+      alert('비밀번호 변경에 실패했습니다.');
+    }
+  });
+}
+
+// 비밀번호 토글
+function togglePassword(inputId, icon) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fi-rr-eye");
+    icon.classList.add("fi-rr-eye-crossed");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fi-rr-eye-crossed");
+    icon.classList.add("fi-rr-eye");
+  }
+}
