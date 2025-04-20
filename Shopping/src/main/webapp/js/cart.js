@@ -7,6 +7,7 @@ fetch("cartJson.do?ucode=" + userCode)
   .then(result => result.json())
   .then(result => loadItem(result))
   .catch(err => console.error(err));
+  
 
 function loadItem(json) {
   let totalPrice = 0;
@@ -22,7 +23,7 @@ function loadItem(json) {
     `<tr>
       <input type="hidden" id="pro_code_${idx}" name="pro_code_${idx}" value="${item.PRODUCT_CODE}"> 
       <td class="cart-code">${idx + 1}</td>
-      <td class="cart-name"><img class="cart-image" src="images/${item.IMAGE_URL_FIR}">${item.PRODUCT_NAME}</td>
+      <td class="cart-name"><img class="cart-image" src="${item.IMAGE_URL_FIR}">${item.PRODUCT_NAME}</td>
       <td class="cart-option">${item.PRODUCT_OPTION}</td>
       <td class="cart-price">${item.PRICE.toLocaleString('ko-KR')}</td>
       <td class="cart-quantity">
@@ -43,11 +44,35 @@ function loadItem(json) {
     </tr>`;
 
   });
+  
+  document.querySelectorAll('input[type="number"]').forEach((e) => {
+	e.addEventListener('change', function(event) {
+		let trTag = event.target.parentElement.parentElement;
+		let price = Number(trTag.querySelector('.cart-price').innerHTML.replace(/\D/g,''));
+		let quantity = Number(event.target.value);
+		console.log(price, quantity);
+		trTag.querySelector('.cart-total-price').innerHTML = (price * quantity).toLocaleString('ko-KR');
+		
+		let totalPrice = 0;
+		document.querySelectorAll('tbody>tr').forEach((item) => {
+			let itemPrice = Number(item.querySelector('.cart-price').innerHTML.replace(/\D/g,''));
+			let itemQuantity = Number(item.querySelector('.cart-quantity > input').value);
+			totalPrice += itemPrice * itemQuantity;
+		});
+		
+		//변경할때 데이터베이스 반영
+		let total = document.querySelector(".cart-table tfoot");
+		    total.innerHTML = /* html */
+		    `<tr class="total-price">
+		      <td colspan="7"><b>최종결제금액</b> <span>${totalPrice.toLocaleString('ko-KR')} 원</span></td>
+		    </tr>`;
+	});
+  });
 }
 
 function removeItem(event) {
   let tr = event.target.parentElement.parentElement;
 
-
+  //변경할때 데이터베이스 반영
   tr.remove(); //나중에 수정 만들고 새로고침 필요.
 }

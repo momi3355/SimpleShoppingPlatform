@@ -21,7 +21,8 @@ public class CartFromControl implements Control {
 //		login.setPassword("pw1234");
 //		
 //		req.getSession().setAttribute("loginVO", login);
-		req.setAttribute("user_code", 1);
+	    int userCode = (int)req.getSession().getAttribute("userCode");
+		req.setAttribute("user_code", userCode);
 		req.getRequestDispatcher("common/cart.tiles").forward(req, resp);
 	}
 }

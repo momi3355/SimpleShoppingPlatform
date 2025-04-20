@@ -17,10 +17,26 @@
                     ON c.product_code = p.product_code
      WHERE c.user_code = #{userCode}
   </select>
+  <insert id="insertCart" parameterType="int">
+    INSERT INTO cart (cart_code,
+                      user_code,
+                      product_code,
+                      quantity)
+    VALUES (cart_code_seq.nextval,
+            #{userCode},
+            #{productCode},
+            1)
+  </insert>
   <delete id="deleteCart" parameterType="int">
     DELETE FROM cart
-     WHERE #{userCode}
+     WHERE user_code = #{userCode}
+       AND product_code = #{productCode}
   </delete>
+  <delete id="allDeleteCart" parameterType="int">
+    DELETE FROM cart
+     WHERE user_code = #{userCode}
+  </delete>
+  
   
   <insert id="insertOrder" parameterType="co.yedam.vo.OrdersVO">
     <selectKey keyProperty="orderCode" resultType="int" order="BEFORE">

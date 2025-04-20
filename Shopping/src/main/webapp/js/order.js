@@ -41,7 +41,7 @@ let total = 0;
 json.datas.forEach((item, idx) => {
   let html = /* html */
   `<div class="summary">
-    <img class="pro-image" src="images/${item.pro_img}">
+    <img class="pro-image" src="${item.pro_img}">
     <p><b>${item.pro_name}</b></p>
     <p>${item.option} / ${item.quantity}</p>
     <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
