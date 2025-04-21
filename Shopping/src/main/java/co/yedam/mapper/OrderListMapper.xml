@@ -6,6 +6,7 @@
     <select id="getOrderItemsByOrderCode" parameterType="int" resultType="co.yedam.vo.OrderInfoVO">
         SELECT p.image_url_fir AS imageUrlFir,
                p.product_name AS productName,
+               oi.product_code AS productCode,
                oi.quantity AS quantity,
                oi.price * oi.quantity AS totalPrice,
                TO_CHAR(o.order_date, 'YYYY-MM-DD') AS orderDate

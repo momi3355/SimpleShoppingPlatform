@@ -21,7 +21,7 @@ function addOrderList(json) {
       orderList.innerHTML += /* html */`<p class="order-date">${date}</p>`;
       const products = json[date];
       products.forEach(product => {
-        //console.log(product);
+        console.log(product);
         orderList.innerHTML += /* html */
         `<div class="summary">
           <img class="pro-image" src="${product.imageUrlFir}">
@@ -30,9 +30,13 @@ function addOrderList(json) {
           <p><b>${product.totalPrice.toLocaleString('ko-KR')}원</b></p>
         </div>
         <div class="order-btn">
-          <button type="button">후기작성</button>
+          <button type="button" onclick="review(${product.productCode})">후기작성</button>
         </div>`;
       });
     }
   }
+}
+
+function review(pcode) {
+  window.location.href = `reviewForm.do?productCode=${pcode}`;
 }

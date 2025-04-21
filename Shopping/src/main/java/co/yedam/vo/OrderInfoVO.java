@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class OrderInfoVO {
+	private int productCode;
     private String imageUrlFir;
     private String productName;
     private int quantity;
