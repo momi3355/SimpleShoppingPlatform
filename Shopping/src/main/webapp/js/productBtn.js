@@ -1,6 +1,6 @@
 
 function addCart(code) {
-  console.log("addCart", code);
+  //console.log("addCart", code);
   fetch(`cartAdd.do?product_code=${code}`)
     .then(result => result.json())
 	.then(result => {
@@ -15,5 +15,6 @@ function addCart(code) {
 }
 
 function buyProduct(code) {
-	console.log("buyProduct", code);
+	//console.log("buyProduct", code);
+	window.location.href = `orderForm.do?product_code=${code}`;
 }

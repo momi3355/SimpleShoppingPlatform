@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.common.Control;
 import co.yedam.vo.LoginVO;
 
-public class CartFromControl implements Control {
+public class CartFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

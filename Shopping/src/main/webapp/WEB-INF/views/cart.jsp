@@ -18,7 +18,7 @@ pageEncoding="UTF-8"%>
   <hr>
   <div class="table-container">
     <p class="cart-title"><span>My cart</span> 장바구니</p>
-    <form action="orderFrom.do" method="post">
+    <form action="orderForm.do" method="post">
       <input type="hidden" id="user_code" name="user_code"  value="${user_code}">
       <table class="cart-table">
         <thead>
