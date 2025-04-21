@@ -10,6 +10,6 @@ import co.yedam.common.Control;
 
 public class ReviewFormControl implements Control{
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("review_add.tiles").forward(req, resp);
+		req.getRequestDispatcher("common/addreview.tiles").forward(req, resp);
 	}
 }

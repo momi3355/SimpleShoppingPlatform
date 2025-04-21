@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.mapper.OrderListMapper">
+    <select id="getOrderItemsByOrderCode" parameterType="int" resultType="co.yedam.vo.OrderInfoVO">
+        SELECT p.image_url_fir AS imageUrlFir,
+               p.product_name AS productName,
+               oi.product_code AS productCode,
+               oi.quantity AS quantity,
+               oi.price * oi.quantity AS totalPrice,
+               TO_CHAR(o.order_date, 'YYYY-MM-DD') AS orderDate
+        FROM order_items oi JOIN products p
+                              ON oi.product_code = p.product_code
+                            JOIN orders o
+                              ON oi.order_code = o.order_code
+       WHERE o.user_code = #{userCode}
+       ORDER BY orderDate DESC
+    </select>
+</mapper>

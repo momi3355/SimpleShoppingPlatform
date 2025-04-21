@@ -1,8 +1,3 @@
-/**
- * order
- */
-
-
 let inputlist = document.querySelectorAll('input');
 inputlist.forEach((item) => {
   item.addEventListener("input", (event) => {
@@ -39,18 +34,19 @@ let firstName = "";
 let total = 0;
 //console.log(json);
 json.datas.forEach((item, idx) => {
-  let html = /* html */
-    `<div class="summary">
-    <img class="pro-image" src="images/${item.pro_img}">
-    <p><b>${item.pro_name}</b></p>
-    <p>${item.option} / ${item.quantity}</p>
-    <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
-  </div>`;
-  total += Number(item.price);
-  if (idx == 0) {
-    firstName = item.pro_name + " 외 " + (json.datas.length - 1) + "개";
-  }
-
+	let html = /* html */
+	`<div class="summary">
+	  <img class="pro-image" src="${item.pro_img}">
+	  <p><b>${item.pro_name}</b></p>
+	  <p>${item.option} / ${item.quantity}</p>
+	  <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
+	</div>`;
+	total += Number(item.price) * Number(item.quantity);
+	if (idx == 0) {
+	  firstName = item.pro_name;
+	  if (json.datas.length - 1 != 0)
+	    firstName += " 외 "+ (json.datas.length - 1) + "개";
+	}
   orderItem.innerHTML += html;
 });
 
@@ -67,21 +63,25 @@ function getaddress(deli_code) {
   fetch(`addressJson.do?dcode=${deli_code}`)
     .then(result => result.json())
     .then(result => {
-      inputlist[0].value = result.USER_NAME;
-      inputlist[1].value = result.PHONE;
-      inputlist[2].value = result.POST;
-      inputlist[3].value = result.ADDRESS;
-      inputlist[4].value = result.REQUEST;
+      inputlist[1].value = result.USER_NAME;
+      inputlist[2].value = result.PHONE;
+      inputlist[3].value = result.POST;
+      inputlist[4].value = result.ADDRESS;
+      inputlist[5].value = result.REQUEST;
     });
 }
-
 async function payment_click() {
+  let combo = document.querySelector('.address select').value;
+  if (combo == '0') {
+    alert("추가 하거나 데이터를 입력하세요.");
+    return;
+  }
+  
   const result = await fetch(`configReader.do`);
   const config = await result.json();
   //console.log(json);
   if (config.retCode != "200") //500, 404
     return alert("API키를 찾을 수 없습니다. 관리자에게 문의 하세요.");
-
   const response = await PortOne.requestPayment({
     // Store ID 설정
     storeId: config.datas.storeId,
@@ -92,7 +92,7 @@ async function payment_click() {
     totalAmount: 100,
     currency: "CURRENCY_KRW",
     payMethod: "CARD",
-  });
+ });
 
   // if (response.code !== undefined) {
   //   return alert("결제를 취소 했습니다.");
@@ -113,7 +113,7 @@ async function payment_click() {
   // });
 
   alert("성공!");
-  //성공을 처리하기 위한 페이지를 호출
+
   const notified = await fetch(`paymentSuccess.do`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -126,9 +126,9 @@ async function payment_click() {
   }).then((result) => {
     return result.json();
   }).then((result) => {
-    console.log(result);
-    //result 어트리뷰트로 전달.
-    window.location.href = "paymentSuccess.do";
+    //console.log(result.datas);
+    window.location.href = "paymentSuccess.do?orderCode="+result.datas.order_code+"&deliveryCode="+result.datas.delivery_code
+      + "&payment="+result.datas.payment;
   }).catch((err) => console.error(err));
 }
 

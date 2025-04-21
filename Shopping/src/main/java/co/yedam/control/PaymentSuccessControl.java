@@ -2,6 +2,7 @@ package co.yedam.control;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +53,7 @@ public class PaymentSuccessControl implements Control {
 			
 			Gson gson = new GsonBuilder().create();
 			OrderData orderData = gson.fromJson(result, OrderData.class);
-			System.out.println(orderData);
+			//System.out.println(orderData);
 			//json 문자열을 자바 객체로 변환
 			
 			DeliveryService dsv = new DeliveryServiceImpl();
@@ -63,30 +64,31 @@ public class PaymentSuccessControl implements Control {
 			ovo.setUserName(deliveryMap.get("USER_NAME")+"");
 			ovo.setPhone(deliveryMap.get("PHONE")+"");
 			ovo.setAddress(deliveryMap.get("POST")+":"+deliveryMap.get("ADDRESS"));
-			System.out.println(ovo);
+			//System.out.println(ovo);
 	
 			OrderService osv = new OrderServiceImpl();
-			int orderCode = osv.addOrder(ovo); //주문테이블 추가
+			osv.addOrder(ovo); //주문테이블 추가
 			
 			for (ProductData pd : orderData.getProductData()) {
 				OrderItemVO oivo = new OrderItemVO();
-				oivo.setOrderCode(orderCode);
+				oivo.setOrderCode(ovo.getOrderCode());
 				//oivo.setOrderCode(0);
 				oivo.setProductCode(pd.getCode());
 				oivo.setQuantity(pd.getQuantity());
 				oivo.setPrice(pd.getPrice());
-				System.out.println(oivo);
+				//System.out.println(oivo);
 				
-				//osv.addOrderItem(oivo); //주문상세 테이블 추가
+				osv.addOrderItem(oivo); //주문상세 테이블 추가
 			}
 			
 			//osv.clearCart(Integer.parseInt(deliveryMap.get("USER_CODE")+""));		
 			//장바구니 삭제
-			Map<String, Object> orderMap = osv.getOrder(orderCode);
+			Map<String, Object> orderMap = osv.getOrder(ovo.getOrderCode());
 			//System.out.println(orderMap);
 			
 			Map<String, Object> resultDatasMap = new HashMap<String, Object>();
-			resultDatasMap.put("order_code", orderMap.get("ORDER_CODE"));
+			resultDatasMap.put("delivery_code", orderData.getDeli_code());
+			resultDatasMap.put("order_code", ovo.getOrderCode());
 			resultDatasMap.put("order_date", orderMap.get("ORDER_DATE").toString());
 			resultDatasMap.put("product_name", orderData.getProduct_name());
 			resultDatasMap.put("payment", orderData.getPayment());
@@ -101,7 +103,38 @@ public class PaymentSuccessControl implements Control {
 			
 			resp.getWriter().print(gson.toJson(resultMap));
 		} else {
-			System.out.println("get");
+			req.setCharacterEncoding("utf-8");
+			String orderCode = req.getParameter("orderCode");
+			String deliveryCode = req.getParameter("deliveryCode");
+			String payment = req.getParameter("payment");
+			
+			OrderService osv = new OrderServiceImpl();
+			Map<String, Object> orderMap = osv.getOrder(Integer.parseInt(orderCode));
+			
+			Map<String, Object> resultDatasMap = new HashMap<String, Object>();
+			resultDatasMap.put("delivery_code", Integer.parseInt(deliveryCode));
+			resultDatasMap.put("order_code", orderMap.get("ORDER_CODE"));
+			resultDatasMap.put("order_date", orderMap.get("ORDER_DATE").toString());
+			resultDatasMap.put("payment", payment);
+			resultDatasMap.put("user_name", orderMap.get("USER_NAME"));
+			resultDatasMap.put("user_address", orderMap.get("ADDRESS"));
+			resultDatasMap.put("user_phone", orderMap.get("PHONE"));
+			
+			List<Map<String, Object>> orderItemsList = new ArrayList<Map<String,Object>>();
+			List<Map<String, Object>> orderItemsMap = osv.getOrderItemByOrderCode(Integer.parseInt(orderCode));
+			//System.out.println(orderItemsMap);
+			for (Map<String, Object> item : orderItemsMap) {
+				Map<String, Object> resultOrderItemsMap = new HashMap<String, Object>();
+				resultOrderItemsMap.put("product_name", item.get("PRODUCT_NAME"));
+				resultOrderItemsMap.put("quantity", item.get("QUANTITY"));
+				resultOrderItemsMap.put("price", item.get("PRICE"));
+				
+				orderItemsList.add(resultOrderItemsMap);
+			}
+			resultDatasMap.put("items", orderItemsList);
+			
+			Gson gson = new GsonBuilder().create();
+			req.setAttribute("datas", gson.toJson(resultDatasMap));
 			req.getRequestDispatcher("common/success.tiles").forward(req, resp);
 		}
 	}
