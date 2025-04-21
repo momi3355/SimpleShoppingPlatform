@@ -13,11 +13,9 @@ public class LogoutControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		HttpSession session = req.getSession(false);
-		if (session != null) {
-			session.invalidate();
-		}
-		  req.getRequestDispatcher("/common/logout.tiles").forward(req, resp);
+		 req.getSession().invalidate();
+		 
+		 req.getRequestDispatcher("common/logout.tiles").forward(req, resp);
 	}
 
 }
