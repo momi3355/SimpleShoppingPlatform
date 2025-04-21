@@ -16,10 +16,16 @@ public class ReviewListControl implements Control {
 
     @Override
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ReviewService service = new ReviewServiceImpl();
-        List<ReviewVO> list = service.reviewList(); // 리스트 조회
+        // 1. 파라미터 받기
+    	String productcode = req.getParameter("productCode");
+    	// 2. 서비스 호출
+    	ReviewService service = new ReviewServiceImpl();
+        List<ReviewVO> list = service.reviewList(Integer.parseInt(productcode)); // 리스트 조회
 
+        // 3. 결과를 저장
         req.setAttribute("reviewList", list); // request에 담기
-        req.getRequestDispatcher("/review/reviewList.jsp").forward(req, resp); // JSP로 포워딩
+        
+        // 4. 뷰 페이지로 forward
+        req.getRequestDispatcher("/WEB-INF/views/reviewlist.jsp").forward(req, resp); // JSP로 포워딩
     }
 }
