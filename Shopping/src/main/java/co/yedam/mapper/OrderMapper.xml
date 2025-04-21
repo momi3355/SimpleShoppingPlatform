@@ -27,6 +27,12 @@
             #{productCode},
             1)
   </insert>
+  <update id="updateCart" parameterType="int">
+    UPDATE cart
+       SET quantity = #{quantity}
+     WHERE user_code = #{userCode}
+       AND product_code = #{productCode}
+  </update>
   <delete id="deleteCart" parameterType="int">
     DELETE FROM cart
      WHERE user_code = #{userCode}
@@ -40,8 +46,7 @@
   
   <insert id="insertOrder" parameterType="co.yedam.vo.OrdersVO">
     <selectKey keyProperty="orderCode" resultType="int" order="BEFORE">
-      SELECT order_code_seq.nextval
-        FROM DUAL
+      SELECT order_code_seq.nextval FROM dual
     </selectKey>
     INSERT INTO orders (order_code,
                         user_code,
@@ -76,5 +81,16 @@
            order_date
       FROM orders
      WHERE order_code = #{orderCode}
+  </select>
+  <select id="selectOrderItemsByOrderCode" parameterType="int" resultType="map">
+    SELECT i.order_item_code,
+           i.order_code,
+           i.product_code,
+           p.product_name,
+           i.quantity,
+           i.price
+      FROM order_items i JOIN products p
+                           ON i.product_code = p.product_code
+     WHERE i.order_code = #{orderCode}
   </select>
 </mapper>

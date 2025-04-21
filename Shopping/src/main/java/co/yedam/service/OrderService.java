@@ -9,6 +9,7 @@ import co.yedam.vo.OrdersVO;
 public interface OrderService {
 	List<Map<String, Object>> getCarts(int userCode);
 	boolean addCart(int userCode, int productCode);
+	boolean updateCart(int userCode, int productCode, int quantity);
 	boolean deleteCart(int userCode, int productCode);
 	boolean clearCart(int userCode);
 	
@@ -16,4 +17,5 @@ public interface OrderService {
 	boolean addOrderItem(OrderItemVO oivo);
 	
 	Map<String, Object> getOrder(int orderCode);
+	List<Map<String, Object>> getOrderItemByOrderCode(int orderCode);
 }

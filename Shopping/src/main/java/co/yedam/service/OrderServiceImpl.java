@@ -23,6 +23,11 @@ public class OrderServiceImpl implements OrderService {
     public boolean addCart(int userCode, int productCode) {
         return mapper.insertCart(userCode, productCode) > 0;
     }
+    
+	@Override
+	public boolean updateCart(int userCode, int productCode, int quantity) {
+		return mapper.updateCart(userCode, productCode, quantity) > 0;
+	}
 
     @Override
     public boolean deleteCart(int userCode, int productCode) {
@@ -47,5 +52,10 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public Map<String, Object> getOrder(int orderCode) {
 		return mapper.selectOrder(orderCode);
+	}
+
+	@Override
+	public List<Map<String, Object>> getOrderItemByOrderCode(int orderCode) {
+		return mapper.selectOrderItemsByOrderCode(orderCode);
 	}
 }

@@ -46,9 +46,11 @@ json.datas.forEach((item, idx) => {
     <p>${item.option} / ${item.quantity}</p>
     <p>${Number(item.price).toLocaleString('ko-KR')}원</p>
   </div>`;
-  total += Number(item.price);
+  total += Number(item.price) * Number(item.quantity);
   if (idx == 0) {
-    firstName = item.pro_name + " 외 "+ (json.datas.length - 1) + "개";
+    firstName = item.pro_name;
+    if (json.datas.length - 1 != 0)
+      firstName += " 외 "+ (json.datas.length - 1) + "개";
   }
 
   orderItem.innerHTML += html;
@@ -67,15 +69,21 @@ function getaddress(deli_code) {
   fetch(`addressJson.do?dcode=${deli_code}`)
     .then(result => result.json())
     .then(result => {
-      inputlist[0].value = result.USER_NAME;
-      inputlist[1].value = result.PHONE;
-      inputlist[2].value = result.POST;
-      inputlist[3].value = result.ADDRESS;
-      inputlist[4].value = result.REQUEST;
+      inputlist[1].value = result.USER_NAME;
+      inputlist[2].value = result.PHONE;
+      inputlist[3].value = result.POST;
+      inputlist[4].value = result.ADDRESS;
+      inputlist[5].value = result.REQUEST;
     });
 }
 
 async function payment_click() {
+  let combo = document.querySelector('.address select').value;
+  if (combo == '0') {
+    alert("추가 하거나 데이터를 입력하세요.");
+    return;
+  }
+  
   const result = await fetch(`configReader.do`);
   const config = await result.json();
   //console.log(json);
@@ -126,8 +134,8 @@ async function payment_click() {
   }).then((result) => {
     return result.json();
   }).then((result) => {
-    console.log(result);
-    //result 어트리뷰트로 전달.
-    window.location.href = "paymentSuccess.do";
+    //console.log(result.datas);
+    window.location.href = "paymentSuccess.do?orderCode="+result.datas.order_code+"&deliveryCode="+result.datas.delivery_code
+      + "&payment="+result.datas.payment;
   }).catch((err) => console.error(err));
 }

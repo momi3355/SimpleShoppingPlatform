@@ -13,6 +13,7 @@ public interface OrderMapper {
 	//장바구니코드 상품코드, 상품이름, 상품그림, 판매가, 재고수
 	List<Map<String, Object>> selectCart(int userCode);
 	int insertCart(@Param("userCode")int userCode, @Param("productCode")int productCode);
+	int updateCart(@Param("userCode")int userCode, @Param("productCode")int productCode, @Param("quantity")int quantity);
     int deleteCart(@Param("userCode")int userCode, @Param("productCode")int productCode);
 	int allDeleteCart(int userCode);
 	
@@ -21,4 +22,5 @@ public interface OrderMapper {
 	int insertOrderItem(OrderItemVO oivo);
 	
 	Map<String, Object> selectOrder(int orderCode);
+	List<Map<String, Object>> selectOrderItemsByOrderCode(int orderCode);
 }
