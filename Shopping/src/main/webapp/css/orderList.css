@@ -1,0 +1,57 @@
+.order-list-container {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-direction: column; /* 아이템을 세로로 배치 */
+  border: 1px solid #ddd; /* 얇은 테두리 추가 */
+  padding: 15px; /* 내부 여백 추가 */
+  margin-bottom: 15px; /* 아래쪽 여백 추가 */
+  border-radius: 5px; /* 둥근 테두리 */
+}
+
+.order-date {
+  font-size: 14px; /* 날짜 폰트 크기 */
+  color: #888; /* 날짜 색상 */
+  margin-bottom: 10px; /* 날짜 아래쪽 여백 */
+}
+
+.summary {
+  align-items: center; /* 세로 방향으로 중앙 정렬 */
+  margin-bottom: 10px; /* summary 아래쪽 여백 */
+}
+
+.pro-image {
+  float: left;
+  width: 110px; /* 이미지 너비 */
+  height: 100px; /* 이미지 높이 */
+  border-radius: 5px; /* 둥근 테두리 */
+  margin-right: 15px; /* 이미지 오른쪽 여백 */
+  object-fit: cover; /* 이미지가 컨테이너에 맞춰 비율 유지하며 채우도록 설정 */
+}
+
+.summary p {
+  margin: 0; /* 기본 마진 제거 */
+  font-size: 14px; /* 폰트 크기 */
+  color: #555; /* 폰트 색상 */
+  line-height: 1.5; /* 줄 간격 */
+}
+
+.summary p b {
+  font-weight: bold; /* 굵은 글씨 */
+}
+
+.order-btn {
+  text-align: right; /* 버튼을 오른쪽으로 정렬 */
+}
+
+.order-btn button {
+  background-color: #007bff; /* 버튼 배경색 */
+  color: white; /* 버튼 글자색 */
+  border: none; /* 테두리 제거 */
+  padding: 8px 15px; /* 내부 여백 */
+  border-radius: 5px; /* 둥근 테두리 */
+  cursor: pointer; /* 마우스 오버 시 커서 변경 */
+  font-size: 14px; /* 폰트 크기 */
+}
+
+.order-btn button:hover {
+  background-color: #0056b3; /* 호버 시 배경색 변경 */
+}

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.common.Control;
 import co.yedam.vo.LoginVO;
 
-public class CartFromControl implements Control {
+public class CartFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,7 +21,8 @@ public class CartFromControl implements Control {
 //		login.setPassword("pw1234");
 //		
 //		req.getSession().setAttribute("loginVO", login);
-		req.setAttribute("user_code", 1);
+	    int userCode = (int)req.getSession().getAttribute("userCode");
+		req.setAttribute("user_code", userCode);
 		req.getRequestDispatcher("common/cart.tiles").forward(req, resp);
 	}
 }

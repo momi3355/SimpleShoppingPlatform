@@ -26,6 +26,7 @@ import co.yedam.control.MainControl;
 import co.yedam.control.MyInfoControl;
 import co.yedam.control.MyInfoPwControl;
 import co.yedam.control.MypageControl;
+import co.yedam.control.OrderListControl;
 import co.yedam.control.PasswordFormControl;
 import co.yedam.control.PaymentSuccessControl;
 import co.yedam.control.ProductDetailControl;
@@ -37,10 +38,14 @@ import co.yedam.control.SearchResultControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
 import co.yedam.control.ajax.AddressJsonControl;
+import co.yedam.control.ajax.CartAddControl;
 import co.yedam.control.ajax.CartJsonControl;
+import co.yedam.control.ajax.CartRemoveControl;
+import co.yedam.control.ajax.CartUpdateControl;
 import co.yedam.control.ajax.ConfigReaderControl;
-import co.yedam.control.form.CartFromControl;
-import co.yedam.control.form.OrderFromControl;
+import co.yedam.control.ajax.OrderListJsonControl;
+import co.yedam.control.form.CartFormControl;
+import co.yedam.control.form.OrderFormControl;
 
 public class FrontController extends HttpServlet {
 
@@ -76,11 +81,17 @@ public class FrontController extends HttpServlet {
 		map.put("/signUpForm.do", new SignUpFormControl());
 		map.put("/myInfoPw.do", new MyInfoPwControl());
 		map.put("/myInfo.do", new MyInfoControl());
-
+		
+		map.put("/orderList.do", new OrderListControl());
+		map.put("/orderListJson.do", new OrderListJsonControl());
+		
 		/* [결제] */
-		map.put("/cartFrom.do", new CartFromControl());
+		map.put("/cartAdd.do", new CartAddControl());
+		map.put("/cart.do", new CartFormControl());
+		map.put("/cartRemove.do", new CartRemoveControl());
+		map.put("/cartUpdate.do", new CartUpdateControl());
 		map.put("/cartJson.do", new CartJsonControl());
-		map.put("/orderFrom.do", new OrderFromControl());
+		map.put("/orderForm.do", new OrderFormControl());
 		map.put("/paymentSuccess.do", new PaymentSuccessControl());
 		
 		map.put("/addressJson.do", new AddressJsonControl());

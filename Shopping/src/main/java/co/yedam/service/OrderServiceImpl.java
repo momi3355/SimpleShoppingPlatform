@@ -18,24 +18,44 @@ public class OrderServiceImpl implements OrderService {
 	public List<Map<String, Object>> getCarts(int userCode) {
 		return mapper.selectCart(userCode);
 	}
-
+	
 	@Override
+    public boolean addCart(int userCode, int productCode) {
+        return mapper.insertCart(userCode, productCode) > 0;
+    }
+    
+	@Override
+	public boolean updateCart(int userCode, int productCode, int quantity) {
+		return mapper.updateCart(userCode, productCode, quantity) > 0;
+	}
+
+    @Override
+    public boolean deleteCart(int userCode, int productCode) {
+        return mapper.deleteCart(userCode, productCode) > 0;
+    }
+
+    @Override
 	public int addOrder(OrdersVO ovo) {
 		return mapper.insertOrder(ovo);
 	}
 
 	@Override
-	public int addOrderItem(OrderItemVO oivo) {
-		return mapper.insertOrderItem(oivo);
+	public boolean addOrderItem(OrderItemVO oivo) {
+		return mapper.insertOrderItem(oivo) > 0;
 	}
 
 	@Override
-	public int clearCart(int userCode) {
-		return mapper.deleteCart(userCode);
+	public boolean clearCart(int userCode) {
+		return mapper.allDeleteCart(userCode) > 0;
 	}
 
 	@Override
 	public Map<String, Object> getOrder(int orderCode) {
 		return mapper.selectOrder(orderCode);
+	}
+
+	@Override
+	public List<Map<String, Object>> getOrderItemByOrderCode(int orderCode) {
+		return mapper.selectOrderItemsByOrderCode(orderCode);
 	}
 }

@@ -21,7 +21,7 @@ import co.yedam.service.ProductService;
 import co.yedam.service.ProductServiceImpl;
 import co.yedam.vo.DeliveryVO;
 
-public class OrderFromControl implements Control {
+public class OrderFormControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if (req.getMethod().equalsIgnoreCase("POST")) {
@@ -56,6 +56,43 @@ public class OrderFromControl implements Control {
 			List<DeliveryVO> deli_list = dsv.getByUserCode(Integer.parseInt(userCode));
 			map.put("deli_datas", deli_list);
 
+			Gson gson = new  GsonBuilder().create();
+			req.setAttribute("datas", gson.toJson(map));
+			req.getRequestDispatcher("common/order.tiles").forward(req, resp);
+		} else {
+			//get
+			Map<String, Object> map = new HashMap<String, Object>();
+			
+			String userCode = req.getSession().getAttribute("userCode")+"";
+			String proCode = req.getParameter("product_code");
+			if (userCode.equals("null")) {
+				req.getRequestDispatcher("main.do").forward(req, resp);
+				return;
+			}
+			
+			map.put("user_code", Integer.parseInt(userCode));
+			
+			List<Map<String, String>> pro_list = new ArrayList<Map<String,String>>();
+			Map<String, String> productMap = new HashMap<String, String>();
+			String quantity = "1";
+			
+			ProductService psv = new ProductServiceImpl();
+			ProductDTO pro = psv.getByCode(Integer.parseInt(proCode));
+			
+			productMap.put("pro_code", proCode);
+			productMap.put("pro_name", pro.getProductName());
+			productMap.put("pro_img", pro.getImageUrlFir());
+			productMap.put("price", pro.getPrice()+"");
+			productMap.put("option", pro.getProductOption());
+			productMap.put("quantity", quantity);
+			
+			pro_list.add(productMap);
+			map.put("datas", pro_list);
+			
+			DeliveryService dsv = new DeliveryServiceImpl();
+			List<DeliveryVO> deli_list = dsv.getByUserCode(Integer.parseInt(userCode));
+			map.put("deli_datas", deli_list);
+			
 			Gson gson = new  GsonBuilder().create();
 			req.setAttribute("datas", gson.toJson(map));
 			req.getRequestDispatcher("common/order.tiles").forward(req, resp);
