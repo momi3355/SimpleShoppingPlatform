@@ -4,13 +4,21 @@ import co.yedam.vo.LoginVO;
 
 public interface LoginService {
 	int login(String id, String pw);
+	
 	LoginVO getUserInfo(int userCode);
-	LoginVO findId(String userName, String phone, String email);
+	
+	LoginVO findId(LoginVO vo);
 	LoginVO findPw(LoginVO vo); 
+	
 	int resetPassword(int userCode, String newPassword);
 	
 	LoginVO getUserByKakaoId(String kakaoId); 
-	void newKakaoUser(LoginVO vo);           
-
+	void newKakaoUser(LoginVO vo);   
+	
+	boolean checkPassword(int userCode, String pw);
+	
+	int updateMyInfo(LoginVO vo);
+	
+	int deleteUser(int userCode);
 
 }

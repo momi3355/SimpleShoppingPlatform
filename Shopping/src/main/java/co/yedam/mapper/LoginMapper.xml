@@ -28,11 +28,11 @@
 		FROM users
 		WHERE user_code = #{userCode}
 	</select>
-	<select id="findId" resultType="co.yedam.vo.LoginVO">
+	<select id="findId" resultType="co.yedam.vo.LoginVO"
+		parameterType="co.yedam.vo.LoginVO">
 		SELECT user_id
 		FROM users
-		WHERE
-		user_name = #{userName}
+		WHERE user_name = #{userName}
 		AND phone = #{phone}
 		AND email = #{email}
 	</select>
@@ -73,21 +73,41 @@
 	<insert id="insertKakaoUser" parameterType="co.yedam.vo.LoginVO">
 		INSERT INTO users (
 		user_code,
-		user_id,             <!-- 이메일 대신 kakaoId 사용 -->
+		user_id,
 		user_name,
 		password,
 		email,
 		kakao_id
 		) VALUES (
 		user_code_seq.NEXTVAL,
-		#{kakaoId},          <!-- ✅ user_id = kakaoId 로 대체 -->
+		#{kakaoId},
 		#{userName},
 		'kakao',
 		#{email},
-		#{kakaoId}
-		)
-
+		#{kakaoId})
 	</insert>
+
+	<select id="selectPasswordByCode" parameterType="int"
+		resultType="String">
+		SELECT password
+		FROM users
+		WHERE user_code = #{userCode}
+	</select>
+
+	<update id="updateInfo" parameterType="co.yedam.vo.LoginVO">
+		UPDATE users
+		SET email =
+		#{email},
+		phone = #{phone}
+		WHERE user_code = #{userCode}
+	</update>
+
+	<delete id="deleteUser" parameterType="int">
+		DELETE FROM users
+		WHERE user_code = #{userCode}
+	</delete>
+
+
 
 
 

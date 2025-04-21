@@ -5,7 +5,7 @@ body {
 .login-title {
   width: 600px;
   margin: 0 auto ;
-  margin-top: 60px;
+  margin-top: 70px;
   font-size: 18px;
   font-weight: bold;
   text-align: left;
@@ -31,7 +31,7 @@ body {
 
 .input-wrapper input {
   width: 100%;
-  padding-right: 40px; /* 아이콘 공간 확보 */
+  padding-right: 40px; 
 }
 
 .toggle-eye {

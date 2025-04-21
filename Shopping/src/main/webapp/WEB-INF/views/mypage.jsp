@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mypage.css">
 
 <div class="mypage-container">
 
@@ -22,12 +21,13 @@
 	<ul class="mypage-menu">
 		<li><a href="orderList.do">주문 내역 <span class="arrow">›</span></a></li>
 		<li><a href="cart.do">장바구니 <span class="arrow">›</span></a></li>
-		<li><a href="profile.do">내정보 변경 <span class="arrow">›</span></a></li>
+		<li><a href="myInfo.do">내정보 변경 <span class="arrow">›</span></a></li>
 		<li><a href="passwordForm.do">비밀번호 변경 <span class="arrow">›</span></a></li>
 		<li><a href="address.do">배송지 관리 <span class="arrow">›</span></a></li>
-		<li><a href="withdraw.do">회원 탈퇴 <span class="arrow">›</span></a></li>
+		<li><a href="leaveReason.do">회원 탈퇴 <span class="arrow">›</span></a></li>
 		<li><a href="support.do">고객센터 <span class="arrow">›</span></a></li>
 		<li><a href="notice.do">공지사항 <span class="arrow">›</span></a></li>
 	</ul>
 </div>
 <div class="logout"><a href="logout.do">로그아웃</a></div>
+
