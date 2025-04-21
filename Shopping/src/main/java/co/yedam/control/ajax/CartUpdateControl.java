@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import co.yedam.common.Control;
 import co.yedam.service.OrderService;
 import co.yedam.service.OrderServiceImpl;
+import co.yedam.vo.CartVO;
 
 public class CartUpdateControl implements Control {
 
@@ -22,12 +23,20 @@ public class CartUpdateControl implements Control {
 		String ucode = req.getSession().getAttribute("userCode")+"";
 		String pcode = req.getParameter("product_code");
 		String quantity = req.getParameter("quantity");
+		String option = req.getParameter("option");
 		
 		Gson gson = new Gson();
+		
+		CartVO cvo = new CartVO();
+		cvo.setUserCode(Integer.parseInt(ucode));
+		cvo.setProductCode(Integer.parseInt(pcode));
+		cvo.setQuantity(Integer.parseInt(quantity));
+		cvo.setProductOption(option);
+		
 		OrderService osv = new OrderServiceImpl();
 		
 		Map<String, String> map = new HashMap<String, String>();
-		if (osv.updateCart(Integer.parseInt(ucode), Integer.parseInt(pcode), Integer.parseInt(quantity))) {
+		if (osv.updateCart(cvo)) {
 			map.put("retCode", "200");
 		} else {
 			map.put("retCode", "500");

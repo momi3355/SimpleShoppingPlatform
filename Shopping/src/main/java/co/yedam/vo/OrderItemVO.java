@@ -9,4 +9,5 @@ public class OrderItemVO {
 	private int productCode;
 	private int quantity;
 	private int price;
+	private String option;
 }
