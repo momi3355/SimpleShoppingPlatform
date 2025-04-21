@@ -1,8 +1,6 @@
 package co.yedam.vo;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 
 
@@ -14,4 +12,5 @@ public class ReviewVO {
     private String content;     // 리뷰 본문
     private int rating;         // 별점 (1~5)
     private String writeDate;   // 작성일자
+    private String userName;    // 이름
 }

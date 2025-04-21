@@ -7,6 +7,5 @@ import co.yedam.vo.ReviewVO;
 public interface ReviewService {
 	boolean addReview(ReviewVO rvo);
 	boolean removeReview(int reviewNo, int userCode);
-	ReviewVO getReview(int reviewNo);
-	List<ReviewVO> reviewList();
+	List<ReviewVO> reviewList(int productCode);
 }
