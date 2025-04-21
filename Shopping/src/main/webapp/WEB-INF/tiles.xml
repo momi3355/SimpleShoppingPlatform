@@ -23,7 +23,8 @@
     <put-attribute name="body" value="/WEB-INF/views/searchResult.jsp" />
   </definition>
   
-  <definition name="WILDCARD:common/*" extends="myapp.homepage">
+  <definition name="WILDCARD:common/*" extends="myapp.homepage" >
+    <put-attribute name="header" value="" />
     <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
   </definition>
 </tiles-definitions>

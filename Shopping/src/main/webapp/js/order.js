@@ -8,12 +8,12 @@ inputlist.forEach((item) => {
 let combo = document.querySelector('.address select');
 json.deli_datas.forEach((item, idx) => {
   combo.innerHTML += /* html */
-  `<option value="${item.deliveryCode}">${item.address}</option>`;
+    `<option value="${item.deliveryCode}">${item.address}</option>`;
   if (idx == 0)
     getaddress(item.deliveryCode);
 });
 combo.innerHTML += /* html */
-`<option value="0">새로운 배송지</option>`;
+  `<option value="0">새로운 배송지</option>`;
 combo.addEventListener("change", (e) => {
   let value = e.target.value;
   if (value != 0)
@@ -28,14 +28,14 @@ combo.addEventListener("change", (e) => {
 
 let orderItem = document.querySelector('.order');
 orderItem.innerHTML = /* html */
-`<h2>주문 상품 ${json.datas.length} 개</h2>`;
+  `<h2>주문 상품 ${json.datas.length} 개</h2>`;
 
 let firstName = "";
 let total = 0;
 //console.log(json);
 json.datas.forEach((item, idx) => {
   let html = /* html */
-  `<div class="summary">
+    `<div class="summary">
     <img class="pro-image" src="images/${item.pro_img}">
     <p><b>${item.pro_name}</b></p>
     <p>${item.option} / ${item.quantity}</p>
@@ -43,7 +43,7 @@ json.datas.forEach((item, idx) => {
   </div>`;
   total += Number(item.price);
   if (idx == 0) {
-    firstName = item.pro_name + " 외 "+ (json.datas.length - 1) + "개";
+    firstName = item.pro_name + " 외 " + (json.datas.length - 1) + "개";
   }
 
   orderItem.innerHTML += html;
@@ -124,3 +124,4 @@ async function payment_click() {
     window.location.href = "paymentSuccess.do";
   }).catch((err) => console.error(err));
 }
+

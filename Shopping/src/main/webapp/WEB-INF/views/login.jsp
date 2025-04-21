@@ -3,8 +3,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- login.jsp -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/login.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script> const contextPath = "${pageContext.request.contextPath}";</script>
+<script src="${pageContext.request.contextPath}/js/kakao-config.js"></script>
+<script src="${pageContext.request.contextPath}/js/kakaoLogin.js"></script>
+
 
 <div class="login-title">로그인/회원가입</div>
 
@@ -21,15 +27,18 @@
     </div>
 
     <!-- 비밀번호 입력 -->
-    <div class="form-group">
-      <div class="label-row">
-        <label for="pw">비밀번호</label>
-        <span id="pwError" class="error-message"></span>
-      </div>
-      <input type="password" id="pw" name="pw">
-    </div>
+<div class="form-group">
+  <div class="label-row">
+    <label for="pw">비밀번호</label>
+    <span id="pwError" class="error-message"></span>
+  </div>
+  <div class="input-wrapper">
+    <input type="password" id="pw" name="pw">
+    <i class="fi fi-rr-eye toggle-eye" onclick="togglePassword('pw', this)"></i>
+  </div>
+</div>
 
-    <!-- 에러 메시지 영역 -->
+<!-- 에러 메시지 영역 -->
     <c:if test="${not empty message}">
       <div class="login-error">${message}</div>
     </c:if>
@@ -47,8 +56,11 @@
     </span>
   </div>
 
+  <!-- 카카오 로그인 버튼 -->
   <div class="social-login">
-    <button class="kakao">카카오톡 로그인</button>
+	<button type="button" onclick="kakaoLogin()" style="border: none; background: none; padding: 0;">
+  	  <img src="${pageContext.request.contextPath}/img/kakao_login_large_wide.png" alt="카카오 로그인" style="width: 307px; height: 46px;" >
+	</button>
   </div>
 
 </div>

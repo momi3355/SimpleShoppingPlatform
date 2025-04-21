@@ -11,4 +11,5 @@ public class LoginVO {
 	private String email;
 	private String phone;
 	private String userDate;
+	private String kakaoId;
 }

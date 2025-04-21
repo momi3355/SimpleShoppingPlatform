@@ -15,22 +15,23 @@ import co.yedam.vo.LoginVO;
 
 public class FindIdControl implements Control {
 
-
     @Override
     public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userName = req.getParameter("userName");
-        String phone = req.getParameter("phone");
-        String email = req.getParameter("email");
+        
+        LoginVO vo = new LoginVO();
+        vo.setUserName(req.getParameter("userName"));
+        vo.setPhone(req.getParameter("phone"));
+        vo.setEmail(req.getParameter("email"));
 
         LoginService service = new LoginServiceImpl();
-        LoginVO vo = service.findId(userName, phone, email);
+        LoginVO result = service.findId(vo);
 
         resp.setContentType("application/json;charset=utf-8");
 
         JsonObject json = new JsonObject();
 
-        if (vo != null) {
-            String userId = vo.getUserId();
+        if (result != null) {
+            String userId = result.getUserId(); 
             String maskedId = maskId(userId);
             json.addProperty("status", "success");
             json.addProperty("userId", maskedId);
@@ -48,5 +49,4 @@ public class FindIdControl implements Control {
         }
         return userId.substring(0, 3) + "*".repeat(userId.length() - 3);
     }
-
 }

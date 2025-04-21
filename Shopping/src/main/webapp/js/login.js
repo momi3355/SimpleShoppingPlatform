@@ -107,9 +107,24 @@ function submitFindPw() {
   }, function (data) {
     if (data.success) {
       // 추후 재설정 페이지로 이동
-      window.location.href = "resetPasswordForm.do?userCode=" + data.userCode;
+      window.location.href = "findPw.do?userCode=" + data.userCode;
     } else {
       $('#findPwResult').text("일치하는 계정이 존재하지 않습니다.");
     }
   });
+}
+//비밀번호 확인 토글
+function togglePassword(inputId, icon) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fi-rr-eye");
+    icon.classList.add("fi-rr-eye-crossed");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fi-rr-eye-crossed");
+    icon.classList.add("fi-rr-eye");
+  }
 }
