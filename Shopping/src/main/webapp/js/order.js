@@ -1,8 +1,3 @@
-/**
- * order
- */
-
-
 let inputlist = document.querySelectorAll('input');
 inputlist.forEach((item) => {
   item.addEventListener("input", (event) => {
@@ -74,14 +69,12 @@ function getaddress(deli_code) {
       inputlist[4].value = result.REQUEST;
     });
 }
-
 async function payment_click() {
   const result = await fetch(`configReader.do`);
   const config = await result.json();
   //console.log(json);
   if (config.retCode != "200") //500, 404
     return alert("API키를 찾을 수 없습니다. 관리자에게 문의 하세요.");
-
   const response = await PortOne.requestPayment({
     // Store ID 설정
     storeId: config.datas.storeId,
@@ -92,7 +85,7 @@ async function payment_click() {
     totalAmount: 100,
     currency: "CURRENCY_KRW",
     payMethod: "CARD",
-  });
+ });
 
   // if (response.code !== undefined) {
   //   return alert("결제를 취소 했습니다.");
@@ -113,7 +106,7 @@ async function payment_click() {
   // });
 
   alert("성공!");
-  //성공을 처리하기 위한 페이지를 호출
+
   const notified = await fetch(`paymentSuccess.do`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

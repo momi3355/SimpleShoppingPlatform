@@ -79,8 +79,16 @@
 			<div class="main-banner swiper mySwiper">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<img src="https://image.msscdn.net/display/images/2025/04/11/641046cc581b4fd99550cd18d88ee04b.jpg"
-							alt="배너1">
+						<figure class="main-banner-figure">
+      <div class="main-banner-img-wrapper">
+        <img src="https://image.msscdn.net/display/images/2025/04/11/a396fb519b4c4fe59c18cc89f5b20ee8.jpg"
+             alt="베스트 운동화 최대 80% 할인"/>
+      </div>
+      <figcaption class="main-banner-caption">
+        <p class="banner-title">베스트 운동화 최대 80% 할인</p>
+        <p class="banner-subtitle">슈즈 페스티벌</p>
+      </figcaption>
+    </figure>
 					</div>
 					<div class="swiper-slide">
 						<img src="https://image.msscdn.net/display/images/2025/01/09/4e1c2bf9afaa437283b98dc35a14c522.jpg"
