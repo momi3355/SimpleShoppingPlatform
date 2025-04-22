@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(target).classList.add("active");
 
       // 리뷰 탭 클릭 시 fetch 실행
-      if (target === "review") {
-        fetch("reviewlist.do?productCode=${productCode}")
-          .then(d => d.text())
-          .then(d => {
-            document.getElementById(target).innerHTML = d;
-          })
-          .catch(err => console.error("리뷰 불러오기 실패:", err));
-      }
+	  if (target === "review") {
+	    fetch(`reviewlist.do?productCode=${productCode}`)
+	      .then(d => d.text())
+	      .then(d => {
+	        document.getElementById(target).innerHTML = d;
+	      })
+	      .catch(err => console.error("리뷰 불러오기 실패:", err));
+	  }
     });
   });
 });
@@ -98,3 +98,28 @@ document.addEventListener("DOMContentLoaded", () => {
   heightInput.addEventListener("input", updateSizeRecommendation);
   weightInput.addEventListener("input", updateSizeRecommendation);
 });
+
+function removefunc(button) {
+  const reviewNo = button.dataset.reviewNo;
+  const userCode = button.dataset.userCode;
+  const reviewDiv = button.closest('.review');
+
+  if (!confirm('이 리뷰를 삭제하시겠습니까?')) return;
+
+  fetch('removeReview.do', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `reviewNo=${reviewNo}&userCode=${userCode}`
+  })
+  .then(res => res.json())
+  .then(result => {
+    if (result.result === 'success') {
+      alert('리뷰가 삭제되었습니다.');
+      window.location.href = 'productdetail.do'; 
+    } else {
+      alert('삭제 실패');
+    }
+  })
+};

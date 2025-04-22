@@ -24,10 +24,8 @@ public class ReviewServiceImpl implements ReviewService{
 	    return mapper.removeReview(reviewNo, userCode) == 1;
 	}
 
-
 	@Override
 	public List<ReviewVO> reviewList(int productCode) {
-		// TODO Auto-generated method stub
 		return mapper.selectReviewsByProduct(productCode);
 	}
 
