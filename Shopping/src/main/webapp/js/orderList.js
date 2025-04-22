@@ -21,7 +21,7 @@ function addOrderList(json) {
       orderList.innerHTML += /* html */`<p class="order-date">${date}</p>`;
       const products = json[date];
       products.forEach(product => {
-        console.log(product);
+        //console.log(product);
         orderList.innerHTML += /* html */
         `<div class="summary">
           <img class="pro-image" src="${product.imageUrlFir}">

@@ -9,4 +9,6 @@ public class DeliveryVO {
     private int post;
     private String address;
     private String request;
+    private String userName;
+    private String phone;
 }

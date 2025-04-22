@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSource;
 import co.yedam.mapper.OrderMapper;
+import co.yedam.vo.CartVO;
 import co.yedam.vo.OrderItemVO;
 import co.yedam.vo.OrdersVO;
 
@@ -20,13 +21,13 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-    public boolean addCart(int userCode, int productCode) {
-        return mapper.insertCart(userCode, productCode) > 0;
+    public boolean addCart(CartVO cvo) {
+        return mapper.insertCart(cvo) > 0;
     }
     
 	@Override
-	public boolean updateCart(int userCode, int productCode, int quantity) {
-		return mapper.updateCart(userCode, productCode, quantity) > 0;
+	public boolean updateCart(CartVO cvo) {
+		return mapper.updateCart(cvo) > 0;
 	}
 
     @Override

@@ -17,7 +17,7 @@ public class OrderListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userCode = req.getSession().getAttribute("userCode")+"";
 		if (userCode.equals("null")) {
-			req.getRequestDispatcher("common/main.do").forward(req, resp);
+			req.getRequestDispatcher("login.do").forward(req, resp);
 			return;
 		}
 		req.getRequestDispatcher("common/orderList.tiles").forward(req, resp);

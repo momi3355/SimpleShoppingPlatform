@@ -3,13 +3,14 @@ package co.yedam.service;
 import java.util.List;
 import java.util.Map;
 
+import co.yedam.vo.CartVO;
 import co.yedam.vo.OrderItemVO;
 import co.yedam.vo.OrdersVO;
 
 public interface OrderService {
 	List<Map<String, Object>> getCarts(int userCode);
-	boolean addCart(int userCode, int productCode);
-	boolean updateCart(int userCode, int productCode, int quantity);
+	boolean addCart(CartVO cvo);
+	boolean updateCart(CartVO cvo);
 	boolean deleteCart(int userCode, int productCode);
 	boolean clearCart(int userCode);
 	

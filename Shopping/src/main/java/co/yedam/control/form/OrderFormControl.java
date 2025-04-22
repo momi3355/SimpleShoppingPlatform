@@ -36,6 +36,7 @@ public class OrderFormControl implements Control {
 			for (int i = 0; i < Integer.parseInt(count); i++) {
 				Map<String, String> productMap = new HashMap<String, String>();
 				String proCode = req.getParameter("pro_code_"+i);
+                String option = req.getParameter("pro_option_"+i);
 				String quantity = req.getParameter("quantity_"+i);
 				
 				ProductService psv = new ProductServiceImpl();
@@ -45,7 +46,7 @@ public class OrderFormControl implements Control {
 				productMap.put("pro_name", pro.getProductName());
 				productMap.put("pro_img", pro.getImageUrlFir());
 				productMap.put("price", pro.getPrice()+"");
-				productMap.put("option", pro.getProductOption());
+				productMap.put("option", option);
 				productMap.put("quantity", quantity);
 				
 				pro_list.add(productMap);
@@ -65,8 +66,9 @@ public class OrderFormControl implements Control {
 			
 			String userCode = req.getSession().getAttribute("userCode")+"";
 			String proCode = req.getParameter("product_code");
+			String option = req.getParameter("option");
 			if (userCode.equals("null")) {
-				req.getRequestDispatcher("main.do").forward(req, resp);
+				req.getRequestDispatcher("login.do").forward(req, resp);
 				return;
 			}
 			
@@ -83,7 +85,7 @@ public class OrderFormControl implements Control {
 			productMap.put("pro_name", pro.getProductName());
 			productMap.put("pro_img", pro.getImageUrlFir());
 			productMap.put("price", pro.getPrice()+"");
-			productMap.put("option", pro.getProductOption());
+			productMap.put("option", option);
 			productMap.put("quantity", quantity);
 			
 			pro_list.add(productMap);

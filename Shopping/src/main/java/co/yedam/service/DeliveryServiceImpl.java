@@ -14,18 +14,18 @@ public class DeliveryServiceImpl implements DeliveryService {
 	DeliveryMapper mapper = sqlSession.getMapper(DeliveryMapper.class);
 
 	@Override
-    public void addDelivery(DeliveryVO deliveryVO) {
-    	mapper.insertDelivery(deliveryVO);
+    public boolean addDelivery(DeliveryVO deliveryVO) {
+    	return mapper.insertDelivery(deliveryVO) > 0;
     }
 
 	@Override
-    public void updateDelivery(DeliveryVO deliveryVO) {
-    	mapper.updateDelivery(deliveryVO);
+    public boolean updateDelivery(DeliveryVO deliveryVO) {
+    	return mapper.updateDelivery(deliveryVO) > 0;
     }
 
 	@Override
-    public void deleteDelivery(int deliveryCode) {
-    	mapper.deleteDelivery(deliveryCode);
+    public boolean deleteDelivery(int deliveryCode) {
+    	return mapper.deleteDelivery(deliveryCode) > 0;
     }
 
 	@Override

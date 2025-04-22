@@ -30,7 +30,7 @@ public class OrderListJsonControl implements Control {
 		List<OrderInfoVO> list =  olsv.getOrderList(Integer.parseInt(userCode));
 		Gson gson = new GsonBuilder().create();
 		
-		System.out.println(list);
+		//System.out.println(list);
 		resp.getWriter().print(gson.toJson(list));
 	}
 }

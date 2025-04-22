@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.control.AddAddressControl;
 import co.yedam.control.AddReviewControl;
 import co.yedam.control.ChangePwControl;
 import co.yedam.control.CheckPwControl;
@@ -49,6 +50,8 @@ import co.yedam.control.ajax.CartRemoveControl;
 import co.yedam.control.ajax.CartUpdateControl;
 import co.yedam.control.ajax.ConfigReaderControl;
 import co.yedam.control.ajax.OrderListJsonControl;
+import co.yedam.control.ajax.RemoveAddressControl;
+import co.yedam.control.form.AddressFormControl;
 import co.yedam.control.form.CartFormControl;
 import co.yedam.control.form.OrderFormControl;
 
@@ -70,39 +73,31 @@ public class FrontController extends HttpServlet {
 		// 상품 검색
 		map.put("/searchResult.do", new SearchResultControl());
 		
-		//마이페이지
-		map.put("/myPage.do", new MypageControl());
-		map.put("/myInfo.do", new MyInfoControl());
-		map.put("/myInfoPw.do", new MyInfoPwControl());
-		map.put("/passwordForm.do", new PasswordFormControl());
-		map.put("/checkPw.do", new CheckPwControl());
-		map.put("/changePw.do", new ChangePwControl());
-		map.put("/logout.do", new LogoutControl());
-		map.put("/support.do", new SupportControl());
-		map.put("/notice.do", new NoticeControl());
-		map.put("/noticeContent.do", new NoticeContentControl());
+        //마이페이지
+        map.put("/myPage.do", new MypageControl());
+        map.put("/myInfo.do", new MyInfoControl());
+        map.put("/myInfoPw.do", new MyInfoPwControl());
+        map.put("/passwordForm.do", new PasswordFormControl());
+        map.put("/checkPw.do", new CheckPwControl());
+        map.put("/changePw.do", new ChangePwControl());
+        map.put("/logout.do", new LogoutControl());
+        map.put("/support.do", new SupportControl());
+        map.put("/notice.do", new NoticeControl());
+        map.put("/noticeContent.do", new NoticeContentControl());
 		
-
         // AJAX: 신상품 더보기
         map.put("/newproductajax.do", new NewProductAjaxControl());
         map.put("/popularproductajax.do", new PopularProductAjaxControl());
 
-        // 로그인 관련 페이지
+        // 로그인 페이지
         map.put("/login.do", new LoginControl());
         map.put("/loginForm.do", new LoginFormControl());
-        map.put("/logout.do", new LogoutControl());
         map.put("/findId.do", new FindIdControl());
         map.put("/findPw.do", new FindPwControl());
-        map.put("/myPage.do", new MypageControl());
-        map.put("/passwordForm.do", new PasswordFormControl());
-        map.put("/checkPw.do", new CheckPwControl());
-        map.put("/changePw.do", new ChangePwControl());
         map.put("/resetPassword.do", new ResetPasswordControl());
         map.put("/kakaoLogin.do", new KakaoLoginControl());
-        map.put("/signUp.do", new SignUpControl());
         map.put("/signUpForm.do", new SignUpFormControl());
-        map.put("/myInfoPw.do", new MyInfoPwControl());
-        map.put("/myInfo.do", new MyInfoControl());
+        map.put("/signUp.do", new SignUpControl());
 
         // 주문 관련 페이지
         map.put("/orderList.do", new OrderListControl());
