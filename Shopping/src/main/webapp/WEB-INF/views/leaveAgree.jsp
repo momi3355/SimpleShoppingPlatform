@@ -20,7 +20,7 @@
   </div>
 
   <div class="leave-buttons">
-    <button type="button" onclick="location.href='mypage.do'">그만두기</button>
+    <button type="button" onclick="location.href='myPage.do'">그만두기</button>
     <button type="button" id="agreeNextBtn" disabled>다음</button>
   </div>
 </div>

@@ -78,6 +78,7 @@
   font-size: 15px;
   color: #333;
   line-height: 1.6;
+  
 }
 
 .notice-detail-header {
@@ -93,6 +94,7 @@
 
 .notice-detail-body {
   border-top: 1px solid black;
+  
 }
 
 .notice-detail-date {
