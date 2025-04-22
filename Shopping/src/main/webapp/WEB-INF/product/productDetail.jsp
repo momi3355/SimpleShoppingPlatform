@@ -303,6 +303,9 @@
       </div>
     </main>
 </body>
+<script>
+  const productCode = "${product.productCode}";
+</script>
 <script src="js/product_details.js"></script>
 <script src="js/productBtn.js"></script>
 </html>

@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(target).classList.add("active");
 
       // 리뷰 탭 클릭 시 fetch 실행
-      if (target === "review") {
-        fetch("reviewlist.do?productCode=${productCode}")
-          .then(d => d.text())
-          .then(d => {
-            document.getElementById(target).innerHTML = d;
-          })
-          .catch(err => console.error("리뷰 불러오기 실패:", err));
-      }
+	  if (target === "review") {
+	    fetch(`reviewlist.do?productCode=${productCode}`)
+	      .then(d => d.text())
+	      .then(d => {
+	        document.getElementById(target).innerHTML = d;
+	      })
+	      .catch(err => console.error("리뷰 불러오기 실패:", err));
+	  }
     });
   });
 });

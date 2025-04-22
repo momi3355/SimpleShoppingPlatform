@@ -7,9 +7,11 @@ import co.yedam.common.ProductDTO;
 
 public interface ProductService {
     List<ProductDTO> productList(); // 전체 상품 조회
-    ProductDTO getByCode(int code); //코드로 상품만 조회
-	List<ProductDTO> getAllProducts();
-	List<ProductDTO> getPopularProducts(); // 판매량으로 정렬조회
-	ProductDTO getDetailByCode(int code); // 코드로 이미지 조회
-	List<ProductDTO> getProducts(Map<String, Object> params); // 상품 카테고리 이름으로 검색
+    ProductDTO getByCode(int code);
+    List<ProductDTO> getAllProducts(); // 전체
+    List<ProductDTO> getAllProducts(Integer page, Integer pageSize); // 페이징
+    List<ProductDTO> getPopularProducts();
+    ProductDTO getDetailByCode(int code);
+    List<ProductDTO> getProducts(Map<String, Object> params);
+    List<ProductDTO> selectPopularWithPaging(Map<String, Object> params);// 인기상품 페이징용
 }

@@ -2,10 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.mapper.ProductMapper">
 	<!-- 전체 상품 조회 -->
-	<select id="getAllProducts" resultType="ProductDTO">
-		SELECT *
-		FROM products
-		ORDER BY product_date DESC
+	<select id="getAllProducts" parameterType="map" resultType="ProductDTO">
+	  <choose>
+	    <when test="pageSize != null and offset != null">
+	       <![CDATA[
+			    SELECT *
+			    FROM (
+			        SELECT rownum AS rn, a.*
+			        FROM (
+			            SELECT * FROM products ORDER BY product_date DESC
+			        ) a
+			        WHERE rownum <= #{offset} + #{pageSize}
+			    )
+			    WHERE rn > #{offset}
+			  ]]>
+	    </when>
+	    <otherwise>
+	      SELECT * FROM products
+	      ORDER BY product_date DESC
+	    </otherwise>
+	  </choose>
 	</select>
 	<!-- 코드로 상품만 조회 -->
 	<select id="getProductByCode" resultType="ProductDTO"
@@ -17,11 +33,24 @@
 	</select>
 	<!-- 판매량순으로 상품 조회 -->
 	<select id="getPopularProducts" resultType="ProductDTO">
-		SELECT *
-		FROM products
+		SELECT * FROM products
 		ORDER BY sales_count DESC
+		LIMIT #{limit} OFFSET #{offset}
 	</select>
-
+	<!-- 판매량순으로 페이징 -->
+	<select id="selectPopularWithPaging" resultType="ProductDTO">
+	  <![CDATA[
+	  SELECT *
+	  FROM (
+	    SELECT p.*, ROWNUM rnum
+	    FROM (
+	      SELECT * FROM products ORDER BY sales_count DESC
+	    ) p
+	    WHERE ROWNUM <= #{offset} + #{limit}
+	  )
+	  WHERE rnum > #{offset}
+	  ]]>
+	</select>
 	<!-- 코드로 이미지 조회 -->
 	<select id="getProductDetailByCode" resultType="ProductDTO"
 		parameterType="int">

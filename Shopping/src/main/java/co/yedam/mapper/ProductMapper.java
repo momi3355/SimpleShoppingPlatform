@@ -3,13 +3,16 @@ package co.yedam.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import co.yedam.common.ProductDTO;
 
 public interface ProductMapper {
-    List<ProductDTO> getAllProducts(); //전체 검색
-    ProductDTO getProductByCode(int productCode); // 코드검색
-    ProductDTO getProductDetailByCode(int productCode); // 코드로 이미지검색
-    List<ProductDTO> getPopularProducts(); // 판매량순으로 정렬
-	List<String> getProductImages(int code); // 이미지저장
-	List<ProductDTO> getProducts(Map<String, Object> params); // 카테고리,이름검색
+    List<ProductDTO> getAllProducts(Map<String, Object> params);
+    ProductDTO getProductByCode(int productCode);
+    ProductDTO getProductDetailByCode(int productCode);
+    List<ProductDTO> getPopularProducts();
+    List<String> getProductImages(int code);
+    List<ProductDTO> getProducts(Map<String, Object> params);
+    List<ProductDTO> selectPopularWithPaging(Map<String, Object> params);
 }
