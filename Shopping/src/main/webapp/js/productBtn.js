@@ -1,7 +1,13 @@
 
 function addCart(code) {
+  const selectedSize = document.querySelector('#size-select').value;
+  if (selectedSize === "") {
+    alert("사이즈를 선택해주세요.");
+	return;
+  }
+	
   //console.log("addCart", code);
-  fetch(`cartAdd.do?product_code=${code}`)
+  fetch(`cartAdd.do?product_code=${code}&option=${selectedSize}`)
     .then(result => result.json())
 	.then(result => {
 		if (result.retCode == '200') {
@@ -15,6 +21,11 @@ function addCart(code) {
 }
 
 function buyProduct(code) {
+	const selectedSize = document.querySelector('#size-select').value;
+	if (selectedSize === "") {
+	  alert("사이즈를 선택해주세요.");
+	  return;
+	}
 	//console.log("buyProduct", code);
-	window.location.href = `orderForm.do?product_code=${code}`;
+	window.location.href = `orderForm.do?product_code=${code}&option=${selectedSize}`;
 }

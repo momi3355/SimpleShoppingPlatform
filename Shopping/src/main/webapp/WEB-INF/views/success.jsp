@@ -1,17 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
-  body {
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f8f8;
-      color: #333;
-  }
-
-  .container {
+  .order-container {
       max-width: 800px;
       margin: 20px auto;
+      margin-top: 80px;
       padding: 30px;
       background-color: #fff;
       border-radius: 8px;

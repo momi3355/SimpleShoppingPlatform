@@ -7,10 +7,12 @@
 
     <!-- 배송 정보 추가 -->
     <insert id="insertDelivery" parameterType="co.yedam.vo.DeliveryVO">
-        INSERT INTO delivery (delivery_code, user_code, post, address, request)
+        INSERT INTO delivery (delivery_code, user_code, user_name, phone, post, address, request)
         VALUES (
-            #{deliveryCode},
+            delivery_code_seq.nextval,
             #{userCode},
+            #{userName},
+            #{phone},
             #{post},
             #{address},
             #{request}
@@ -20,8 +22,8 @@
     <!-- 배송 정보 수정 -->
     <update id="updateDelivery" parameterType="co.yedam.vo.DeliveryVO">
         UPDATE delivery
-        SET
-            user_code = #{userCode},
+        SET user_name = #{userName},
+            phone = #{phone},
             post = #{post},
             address = #{address},
             request = #{request}

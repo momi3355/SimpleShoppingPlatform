@@ -9,6 +9,7 @@
            c.quantity,
            c.product_code,
            p.product_name,
+           c.product_option AS user_option,
            p.product_option,
            p.image_url_fir,
            p.price,
@@ -17,19 +18,22 @@
                     ON c.product_code = p.product_code
      WHERE c.user_code = #{userCode}
   </select>
-  <insert id="insertCart" parameterType="int">
+  <insert id="insertCart" parameterType="co.yedam.vo.CartVO">
     INSERT INTO cart (cart_code,
                       user_code,
                       product_code,
+                      product_option,
                       quantity)
     VALUES (cart_code_seq.nextval,
             #{userCode},
             #{productCode},
-            1)
+            #{productOption},
+            #{quantity})
   </insert>
-  <update id="updateCart" parameterType="int">
+  <update id="updateCart" parameterType="co.yedam.vo.CartVO">
     UPDATE cart
-       SET quantity = #{quantity}
+       SET quantity = #{quantity},
+           product_option = #{productOption}
      WHERE user_code = #{userCode}
        AND product_code = #{productCode}
   </update>

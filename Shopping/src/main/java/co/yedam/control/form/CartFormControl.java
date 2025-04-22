@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
-import co.yedam.vo.LoginVO;
 
 public class CartFormControl implements Control {
 
@@ -21,8 +20,12 @@ public class CartFormControl implements Control {
 //		login.setPassword("pw1234");
 //		
 //		req.getSession().setAttribute("loginVO", login);
-	    int userCode = (int)req.getSession().getAttribute("userCode");
-		req.setAttribute("user_code", userCode);
+	    String userCode = req.getSession().getAttribute("userCode")+"";
+	    if (userCode.equals("null")) {
+            req.getRequestDispatcher("login.do").forward(req, resp);
+            return;
+        }
+		req.setAttribute("user_code", Integer.parseInt(userCode));
 		req.getRequestDispatcher("common/cart.tiles").forward(req, resp);
 	}
 }

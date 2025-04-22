@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import co.yedam.common.Control;
 import co.yedam.service.OrderService;
 import co.yedam.service.OrderServiceImpl;
+import co.yedam.vo.CartVO;
 
 public class CartAddControl implements Control {
 	@Override
@@ -25,12 +26,19 @@ public class CartAddControl implements Control {
 		}
 		int ucode = Integer.parseInt(userCode);
 		int pcode = Integer.parseInt(req.getParameter("product_code"));
+		String option = req.getParameter("option");
+		
+		CartVO cvo = new CartVO();
+		cvo.setUserCode(ucode);
+		cvo.setProductCode(pcode);
+		cvo.setQuantity(1);
+		cvo.setProductOption(option);
 		
 		OrderService osv = new OrderServiceImpl();
 		
 		Gson gson = new Gson();
 		Map<String, String> map = new HashMap<String, String>();
-		if (osv.addCart(ucode, pcode)) {
+		if (osv.addCart(cvo)) {
 			map.put("retCode", "200");
 		} else {
 			map.put("retCode", "500");
