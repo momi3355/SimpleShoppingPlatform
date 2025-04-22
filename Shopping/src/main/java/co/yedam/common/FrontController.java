@@ -113,7 +113,10 @@ public class FrontController extends HttpServlet {
         map.put("/orderForm.do", new OrderFormControl());
         map.put("/paymentSuccess.do", new PaymentSuccessControl());
 
-        map.put("/addressJson.do", new AddressJsonControl());
+        map.put("/address.do", new AddressFormControl());
+		map.put("/addressJson.do", new AddressJsonControl());
+		map.put("/addAddress.do", new AddAddressControl());
+		map.put("/removeAddress.do", new RemoveAddressControl());
 
         map.put("/reviewForm.do", new ReviewFormControl());
         map.put("/addReview.do", new AddReviewControl());
