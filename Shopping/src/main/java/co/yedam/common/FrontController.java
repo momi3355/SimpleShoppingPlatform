@@ -35,6 +35,7 @@ import co.yedam.control.PasswordFormControl;
 import co.yedam.control.PaymentSuccessControl;
 import co.yedam.control.PopularProductAjaxControl;
 import co.yedam.control.ProductDetailControl;
+import co.yedam.control.ProductInfoControl;
 import co.yedam.control.RemoveReviewControl;
 import co.yedam.control.ResetPasswordControl;
 import co.yedam.control.ReviewFormControl;
@@ -117,7 +118,8 @@ public class FrontController extends HttpServlet {
         map.put("/reviewForm.do", new ReviewFormControl());
         map.put("/addReview.do", new AddReviewControl());
         map.put("/reviewlist.do", new ReviewListControl());
-        map.put("/removereview.do", new RemoveReviewControl());
+        map.put("/removeReview.do", new RemoveReviewControl());
+        map.put("/productInfo.do", new ProductInfoControl());;
 
         // 회원탈퇴 관련 페이지
         map.put("/leaveReason.do", new LeaveReasonControl());

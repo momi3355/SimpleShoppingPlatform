@@ -17,7 +17,7 @@ public class RemoveReviewControl implements Control {
         String reviewNoParam = req.getParameter("reviewNo");
         String userCodeParam = req.getParameter("userCode");
 
-        // 기본 응답값
+        // 기본 응답
         String result = "fail";
 
         try {
@@ -26,16 +26,17 @@ public class RemoveReviewControl implements Control {
 
             ReviewService service = new ReviewServiceImpl();
             boolean success = service.removeReview(reviewNo, userCode);
-
-            if (success) {
-                result = "success";
+            result = success ? "success" : "fail";
+            if (reviewNoParam == null || userCodeParam == null) {
+            	resp.getWriter().write("{\"result\":\"fail\", \"error\":\"Missing parameters\"}");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // 결과 응답
-        resp.setContentType("text/plain;charset=UTF-8");
-        resp.getWriter().write(result);
+        resp.setContentType("application/json;charset=UTF-8");
+        String json = "{\"result\":\"" + result + "\"}";
+        resp.getWriter().write(json);
     }
 }

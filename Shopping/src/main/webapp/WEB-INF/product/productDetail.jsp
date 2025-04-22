@@ -261,8 +261,8 @@
             </div>
             <!-- 버튼 -->
             <div class="action-buttons">
-              <button class="btn-cart">장바구니</button>
-              <button class="btn-buy">구매하기</button>
+              <button class="btn-cart" onclick="addCart(${product.productCode})">장바구니</button>
+              <button class="btn-buy" onclick="buyProduct(${product.productCode})">구매하기</button>
             </div>
             <!-- 카드 혜택 -->
             <div class="payment-benefits">
@@ -304,7 +304,7 @@
     </main>
 </body>
 <script>
-  const productCode = "${product.productCode}";
+const productCode = "${param.product_code}"
 </script>
 <script src="js/product_details.js"></script>
 <script src="js/productBtn.js"></script>
