@@ -1,4 +1,5 @@
 .order-list-container {
+  margin-top: 80px;
   display: flex; /* Flexbox 레이아웃 사용 */
   flex-direction: column; /* 아이템을 세로로 배치 */
   border: 1px solid #ddd; /* 얇은 테두리 추가 */

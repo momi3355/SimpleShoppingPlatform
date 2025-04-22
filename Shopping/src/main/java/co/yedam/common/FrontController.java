@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.yedam.control.AddAddressControl;
 import co.yedam.control.AddReviewControl;
 import co.yedam.control.ChangePwControl;
 import co.yedam.control.CheckPwControl;
@@ -44,6 +45,8 @@ import co.yedam.control.ajax.CartRemoveControl;
 import co.yedam.control.ajax.CartUpdateControl;
 import co.yedam.control.ajax.ConfigReaderControl;
 import co.yedam.control.ajax.OrderListJsonControl;
+import co.yedam.control.ajax.RemoveAddressControl;
+import co.yedam.control.form.AddressFormControl;
 import co.yedam.control.form.CartFormControl;
 import co.yedam.control.form.OrderFormControl;
 
@@ -94,7 +97,10 @@ public class FrontController extends HttpServlet {
 		map.put("/orderForm.do", new OrderFormControl());
 		map.put("/paymentSuccess.do", new PaymentSuccessControl());
 		
+		map.put("/address.do", new AddressFormControl());
 		map.put("/addressJson.do", new AddressJsonControl());
+		map.put("/addAddress.do", new AddAddressControl());
+		map.put("/removeAddress.do", new RemoveAddressControl());
 		
 		
 		map.put("/reviewForm.do", new ReviewFormControl());
