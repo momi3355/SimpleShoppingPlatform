@@ -1,6 +1,10 @@
 package co.yedam.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+
+import co.yedam.vo.BoardVO;
 
 import co.yedam.vo.LoginVO;
 
@@ -26,4 +30,7 @@ public interface LoginMapper {
 	int updateInfo(LoginVO vo);
 	
 	int deleteUser(int userCode);
+	
+	List<BoardVO> selectNtCategory(String boardCategory);
+	BoardVO selectNtCode(int boardCode);  
 }

@@ -12,8 +12,8 @@
 				alt="홈" class="home-icon">
 			</a>
 		</div>
-		<div class="user-info">
 			어서오세요, <strong>${userName}</strong>님
+		<div class="user-info">
 		</div>
 	</div>
 
@@ -27,7 +27,7 @@
 		<li><a href="leaveReason.do">회원 탈퇴 <span class="arrow">›</span></a></li>
 		<li><a href="support.do">고객센터 <span class="arrow">›</span></a></li>
 		<li><a href="notice.do">공지사항 <span class="arrow">›</span></a></li>
-	</ul>
+ 	</ul>
 </div>
 <div class="logout"><a href="logout.do">로그아웃</a></div>
 

@@ -28,7 +28,7 @@ public class LeaveReasonControl implements Control {
         LoginService service = new LoginServiceImpl();
         LoginVO vo = service.getUserInfo(userCode);
 
-        req.setAttribute("loginVO", vo); // JSP에서 userName 사용 가능
+        req.setAttribute("loginVO", vo);
         req.getRequestDispatcher("common/leaveReason.tiles").forward(req, resp);
 	}
 

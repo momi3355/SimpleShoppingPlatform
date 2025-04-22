@@ -27,6 +27,8 @@ import co.yedam.control.MyInfoControl;
 import co.yedam.control.MyInfoPwControl;
 import co.yedam.control.MypageControl;
 import co.yedam.control.NewProductAjaxControl;
+import co.yedam.control.NoticeContentControl;
+import co.yedam.control.NoticeControl;
 import co.yedam.control.OrderListControl;
 import co.yedam.control.PasswordFormControl;
 import co.yedam.control.PaymentSuccessControl;
@@ -39,6 +41,7 @@ import co.yedam.control.ReviewListControl;
 import co.yedam.control.SearchResultControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
+import co.yedam.control.SupportControl;
 import co.yedam.control.ajax.AddressJsonControl;
 import co.yedam.control.ajax.CartAddControl;
 import co.yedam.control.ajax.CartJsonControl;
@@ -56,21 +59,33 @@ public class FrontController extends HttpServlet {
     public FrontController() {
         map = new HashMap<>();
     }
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        // 기본 페이지 맵핑
-        map.put("/main.do", new MainControl());
-        map.put("/configReader.do", new ConfigReaderControl());
+    
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		map.put("/main.do", new MainControl());
+		map.put("/configReader.do", new ConfigReaderControl());
+		
+		// 상품 상세페이지
+		map.put("/productdetail.do", new ProductDetailControl());
+		// 상품 검색
+		map.put("/searchResult.do", new SearchResultControl());
+		
+		//마이페이지
+		map.put("/myPage.do", new MypageControl());
+		map.put("/myInfo.do", new MyInfoControl());
+		map.put("/myInfoPw.do", new MyInfoPwControl());
+		map.put("/passwordForm.do", new PasswordFormControl());
+		map.put("/checkPw.do", new CheckPwControl());
+		map.put("/changePw.do", new ChangePwControl());
+		map.put("/logout.do", new LogoutControl());
+		map.put("/support.do", new SupportControl());
+		map.put("/notice.do", new NoticeControl());
+		map.put("/noticeContent.do", new NoticeContentControl());
+		
 
         // AJAX: 신상품 더보기
         map.put("/newproductajax.do", new NewProductAjaxControl());
         map.put("/popularproductajax.do", new PopularProductAjaxControl());
-
-        // 상품 상세페이지
-        map.put("/productdetail.do", new ProductDetailControl());
-        // 상품 검색
-        map.put("/searchResult.do", new SearchResultControl());
 
         // 로그인 관련 페이지
         map.put("/login.do", new LoginControl());
