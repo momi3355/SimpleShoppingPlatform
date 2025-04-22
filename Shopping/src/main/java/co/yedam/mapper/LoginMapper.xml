@@ -104,8 +104,33 @@
 
 	<delete id="deleteUser" parameterType="int">
 		DELETE FROM users
-		WHERE user_code = #{userCode}
+		WHERE
+		user_code = #{userCode}
 	</delete>
+
+<select id="selectNtCategory" parameterType="String"
+        resultType="co.yedam.vo.BoardVO">
+    SELECT board_code,
+           board_title,
+           board_date, 
+           board_content,
+           board_category
+    FROM supportboard
+    WHERE board_category = #{boardCategory}
+    ORDER BY board_date DESC
+</select>
+
+<!-- 공지사항 상세 조회 -->
+<select id="selectNtCode" parameterType="int"
+        resultType="co.yedam.vo.BoardVO">
+    SELECT board_code,
+           board_title,
+           board_date, 
+           board_content,
+           board_category
+    FROM supportboard
+    WHERE board_code = #{boardCode}
+</select>
 
 
 

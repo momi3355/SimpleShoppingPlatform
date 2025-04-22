@@ -1,5 +1,9 @@
 package co.yedam.service;
 
+import java.util.List;
+
+import co.yedam.vo.BoardVO;
+
 import co.yedam.vo.LoginVO;
 
 public interface LoginService {
@@ -20,5 +24,8 @@ public interface LoginService {
 	int updateMyInfo(LoginVO vo);
 	
 	int deleteUser(int userCode);
+	
+    List<BoardVO> getNotice(String boardCategory);
+    BoardVO getNoticeCode(int boardCode);
 
 }

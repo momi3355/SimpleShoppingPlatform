@@ -26,6 +26,8 @@ import co.yedam.control.MainControl;
 import co.yedam.control.MyInfoControl;
 import co.yedam.control.MyInfoPwControl;
 import co.yedam.control.MypageControl;
+import co.yedam.control.NoticeContentControl;
+import co.yedam.control.NoticeControl;
 import co.yedam.control.OrderListControl;
 import co.yedam.control.PasswordFormControl;
 import co.yedam.control.PaymentSuccessControl;
@@ -37,6 +39,7 @@ import co.yedam.control.ReviewListControl;
 import co.yedam.control.SearchResultControl;
 import co.yedam.control.SignUpControl;
 import co.yedam.control.SignUpFormControl;
+import co.yedam.control.SupportControl;
 import co.yedam.control.ajax.AddressJsonControl;
 import co.yedam.control.ajax.CartAddControl;
 import co.yedam.control.ajax.CartJsonControl;
@@ -68,19 +71,25 @@ public class FrontController extends HttpServlet {
 		// 로그인 페이지
 		map.put("/login.do", new LoginControl());
 		map.put("/loginForm.do", new LoginFormControl());
-		map.put("/logout.do", new LogoutControl());
 		map.put("/findId.do", new FindIdControl());
 		map.put("/findPw.do", new FindPwControl());
+		map.put("/resetPassword.do", new ResetPasswordControl());
+		map.put("/kakaoLogin.do", new KakaoLoginControl());
+		map.put("/signUpForm.do", new SignUpFormControl());
+		map.put("/signUp.do", new SignUpControl());
+		
+		//마이페이지
 		map.put("/myPage.do", new MypageControl());
+		map.put("/myInfo.do", new MyInfoControl());
+		map.put("/myInfoPw.do", new MyInfoPwControl());
 		map.put("/passwordForm.do", new PasswordFormControl());
 		map.put("/checkPw.do", new CheckPwControl());
 		map.put("/changePw.do", new ChangePwControl());
-		map.put("/resetPassword.do", new ResetPasswordControl());
-		map.put("/kakaoLogin.do", new KakaoLoginControl());
-		map.put("/signUp.do", new SignUpControl());
-		map.put("/signUpForm.do", new SignUpFormControl());
-		map.put("/myInfoPw.do", new MyInfoPwControl());
-		map.put("/myInfo.do", new MyInfoControl());
+		map.put("/logout.do", new LogoutControl());
+		map.put("/support.do", new SupportControl());
+		map.put("/notice.do", new NoticeControl());
+		map.put("/noticeContent.do", new NoticeContentControl());
+		
 		
 		map.put("/orderList.do", new OrderListControl());
 		map.put("/orderListJson.do", new OrderListJsonControl());

@@ -1,6 +1,10 @@
 package co.yedam.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
+
+import co.yedam.vo.BoardVO;
 
 import co.yedam.common.DataSource;
 import co.yedam.mapper.LoginMapper;
@@ -10,6 +14,7 @@ public class LoginServiceImpl implements LoginService {
 
 	SqlSession session = DataSource.getInstance().openSession(true);
 	LoginMapper loginmapper = session.getMapper(LoginMapper.class);
+	
 
 	@Override
 	public int login(String id, String pw) {
@@ -65,6 +70,16 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public int deleteUser(int userCode) {
 		return loginmapper.deleteUser(userCode);
+	}
+
+	@Override
+	public List<BoardVO> getNotice(String boardCategory) {
+		return loginmapper.selectNtCategory(boardCategory);
+	}
+
+	@Override
+	public BoardVO getNoticeCode(int boardCode) {
+		return loginmapper.selectNtCode(boardCode);
 	}
 
 }
