@@ -25,12 +25,6 @@ public class AddAddressControl implements Control {
 			String zipcode = req.getParameter("zipcode")+"";
 			String address = req.getParameter("address")+"";
 			String message = req.getParameter("message")+"";
-
-			System.out.println(name);
-			System.out.println(phone);
-			System.out.println(zipcode);
-			System.out.println(address);
-			System.out.println(message);
 			
 			DeliveryVO dvo = new DeliveryVO();
 			dvo.setUserCode(Integer.parseInt(session.getAttribute("userCode")+""));
