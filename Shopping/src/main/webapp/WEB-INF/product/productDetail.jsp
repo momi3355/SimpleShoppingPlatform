@@ -303,6 +303,9 @@
       </div>
     </main>
 </body>
+<script>
+const productCode = "${param.product_code}"
+</script>
 <script src="js/product_details.js"></script>
 <script src="js/productBtn.js"></script>
 </html>
