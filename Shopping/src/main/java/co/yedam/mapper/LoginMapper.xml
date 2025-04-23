@@ -115,7 +115,7 @@
            board_date, 
            board_content,
            board_category
-    FROM notice
+    FROM supportboard
     WHERE board_category = #{boardCategory}
     ORDER BY board_date DESC
 </select>
@@ -128,7 +128,7 @@
            board_date, 
            board_content,
            board_category
-    FROM notice
+    FROM supportboard
     WHERE board_code = #{boardCode}
 </select>
 
