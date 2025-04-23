@@ -342,7 +342,7 @@
 			<div class="product-list-grid">
 				<c:forEach var="product" items="${shoesList}">
 					<div class="product-card" data-gender="${product.productGender}" data-price="${product.price}">
-						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">ㄴ
+						<a href="${pageContext.request.contextPath}/productdetail.do?product_code=${product.productCode}">
 							<div class="product-image">
 								<img src="${product.imageUrlFir}" alt="${product.imageDescription}" />
 							</div>
